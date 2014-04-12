@@ -12,7 +12,6 @@ using std::string;
 using std::ios; using std::setw;
 using std::streamsize;
 
-const int sailing_view_field_width_c = 10;
 
 void Sailing_view::update_fuel(const std::string& name, double fuel)
 {
@@ -38,14 +37,11 @@ void Sailing_view::update_remove(const std::string& name)
 void Sailing_view::draw()
 {
     cout << "----- Sailing Data -----" << endl;
-    cout << setw(sailing_view_field_width_c) << "Ship" << setw(sailing_view_field_width_c)
-    << "Fuel" << setw(sailing_view_field_width_c) << "Course"
-    << setw(sailing_view_field_width_c) << "Speed" << endl;
+    cout << setw(10) << "Ship" << setw(10) << "Fuel" << setw(10) << "Course"
+    << setw(10) << "Speed" << endl;
     for (auto& map_pair : ships_info)
-        cout << setw(sailing_view_field_width_c) << map_pair.first
-        << setw(sailing_view_field_width_c)
-        << map_pair.second.fuel << setw(sailing_view_field_width_c)
-        << map_pair.second.cs.course << setw(sailing_view_field_width_c)
+        cout << setw(10) << map_pair.first << setw(10) << map_pair.second.fuel
+        << setw(10) << map_pair.second.cs.course << setw(10)
         << map_pair.second.cs.speed << endl;
 }
 

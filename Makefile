@@ -4,7 +4,7 @@ LD = g++
 CFLAGS = -c -pedantic -std=c++11 -Wall -fno-elide-constructors
 LFLAGS = -pedantic -Wall
 
-OBJS = p6_main.o Model.o Controller.o Sim_object.o Island.o Ship_factory.o Ship.o Tanker.o Warship.o Cruiser.o View.o Utility.o Track_base.o Geometry.o Navigation.o Map_view.o Sailing_view.h Bridge_view.h Cruise_ship.o
+OBJS = p6_main.o Model.o Controller.o Sim_object.o Island.o Ship_factory.o Ship.o Tanker.o Warship.o Cruiser.o View.o Utility.o Track_base.o Geometry.o Navigation.o Map_view.o Sailing_view.o Bridge_view.o Cruise_ship.o
 PROG = p6exe
 
 default: $(PROG)
