@@ -80,7 +80,7 @@ void Controller::run()
             cout << error.what() << endl;
             discard_input_remainder();
         } catch (...) {
-            cout << "Unknown exception caught." << endl;
+            cout << "Unknown exception caught!" << endl;
             return;
         }
         target_ship.reset();

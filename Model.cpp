@@ -9,7 +9,7 @@
 #include <functional>
 
 using std::string;
-using std::mem_fn; using std::bind;
+using std::bind;
 using std::placeholders::_1; using std::ref;
 using std::map; using std::set;
 using std::shared_ptr;
