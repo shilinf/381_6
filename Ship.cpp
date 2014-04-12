@@ -89,6 +89,8 @@ void Ship::set_destination_position_and_speed(Point destination_position, double
     destination = destination_position;
     check_and_set_course_speed(Compass_vector(get_location(), destination_position).direction, speed);
     notify_course_and_speed();
+    Model::get_instance().notify_destination(get_name(), destination_position);
+    Model::get_instance().notify_location(get_name(), get_location());
     cout << get_name() << " will sail on " << track.get_course_speed()
         << " to " << destination << endl;
     ship_state = MOVING_TO_POSITION;

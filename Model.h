@@ -81,6 +81,9 @@ public:
     
 	// notify the views that an object is now gone
 	void notify_gone(const std::string& name);
+	
+	// notify the views about a ship's destination
+	void notify_destination(const std::string& name, Point destination);
     
     void remove_ship(std::shared_ptr<Ship> ship_ptr);
     

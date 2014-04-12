@@ -4,6 +4,7 @@
 #include "Map_view.h"
 #include "Sailing_view.h"
 #include "Bridge_view.h"
+#include "Destination_view.h"
 #include "Ship.h"
 #include "Island.h"
 #include "Geometry.h"
@@ -29,6 +30,8 @@ Controller::Controller()
     commands_map["close_sailing_view"] = &Controller::close_sailing_view;
     commands_map["open_bridge_view"] = &Controller::open_bridge_view;
     commands_map["close_bridge_view"] = &Controller::close_bridge_view;
+    commands_map["open_destination_view"] = &Controller::open_destination_view;
+    commands_map["close_destination_view"] = &Controller::close_destination_view;
     
     commands_map["default"] = &Controller::restore_default_map;
     commands_map["size"] = &Controller::set_map_size;
@@ -135,7 +138,6 @@ void Controller::open_bridge_view()
     Model::get_instance().attach(new_bridge_view);
 }
 
-
 void Controller::close_bridge_view()
 {
     string ship_name = read_string();
@@ -147,7 +149,22 @@ void Controller::close_bridge_view()
     bridge_view_container.erase(bridge_view_it);
 }
 
+void Controller::open_destination_view() {
+    if (destination_view_ptr) {
+        throw Error("Destination view is already open!");
+    }
+    destination_view_ptr.reset(new Destination_view);
+    draw_view_order.push_back(destination_view_ptr);
+    Model::get_instance().attach(destination_view_ptr);
+}
 
+void Controller::close_destination_view() {
+    if (!destination_view_ptr) {
+        throw Error("Destination view is not open!");
+    }
+    remove_view(destination_view_ptr);
+    destination_view_ptr.reset();
+}
 
 void Controller::restore_default_map()
 {
@@ -330,11 +347,3 @@ void Controller::remove_view(std::shared_ptr<View> view)
                            [&view](shared_ptr<View> view_ptr){return view_ptr == view;});
     draw_view_order.erase(view_it);
 }
-
-
-
-
-
-
-
-

@@ -145,6 +145,12 @@ void Model::notify_gone(const std::string& name)
              bind(&View::update_remove, _1, ref(name)));
 }
 
+void Model::notify_destination(const std::string& name, Point destination)
+{
+    for_each(view_container.begin(), view_container.end(),
+             bind(&View::update_destination, _1, ref(name), ref(destination)));
+}
+
 
 void Model::remove_ship(shared_ptr<Ship> ship_ptr)
 {
