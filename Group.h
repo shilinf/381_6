@@ -40,6 +40,8 @@ public:
     
     void remove_component(std::shared_ptr<Component> component_ptr) override;
     
+    void contain_component(std::shared_ptr<Component> component_ptr) override;
+    
 private:
     std::set<std::shared_ptr<Component> > children;
 };

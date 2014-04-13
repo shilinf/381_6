@@ -49,6 +49,8 @@ public:
     virtual void add_component(std::shared_ptr<Component> component_ptr);
     
     virtual void remove_component(std::shared_ptr<Component> component_ptr);
+
+    virtual void contain_component(std::shared_ptr<Component> component_ptr);
 };
 
 #endif

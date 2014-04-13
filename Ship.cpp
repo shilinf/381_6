@@ -184,7 +184,7 @@ void Ship::receive_hit(int hit_force, shared_ptr<Ship> attacker_ptr)
         ship_state = SUNK;
         track.set_speed(0.);
         Model::get_instance().notify_gone(get_name());
-        Model::get_instance().remove_ship(shared_from_this());
+        Model::get_instance().remove_component(shared_from_this());
     }
 }
 

@@ -71,6 +71,7 @@ private:
     void set_component_stop_attack();
     void remove_group_component();
     void add_group_component();
+    void disband_group();
 
     
     // helper functions

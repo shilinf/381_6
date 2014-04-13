@@ -56,6 +56,7 @@ Controller::Controller()
     commands_map["stop_attack"] = &Controller::set_component_stop_attack;
     commands_map["remove"] = &Controller::remove_group_component;
     commands_map["add"] = &Controller::add_group_component;
+    commands_map["disband"] = &Controller::disband_group;
 }
 
 void Controller::run()
@@ -245,11 +246,6 @@ void Controller::create_new_group()
     Model::get_instance().add_component(new_component);
 }
 
-
-
-
-
-
 void Controller::set_component_course()
 {
     double course = read_double();
@@ -312,30 +308,27 @@ void Controller::set_component_stop_attack()
 // if remove_component is not in the group, won't throw exception
 void Controller::remove_group_component()
 {
-    string group_name = read_string();
     string remove_component_name = read_string();
-    shared_ptr<Component> group_ptr = Model::get_instance().get_component_ptr(group_name);
     shared_ptr<Component> remove_component_ptr = Model::get_instance().get_component_ptr(remove_component_name);
-    group_ptr->remove_component(remove_component_ptr);
+    target_component->remove_component(remove_component_ptr);
 }
 
 void Controller::add_group_component()
 {
-    string group_name = read_string();
     string new_component_name = read_string();
-    shared_ptr<Component> group_ptr = Model::get_instance().get_component_ptr(group_name);
     shared_ptr<Component> new_component_ptr = Model::get_instance().get_component_ptr(new_component_name);
-    if (group_ptr == new_component_ptr)
-        throw Error("Cannot add a component to itself!");
-    group_ptr->add_component(new_component_ptr);
+    target_component->add_component(new_component_ptr);
 }
 
+void Controller::disband_group()
+{
+    Model::get_instance().remove_component(target_component);
+}
 
 void Controller::quit()
 {
     cout << "Done" << endl;
 }
-
 
 double Controller::read_check_speed()
 {

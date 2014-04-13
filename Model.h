@@ -93,7 +93,7 @@ public:
 	// notify the views about a ship's destination
 	void notify_destination(const std::string& name, Point destination);
     
-    void remove_ship(std::shared_ptr<Ship> ship_ptr);
+    void remove_component(std::shared_ptr<Component> ship_ptr);
     
     std::set<std::shared_ptr<Island>, Island_comp> get_all_islands() const;
     

@@ -174,10 +174,11 @@ void Model::notify_destination(const std::string& name, Point destination)
 }
 
 
-void Model::remove_ship(shared_ptr<Ship> ship_ptr)
+void Model::remove_component(shared_ptr<Component> component_ptr)
 {
-    ship_container.erase(ship_ptr->get_name());
-    object_container.erase(ship_ptr->get_name().substr(0, 2));
+    ship_container.erase(component_ptr->get_name());
+    component_container.erase(component_ptr->get_name());
+    object_container.erase(component_ptr->get_name().substr(0, 2));
 }
 
 

@@ -8,7 +8,8 @@
 #include <iostream>
 
 using std::for_each;
-using std::mem_fn;
+using std::mem_fn; using std::bind;
+using std::placeholders::_1; using std::ref;
 using std::cout; using std::endl;
 using std::shared_ptr;
 
@@ -136,6 +137,7 @@ void Group::stop_attack()
 
 void Group::add_component(std::shared_ptr<Component> component_ptr)
 {
+    contain_component(component_ptr);
     children.insert(component_ptr);
 }
 
@@ -143,4 +145,13 @@ void Group::remove_component(std::shared_ptr<Component> component_ptr)
 {
     children.erase(component_ptr);
 }
+
+void Group::contain_component(std::shared_ptr<Component> component_ptr)
+{
+    Component::contain_component(component_ptr);
+    for_each(children.begin(), children.end(), bind(&Component::contain_component, _1, ref(component_ptr)));
+}
+
+
+
 
