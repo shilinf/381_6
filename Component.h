@@ -2,6 +2,7 @@
 #define COMPONENT_H
 
 #include "Sim_object.h"
+#include <memory>
 
 class Island;
 class Ship;
