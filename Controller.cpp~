@@ -44,8 +44,21 @@ Controller::Controller()
     commands_map["create"] = &Controller::create_new_ship;
     commands_map["create_group"] = &Controller::create_new_group;
     
+<<<<<<< HEAD
+    commands_map["course"] = &Controller::set_ship_course;
+    commands_map["position"] = &Controller::set_ship_to_position;
+    commands_map["destination"] = &Controller::set_ship_destination_island;
+    commands_map["load_at"] = &Controller::set_ship_load_island;
+    commands_map["unload_at"] = &Controller::set_ship_unload_island;
+    commands_map["dock_at"] = &Controller::set_ship_dock_island;
+    commands_map["attack"] = &Controller::set_ship_attack_target;
+    commands_map["refuel"] = &Controller::set_ship_refuel;
+    commands_map["stop"] = &Controller::set_ship_stop;
+    commands_map["stop_attack"] = &Controller::set_ship_stop_attack;
+
     //ssx
     commands_map["set_terminus"] = &Controller::set_ship_terminus;
+=======
     commands_map["course"] = &Controller::set_component_course;
     commands_map["position"] = &Controller::set_component_to_position;
     commands_map["destination"] = &Controller::set_component_destination_island;
@@ -58,7 +71,7 @@ Controller::Controller()
     commands_map["stop_attack"] = &Controller::set_component_stop_attack;
     commands_map["remove"] = &Controller::remove_group_component;
     commands_map["add"] = &Controller::add_group_component;
-    commands_map["disband"] = &Controller::disband_group;
+>>>>>>> a96d294f0699fada58f1ceb726fb105273cd7913
 }
 
 void Controller::run()
@@ -248,6 +261,11 @@ void Controller::create_new_group()
     Model::get_instance().add_component(new_component);
 }
 
+
+
+
+
+
 void Controller::set_component_course()
 {
     double course = read_double();
@@ -310,22 +328,24 @@ void Controller::set_component_stop_attack()
 // if remove_component is not in the group, won't throw exception
 void Controller::remove_group_component()
 {
+    string group_name = read_string();
     string remove_component_name = read_string();
+    shared_ptr<Component> group_ptr = Model::get_instance().get_component_ptr(group_name);
     shared_ptr<Component> remove_component_ptr = Model::get_instance().get_component_ptr(remove_component_name);
-    target_component->remove_component(remove_component_ptr);
+    group_ptr->remove_component(remove_component_ptr);
 }
 
 void Controller::add_group_component()
 {
+    string group_name = read_string();
     string new_component_name = read_string();
+    shared_ptr<Component> group_ptr = Model::get_instance().get_component_ptr(group_name);
     shared_ptr<Component> new_component_ptr = Model::get_instance().get_component_ptr(new_component_name);
-    target_component->add_component(new_component_ptr);
+    if (group_ptr == new_component_ptr)
+        throw Error("Cannot add a component to itself!");
+    group_ptr->add_component(new_component_ptr);
 }
 
-void Controller::disband_group()
-{
-    Model::get_instance().remove_component(target_component);
-}
 void Controller::set_ship_terminus()
 {
     target_ship->set_terminus(read_point());
@@ -335,6 +355,7 @@ void Controller::quit()
 {
     cout << "Done" << endl;
 }
+
 
 double Controller::read_check_speed()
 {

@@ -92,11 +92,21 @@ public:
     // will always throw Error("Cannot attack!");
     void attack(std::shared_ptr<Ship> in_target_ptr) override;
     // will always throw Error("Cannot attack!");
-    void stop_attack() override;
 
+	void stop_attack();
+	// ssx
+	// will always throw Error("Cannot set terminus!");
+	virtual void set_terminus(Point position);
+	
 	// interactions with other objects
 	// receive a hit from an attacker
 	virtual void receive_hit(int hit_force, std::shared_ptr<Ship> attacker_ptr);
+	
+	//ssx
+	// receive refuel from a refuel_ship.
+	// the argument is the refuel_ship and the available fuel in the depot
+	// return the actual refuel amount
+	virtual double receive_fuel(double available, std::shared_ptr<Ship> refuel_ship);
 		
 protected:
 	// future projects may need additional protected members

@@ -169,6 +169,12 @@ void Ship::attack(shared_ptr<Ship> in_target_ptr)
     throw Error("Cannot attack!");
 }
 
+//ssx
+void Ship::set_terminus(Point position)
+{
+	throw Error("Cannot set terminus!");
+}
+
 void Ship::stop_attack()
 {
     throw Error("Cannot attack!");
@@ -186,6 +192,19 @@ void Ship::receive_hit(int hit_force, shared_ptr<Ship> attacker_ptr)
         Model::get_instance().notify_gone(get_name());
         Model::get_instance().remove_component(shared_from_this());
     }
+}
+
+//ssx
+double Ship::receive_fuel(double available, std::shared_ptr<Ship> refuel_ship)
+{
+	if (available >= fuel_capacity)
+		fuel = fuel_capacity;
+	else
+		fuel = available;
+	cout << get_name() << " receives fuel of " << fuel << " tons, now stop at " << get_location() << endl;
+	ship_state = STOPPED;
+	Model::get_instance().notify_fuel(get_name(), fuel);
+	return fuel;		
 }
 
 shared_ptr<Island> Ship::get_docked_Island() const

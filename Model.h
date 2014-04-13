@@ -96,6 +96,9 @@ public:
     void remove_component(std::shared_ptr<Component> ship_ptr);
     
     std::set<std::shared_ptr<Island>, Island_comp> get_all_islands() const;
+
+//ssx
+    std::set<std::shared_ptr<Ship>, Ship_comp> get_all_ships() const;
     
 private:
 	int time;		// the simulated time

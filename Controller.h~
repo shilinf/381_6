@@ -59,9 +59,22 @@ private:
     void quit();
     
     // control ship command functions
+<<<<<<< HEAD
+    void set_ship_course();
+    void set_ship_to_position();
+    void set_ship_destination_island();
+    void set_ship_load_island();
+    void set_ship_unload_island();
+    void set_ship_dock_island();
+    void set_ship_attack_target();
+    void set_ship_refuel();
+    void set_ship_stop();
+    void set_ship_stop_attack();
 
-	//ssx
-    void set_ship_terminus();
+//ssx
+    void set_ship_terminus();    
+        
+=======
     void set_component_course();
     void set_component_to_position();
     void set_component_destination_island();
@@ -74,8 +87,9 @@ private:
     void set_component_stop_attack();
     void remove_group_component();
     void add_group_component();
-    void disband_group();
 
+    
+>>>>>>> a96d294f0699fada58f1ceb726fb105273cd7913
     // helper functions
     Point read_point();
     double read_double();
