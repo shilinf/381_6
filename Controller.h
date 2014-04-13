@@ -61,7 +61,7 @@ private:
     // control ship command functions
 
 	//ssx
-    void set_ship_terminus();
+    void set_component_terminus();
     void set_component_course();
     void set_component_to_position();
     void set_component_destination_island();

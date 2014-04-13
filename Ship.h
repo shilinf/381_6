@@ -93,10 +93,10 @@ public:
     void attack(std::shared_ptr<Ship> in_target_ptr) override;
     // will always throw Error("Cannot attack!");
 
-	void stop_attack();
-	// ssx
+	void stop_attack() override;
+
 	// will always throw Error("Cannot set terminus!");
-	virtual void set_terminus(Point position);
+    void set_terminus(Point position) override;
 	
 	// interactions with other objects
 	// receive a hit from an attacker

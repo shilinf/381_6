@@ -45,7 +45,7 @@ Controller::Controller()
     commands_map["create_group"] = &Controller::create_new_group;
     
     //ssx
-    commands_map["set_terminus"] = &Controller::set_ship_terminus;
+    commands_map["set_terminus"] = &Controller::set_component_terminus;
     commands_map["course"] = &Controller::set_component_course;
     commands_map["position"] = &Controller::set_component_to_position;
     commands_map["destination"] = &Controller::set_component_destination_island;
@@ -326,9 +326,10 @@ void Controller::disband_group()
 {
     Model::get_instance().remove_component(target_component);
 }
-void Controller::set_ship_terminus()
+
+void Controller::set_component_terminus()
 {
-    target_ship->set_terminus(read_point());
+    target_component->set_terminus(read_point());
 }
 
 void Controller::quit()

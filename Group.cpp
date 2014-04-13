@@ -134,6 +134,16 @@ void Group::stop_attack()
     }
 }
 
+void Group::set_terminus(Point position)
+{
+    for (auto component_ptr : children) {
+        try {
+            component_ptr->set_terminus(position);
+        } catch (Error& error) {
+            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+        }
+    }
+}
 
 void Group::add_component(std::shared_ptr<Component> component_ptr)
 {

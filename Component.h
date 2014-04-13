@@ -43,6 +43,8 @@ public:
     // will always throw Error("Cannot attack!");
 	virtual void stop_attack() = 0;
     
+    virtual void set_terminus(Point position) = 0;
+    
     // interactions with other objects
 	// receive a hit from an attacker
     
