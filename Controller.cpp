@@ -49,6 +49,9 @@ Controller::Controller()
     commands_map["refuel"] = &Controller::set_ship_refuel;
     commands_map["stop"] = &Controller::set_ship_stop;
     commands_map["stop_attack"] = &Controller::set_ship_stop_attack;
+
+    //ssx
+    commands_map["set_terminus"] = &Controller::set_ship_terminus;
 }
 
 void Controller::run()
@@ -270,6 +273,10 @@ void Controller::set_ship_stop_attack()
     target_ship->stop_attack();
 }
 
+void Controller::set_ship_terminus()
+{
+    target_ship->set_terminus(read_point());
+}
 
 void Controller::quit()
 {

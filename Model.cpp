@@ -161,3 +161,11 @@ set<shared_ptr<Island>, Island_comp> Model::get_all_islands() const
     return all_islands;
 }
 
+//ssx
+set <shared_ptr<Ship>, Ship_comp> Model::get_all_ships() const
+{
+    set<shared_ptr<Ship>, Ship_comp> all_ships;
+    for (auto& map_pair : ship_container)
+        all_ships.insert(map_pair.second);
+    return all_ships;
+}

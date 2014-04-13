@@ -64,7 +64,10 @@ private:
     void set_ship_refuel();
     void set_ship_stop();
     void set_ship_stop_attack();
-    
+
+//ssx
+    void set_ship_terminus();    
+        
     // helper functions
     Point read_point();
     double read_double();

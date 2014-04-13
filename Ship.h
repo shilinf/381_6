@@ -82,7 +82,8 @@ public:
 	// Refuel - must already be docked at an island; fill takes as much as possible
      // may throw Error("Must be docked!");
 	virtual void refuel();
-
+	
+	
 	/*** Fat interface command functions ***/
 	// These functions throw an Error exception for this class
     // will always throw Error("Cannot load at a destination!");
@@ -93,10 +94,20 @@ public:
 	virtual void attack(std::shared_ptr<Ship> in_target_ptr);
     // will always throw Error("Cannot attack!");
 	virtual void stop_attack();
-
+	// ssx
+	// will always throw Error("Cannot set terminus!");
+	virtual void set_terminus(Point position);
+	
+	
 	// interactions with other objects
 	// receive a hit from an attacker
 	virtual void receive_hit(int hit_force, std::shared_ptr<Ship> attacker_ptr);
+	
+	//ssx
+	// receive refuel from a refuel_ship.
+	// the argument is the refuel_ship and the available fuel in the depot
+	// return the actual refuel amount
+	virtual double receive_fuel(double available, std::shared_ptr<Ship> refuel_ship);
 		
 protected:
 	// future projects may need additional protected members
