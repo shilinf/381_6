@@ -4,7 +4,7 @@ LD = g++
 CFLAGS = -c -pedantic -std=c++11 -Wall -fno-elide-constructors
 LFLAGS = -pedantic -Wall
 
-OBJS = p6_main.o Model.o Controller.o Sim_object.o Island.o Ship_factory.o Ship.o Tanker.o Warship.o Cruiser.o View.o Utility.o Track_base.o Geometry.o Navigation.o Map_view.o Sailing_view.o Bridge_view.o Cruise_ship.o
+OBJS = p6_main.o Model.o Controller.o Sim_object.o Island.o Ship_factory.o Ship.o Tanker.o Warship.o Cruiser.o View.o Utility.o Track_base.o Geometry.o Navigation.o Map_view.o Sailing_view.o Bridge_view.o Cruise_ship.o Component.o Group.o Refuel_ship.o Destination_view.o
 PROG = p6exe
 
 default: $(PROG)
@@ -21,11 +21,20 @@ Sim_object.o: Sim_object.cpp Sim_object.h Utility.h
 Island.o: Island.cpp Island.h Model.h
 	$(CC) $(CFLAGS) Island.cpp
 
-Ship.o: Ship.cpp Ship.h Model.h Utility.h Island.h
+Component.o: Component.cpp Component.h Utility.h Sim_object.h
+	$(CC) $(CFLAGS) Component.cpp
+
+Ship.o: Ship.cpp Ship.h Model.h Utility.h Island.h Component.h
 	$(CC) $(CFLAGS) Ship.cpp
+
+Group.o: Group.cpp Group.h Model.h Utility.h Island.h Component.h
+	$(CC) $(CFLAGS) Group.cpp
 
 Cruise_ship.o: Cruise_ship.cpp Cruise_ship.h Model.h Ship.h Island.h Utility.h
 	$(CC) $(CFLAGS) Cruise_ship.cpp
+
+Refuel_ship.o: Refuel_ship.cpp Refuel_ship.h Model.h Ship.h Island.h Utility.h
+	$(CC) $(CFLAGS) Refuel_ship.cpp
 
 Tanker.o: Tanker.cpp Tanker.h Ship.h Model.h Utility.h Island.h
 	$(CC) $(CFLAGS) Tanker.cpp
@@ -50,6 +59,9 @@ Map_view.o: Map_view.cpp Map_view.h Ship.h Utility.h Geometry.h Island.h
 
 Sailing_view.o: Sailing_view.cpp Sailing_view.h Ship.h Utility.h Geometry.h Island.h
 	$(CC) $(CFLAGS) Sailing_view.cpp
+
+Destination_view.o: Destination_view.cpp Destination_view.h Ship.h Utility.h Geometry.h Island.h
+	$(CC) $(CFLAGS) Destination_view.cpp
 
 Bridge_view.o: Bridge_view.cpp Bridge_view.h Ship.h Utility.h Geometry.h Island.h
 	$(CC) $(CFLAGS) Bridge_view.cpp
