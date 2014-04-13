@@ -16,8 +16,8 @@ class Map_view;
 class Sailing_view;
 class Bridge_view;
 class Destination_view;
-class Ship;
 class Island;
+class Component;
 class Controller;
 struct Point;
 
@@ -36,7 +36,7 @@ private:
     std::shared_ptr<Destination_view> destination_view_ptr;
     std::map<std::string, std::shared_ptr<Bridge_view>> bridge_view_container;
     std::vector<std::shared_ptr<View>> draw_view_order;
-    std::shared_ptr<Ship> target_ship; // ship pointer for ship commands
+    std::shared_ptr<Component> target_component; // ship pointer for ship commands
     Command_map_t commands_map;
     
     // command functions
@@ -55,19 +55,23 @@ private:
     void show_object_status();
     void update_all_objects();
     void create_new_ship();
+    void create_new_group();
     void quit();
     
     // control ship command functions
-    void set_ship_course();
-    void set_ship_to_position();
-    void set_ship_destination_island();
-    void set_ship_load_island();
-    void set_ship_unload_island();
-    void set_ship_dock_island();
-    void set_ship_attack_target();
-    void set_ship_refuel();
-    void set_ship_stop();
-    void set_ship_stop_attack();
+    void set_component_course();
+    void set_component_to_position();
+    void set_component_destination_island();
+    void set_component_load_island();
+    void set_component_unload_island();
+    void set_component_dock_island();
+    void set_component_attack_target();
+    void set_component_refuel();
+    void set_component_stop();
+    void set_component_stop_attack();
+    void remove_group_component();
+    void add_group_component();
+
     
     // helper functions
     Point read_point();

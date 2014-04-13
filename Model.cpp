@@ -13,7 +13,8 @@ using std::bind;
 using std::placeholders::_1; using std::ref;
 using std::map; using std::set;
 using std::shared_ptr;
-using std::for_each;
+using std::for_each; using std::copy;
+using std::inserter;
 
 
 Model& Model::get_instance()
@@ -36,14 +37,15 @@ Model::Model() : time(0){
         object_container[island_pair.first.substr(0, 2)] = island_pair.second;
     for (auto& ship_pair : ship_container)
         object_container[ship_pair.first.substr(0, 2)] = ship_pair.second;
+    copy(ship_container.begin(), ship_container.end(), inserter(component_container, component_container.begin()));
 }
 
-bool Model::is_name_in_use(const std::string& name) const
+bool Model::is_name_in_use(const string& name) const
 {
     return object_container.find(name.substr(0, 2)) != object_container.end();
 }
 
-bool Model::is_island_present(const std::string& name) const
+bool Model::is_island_present(const string& name) const
 {
     return island_container.find(name) != island_container.end();
 }
@@ -55,7 +57,7 @@ void Model::add_island(shared_ptr<Island> new_island)
     new_island->broadcast_current_state();
 }
 
-shared_ptr<Island> Model::get_island_ptr(const std::string& name) const
+shared_ptr<Island> Model::get_island_ptr(const string& name) const
 {
     auto island_container_it = island_container.find(name);
     if (island_container_it == island_container.end())
@@ -63,7 +65,7 @@ shared_ptr<Island> Model::get_island_ptr(const std::string& name) const
     return island_container_it->second;
 }
 
-bool Model::is_ship_present(const std::string& name) const
+bool Model::is_ship_present(const string& name) const
 {
     return ship_container.find(name) != ship_container.end();
 }
@@ -71,8 +73,6 @@ bool Model::is_ship_present(const std::string& name) const
 void Model::add_ship(shared_ptr<Ship> new_ship)
 {
     ship_container[new_ship->get_name()] = new_ship;
-    object_container[new_ship->get_name().substr(0, 2)] = new_ship;
-    new_ship->broadcast_current_state();
 }
 
 
@@ -83,7 +83,29 @@ shared_ptr<Ship> Model::get_ship_ptr(const std::string& name) const
         throw Error("Ship not found!");
     return ship_container_it->second;
 }
-                              
+
+
+bool Model::is_component_present(const std::string& name) const
+{
+    return component_container.find(name) != component_container.end();
+}
+
+void Model::add_component(shared_ptr<Component> new_component)
+{
+    component_container[new_component->get_name()] = new_component;
+    object_container[new_component->get_name().substr(0, 2)] = new_component;
+    new_component->broadcast_current_state();
+}
+
+shared_ptr<Component> Model::get_component_ptr(const string& name) const
+{
+    auto component_container_it = component_container.find(name);
+    if (component_container_it == component_container.end())
+        throw Error("Component not found!");
+    return component_container_it->second;
+}
+
+
 void Model::describe() const
 {    
     for_each(object_container.begin(), object_container.end(),

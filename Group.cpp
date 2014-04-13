@@ -10,20 +10,26 @@
 using std::for_each;
 using std::mem_fn;
 using std::cout; using std::endl;
+using std::shared_ptr;
 
+// No need for update because it's members will update by themselves. Group don't have things to update for themselves.
 void Group::update()
 {
-    for_each(children.begin(), children.end(), mem_fn(&Component::update));
+    //for_each(children.begin(), children.end(), mem_fn(&Component::update));
 }
+
 
 void Group::describe() const
 {
-    for_each(children.begin(), children.end(), mem_fn(&Component::describe));
+    cout << "Group " << get_name() << " contains :";
+    for_each(children.begin(), children.end(), [](shared_ptr<Component> component_ptr){cout << " "<< component_ptr->get_name();});
+    cout << endl;
 }
 
+// No need for broadcast_current_state because group won't show on maps.
 void Group::broadcast_current_state()
 {
-    for_each(children.begin(), children.end(), mem_fn(&Component::broadcast_current_state));
+    //for_each(children.begin(), children.end(), mem_fn(&Component::broadcast_current_state));
 }
 
 void Group::set_destination_position_and_speed(Point destination_position, double speed)
@@ -93,8 +99,6 @@ void Group::set_load_destination(std::shared_ptr<Island> island_ptr)
         }
     }
 }
-
-
 
 void Group::set_unload_destination(std::shared_ptr<Island> island_ptr)
 {

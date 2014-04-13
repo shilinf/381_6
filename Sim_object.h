@@ -4,9 +4,9 @@
 object's name, and has pure virtual accessor functions for the object's position
 and other information. */
 
+#include "Geometry.h"
 #include <string>
 
-struct Point;
 
 class Sim_object {
 public:
@@ -24,7 +24,7 @@ public:
 
 	/* Interface for derived classes */
 	// *** declare the following as pure virtual functions 
-	virtual Point get_location() const = 0;
+	virtual Point get_location() const;
 	virtual void describe() const = 0;
 	virtual void update() = 0;
 	

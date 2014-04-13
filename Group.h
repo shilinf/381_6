@@ -36,7 +36,6 @@ public:
 
     void stop_attack() override;
     
-    
     void add_component(std::shared_ptr<Component> component_ptr) override;
     
     void remove_component(std::shared_ptr<Component> component_ptr) override;
