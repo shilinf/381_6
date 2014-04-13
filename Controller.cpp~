@@ -44,8 +44,21 @@ Controller::Controller()
     commands_map["create"] = &Controller::create_new_ship;
     commands_map["create_group"] = &Controller::create_new_group;
     
+<<<<<<< HEAD
+    commands_map["course"] = &Controller::set_ship_course;
+    commands_map["position"] = &Controller::set_ship_to_position;
+    commands_map["destination"] = &Controller::set_ship_destination_island;
+    commands_map["load_at"] = &Controller::set_ship_load_island;
+    commands_map["unload_at"] = &Controller::set_ship_unload_island;
+    commands_map["dock_at"] = &Controller::set_ship_dock_island;
+    commands_map["attack"] = &Controller::set_ship_attack_target;
+    commands_map["refuel"] = &Controller::set_ship_refuel;
+    commands_map["stop"] = &Controller::set_ship_stop;
+    commands_map["stop_attack"] = &Controller::set_ship_stop_attack;
+
     //ssx
     commands_map["set_terminus"] = &Controller::set_ship_terminus;
+=======
     commands_map["course"] = &Controller::set_component_course;
     commands_map["position"] = &Controller::set_component_to_position;
     commands_map["destination"] = &Controller::set_component_destination_island;
@@ -58,6 +71,7 @@ Controller::Controller()
     commands_map["stop_attack"] = &Controller::set_component_stop_attack;
     commands_map["remove"] = &Controller::remove_group_component;
     commands_map["add"] = &Controller::add_group_component;
+>>>>>>> a96d294f0699fada58f1ceb726fb105273cd7913
 }
 
 void Controller::run()

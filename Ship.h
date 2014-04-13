@@ -3,7 +3,7 @@
 
 
 #include "Geometry.h"
-#include "Sim_object.h"
+#include "Component.h"
 #include "Track_base.h"
 #include <memory>
 
@@ -24,12 +24,12 @@ functions are implemented in this class to throw an Error exception.
 
 class Island;
 
-class Ship : public Sim_object, public std::enable_shared_from_this<Ship> {
+class Ship : public Component, public std::enable_shared_from_this<Ship> {
 public:
 	// initialize, then output constructor message
 	Ship(const std::string& name_, Point position_, double fuel_capacity_,
         double maximum_speed_, double fuel_consumption_, int resistance_) :
-        Sim_object(name_), fuel_capacity(fuel_capacity_), fuel(fuel_capacity_),
+        Component(name_), fuel_capacity(fuel_capacity_), fuel(fuel_capacity_),
         maximum_speed(maximum_speed_), fuel_consumption(fuel_consumption_),
         resistance(resistance_), ship_state(STOPPED), track(position_) {}
 		
@@ -68,36 +68,35 @@ public:
 	// Start moving to a destination position at a speed
      // may throw Error("Ship cannot move!")
      // may throw Error("Ship cannot go that fast!")
-	virtual void set_destination_position_and_speed(Point destination_position, double speed);
+    void set_destination_position_and_speed(Point destination_position, double speed) override;
 	// Start moving on a course and speed
      // may throw Error("Ship cannot move!")
      // may throw Error("Ship cannot go that fast!");
-	virtual void set_course_and_speed(double course, double speed);
+    void set_course_and_speed(double course, double speed) override;
 	// Stop moving
      // may throw Error("Ship cannot move!");
-	virtual void stop();
+    void stop() override;
 	// dock at an Island - set our position = Island's position, go into Docked state
      // may throw Error("Can't dock!");
-	virtual void dock(std::shared_ptr<Island> island_ptr);
+    void dock(std::shared_ptr<Island> island_ptr) override;
 	// Refuel - must already be docked at an island; fill takes as much as possible
      // may throw Error("Must be docked!");
-	virtual void refuel();
-	
-	
+    void refuel() override;
+
 	/*** Fat interface command functions ***/
 	// These functions throw an Error exception for this class
     // will always throw Error("Cannot load at a destination!");
-	virtual void set_load_destination(std::shared_ptr<Island>);
+    void set_load_destination(std::shared_ptr<Island>) override;
     // will always throw Error("Cannot unload at a destination!");
-	virtual void set_unload_destination(std::shared_ptr<Island>);
+    void set_unload_destination(std::shared_ptr<Island>) override;
     // will always throw Error("Cannot attack!");
-	virtual void attack(std::shared_ptr<Ship> in_target_ptr);
+    void attack(std::shared_ptr<Ship> in_target_ptr) override;
     // will always throw Error("Cannot attack!");
-	virtual void stop_attack();
+
+	void stop_attack();
 	// ssx
 	// will always throw Error("Cannot set terminus!");
 	virtual void set_terminus(Point position);
-	
 	
 	// interactions with other objects
 	// receive a hit from an attacker

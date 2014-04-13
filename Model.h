@@ -24,6 +24,7 @@ Model also provides facilities for looking up objects given their name.
 class Model;
 class Sim_object;
 class Ship;
+class Component;
 class View;
 class Island;
 struct Point;
@@ -53,6 +54,13 @@ public:
 	void add_ship(std::shared_ptr<Ship>);
 	// will throw Error("Ship not found!") if no ship of that name
 	std::shared_ptr<Ship> get_ship_ptr(const std::string& name) const;
+    
+    // is there such an component?
+	bool is_component_present(const std::string& name) const;
+	// add a new component to the list, and update the view
+	void add_component(std::shared_ptr<Component>);
+	// will throw Error("Component not found!") if no component of that name
+	std::shared_ptr<Component> get_component_ptr(const std::string& name) const;
 	
 	// tell all objects to describe themselves
 	void describe() const;
@@ -81,6 +89,9 @@ public:
     
 	// notify the views that an object is now gone
 	void notify_gone(const std::string& name);
+	
+	// notify the views about a ship's destination
+	void notify_destination(const std::string& name, Point destination);
     
     void remove_ship(std::shared_ptr<Ship> ship_ptr);
     
@@ -93,6 +104,7 @@ private:
 	int time;		// the simulated time
     std::map<std::string, std::shared_ptr<Sim_object> > object_container;
     std::map<std::string, std::shared_ptr<Island> > island_container;
+    std::map<std::string, std::shared_ptr<Component> > component_container;
     std::map<std::string, std::shared_ptr<Ship> > ship_container;
     std::set<std::shared_ptr<View> > view_container;
     

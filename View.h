@@ -19,7 +19,9 @@ public:
     virtual void update_speed(const std::string& name, double speed) {}
     
 	// Remove the ship; no error if the name is not present.
-	virtual void update_remove(const std::string& name) = 0;
+	virtual void update_remove(const std::string& name) {};
+	
+	virtual void update_destination(const std::string& name, Point destination) {}
     
 	// prints out the current map
 	virtual void draw() = 0;
