@@ -176,7 +176,7 @@ bool Refuel_ship::find_dead_ship()
     set<shared_ptr<Ship>, Ship_comp> all_ships = Model::get_instance().get_all_ships();
     for (auto& ship_ptr : all_ships) {
         double distance = cartesian_distance(get_location(), ship_ptr->get_location());
-        if (distance < perception && !ship_ptr->can_move() && depot) {
+        if (distance < perception && !ship_ptr->can_move() && depot >= 0.005) {
             target_ptr = ship_ptr;
             Ship::set_destination_position_and_speed(get_target()->get_location(), 
                                                      get_maximum_speed());
