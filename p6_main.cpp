@@ -66,7 +66,7 @@ int main ()
     }
     
     // start simulating
-    int turns = 5;
+    int turns = 80;
     for (int i = 0; i < turns; ++i) {
         cout << "\nTurn " << i << ":" << endl;
         for (auto itr = player_container.begin(); itr != player_container.end();) {

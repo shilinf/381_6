@@ -50,11 +50,23 @@ void Refuel_ship::describe() const
             cout << ", moving to loading destination";
             break;
         case MOVING_TO_SHIP:
-            cout << ", moving to dead ship " << get_target()->get_name();
+        {
+            shared_ptr<Ship> sp = get_target();
+            if (sp)
+                cout << ", moving to dead ship " << get_target()->get_name();
+            else 
+                cout << ", target is sunk";
             break;
+        }
         case REFUEL_SHIP:
-            cout << ", refueling dead ship " << get_target()->get_name();
+        {
+            shared_ptr<Ship> sp = get_target();
+            if (sp)
+                cout << ", refueling dead ship " << get_target()->get_name();
+            else
+                cout << ", target is sunk";
             break;
+        }
         default:
             assert(false);
             break;
