@@ -27,6 +27,7 @@ private:
     struct Destination_location {
         Point destination;
         Point location;
+        bool is_ship {false};
     };
 
     std::map<std::string, Destination_location> destination_location_container;
