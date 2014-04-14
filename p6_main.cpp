@@ -56,19 +56,23 @@ int main ()
         }
     }
     for (int i = 0; i < bots; ++i) {
-        string bot_name = "Bot " +  to_string(i);
+        string bot_name = "Bot " + to_string(i);
         participant_container[bot_name] = shared_ptr<Participant>(new Bot(bot_name));
     }
     
     // init 
-    for_each(participant_container.begin(), participant_container.end(), 
-        mem_fn(&Participant::init));
+    for (auto& entry : participant_container) {
+        entry.second->init();
+    }
     
     // start simulating
     int turns = 5;
     for (int i = 0; i < turns; ++i) {
+        cout << "\nTurn " << i << ":" << endl;
         for (auto itr = participant_container.begin(); itr != participant_container.end();) {
-            if (!(itr->second->run()) {
+            cout << "\nParticipant " << itr->first << "'s turn:" << endl;
+            if (!itr->second->run()) {
+                cout << "Player " << itr->first << " has quited!" << endl;
                 participant_container.erase(itr++);
             } else {
                 ++itr;
@@ -83,7 +87,7 @@ int read_positive_int() {
     int positive_int;
     if (!(cin >> positive_int) || positive_int <= 0) {
         skip_line();
-        throw Error("Please enter a positive integer!");    
+        throw Error("Please enter a positive integer!");
     }
     return positive_int;
 }
