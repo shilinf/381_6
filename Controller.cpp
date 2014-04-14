@@ -40,7 +40,7 @@ Controller::Controller()
     commands_map["pan"] = &Controller::set_map_origin;
     commands_map["show"] = &Controller::draw_map;
     commands_map["status"] = &Controller::show_object_status;
-    commands_map["go"] = &Controller::update_all_objects;
+    //commands_map["go"] = &Controller::update_all_objects;
     commands_map["create"] = &Controller::create_new_ship;
     commands_map["create_group"] = &Controller::create_new_group;
     
@@ -63,7 +63,7 @@ Controller::Controller()
 
 void Controller::init() {}
 
-void Controller::run()
+bool Controller::run()
 {
     string first_word, command;
     while (true) {
@@ -71,7 +71,11 @@ void Controller::run()
         cin >> first_word;
         if (first_word == "quit") {
             quit();
-            return;
+            return false;
+        }
+        else if(first_word == "go") {
+            update_all_objects();
+            return true;
         }
         try {
             if (Model::get_instance().is_component_present(first_word)) {
@@ -93,7 +97,7 @@ void Controller::run()
             discard_input_remainder();
         } catch (...) {
             cout << "Unknown exception caught!" << endl;
-            return;
+            return false;
         }
         target_component.reset();
     }

@@ -31,7 +31,7 @@ public:
     void init() override;
     
 	// create View object, run the program by acccepting user commands, then destroy View object
-	void run() override;
+	bool run() override;
     
 private:
     std::shared_ptr<Map_view> map_view_ptr;
