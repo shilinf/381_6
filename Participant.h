@@ -13,7 +13,7 @@ public:
     
     virtual void init() = 0;
     
-    virtual void run() = 0;
+    virtual bool run() = 0;
     
 private:
     std::string name;

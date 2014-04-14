@@ -9,7 +9,7 @@ public:
     
     void init() override;
 
-    void run() override;
+    bool run() override;
     
 private:
 };

@@ -2,4 +2,4 @@
 
 void Bot::init() {}
 
-void Bot::run() {}
+bool Bot::run() {return true;}
