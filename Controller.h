@@ -26,7 +26,7 @@ using Command_map_t = std::map<std::string, void(Controller::*)()>;
 
 class Controller : public Participant {
 public:
-    Controller();
+    Controller(std::string name_);
     
     void init() override;
     

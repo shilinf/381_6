@@ -1,9 +1,11 @@
 #ifndef PARTICIPANT_H
 #define PARTICIPANT_H
 
+#include <string>
+
 class Participant {
 public:
-    Participant() : score(0), resource(1000) {}
+    Participant(std::string name_) : name(name_), score(0), resource(1000) {}
     
     virtual ~Participant() {}
     
@@ -14,6 +16,7 @@ public:
     virtual void run() = 0;
     
 private:
+    std::string name;
     int score;
     int resource;
 };

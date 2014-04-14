@@ -23,7 +23,7 @@ using std::shared_ptr;
 using std::for_each; using std::find_if;
 using std::mem_fn;
 
-Controller::Controller()
+Controller::Controller(string name_) : Participant(name_)
 {
     commands_map["open_map_view"] = &Controller::open_map_view;
     commands_map["close_map_view"] = &Controller::close_map_view;

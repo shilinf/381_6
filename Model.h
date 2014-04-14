@@ -36,6 +36,9 @@ public:
     
 	// return the current time
 	int get_time() {return time;}
+	
+	// increment the current time
+	void increment_time() {time++;}
 
 	// is name already in use for either ship or island?
     // either the identical name, or identical in first two characters counts as in-use

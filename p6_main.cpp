@@ -3,13 +3,15 @@
 #include "Bot.h"
 #include "Utility.h"
 #include <iostream>
-#include <vector>
+#include <string>
+#include <map>
 #include <algorithm>
 #include <memory>
 
 using std::ios;
 using std::cin; using std::cout; using std::endl;
-using std::vector;
+using std::string; using std::to_string;
+using std::map;
 using std::mem_fn;
 using std::shared_ptr;
 
@@ -39,12 +41,23 @@ int main ()
     }
     
     // create a container to hold all participants
-    vector<shared_ptr<Participant>> participant_container;
-    for (int i = 0; i < players; ++i) {
-        participant_container.push_back(shared_ptr<Participant>(new Controller));
+    map<string, shared_ptr<Participant>> participant_container;
+    for (int i = 1; i <= players; ++i) {
+        while (true) {
+            cout << "Please specify player " << i << "'s name: ";
+            string player_name;
+            cin >> player_name;
+            if (participant_container.find(player_name) != participant_container.end()) {
+                cout << "Name Already in use!" << endl;
+                continue;
+            }
+            participant_container[player_name] = shared_ptr<Participant>(new Controller(player_name));
+            break;
+        }
     }
     for (int i = 0; i < bots; ++i) {
-        participant_container.push_back(shared_ptr<Participant>(new Bot));
+        string bot_name = "Bot " +  to_string(i);
+        participant_container[bot_name] = shared_ptr<Participant>(new Bot(bot_name));
     }
     
     // init 
@@ -52,10 +65,15 @@ int main ()
         mem_fn(&Participant::init));
     
     // start simulating
-    int turns = 3;    
+    int turns = 5;
     for (int i = 0; i < turns; ++i) {
-        for_each(participant_container.begin(), participant_container.end(), 
-            mem_fn(&Participant::run));
+        for (auto itr = participant_container.begin(); itr != participant_container.end();) {
+            if (!(itr->second->run()) {
+                participant_container.erase(itr++);
+            } else {
+                ++itr;
+            }
+        }
     }
     
     return 0;

@@ -5,6 +5,8 @@
 
 class Bot : public Participant {
 public:
+    Bot(std::string name_) : Participant(name_) {}
+    
     void init() override;
 
     void run() override;
