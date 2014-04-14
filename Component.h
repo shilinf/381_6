@@ -54,6 +54,10 @@ public:
     
     virtual void remove_component(std::shared_ptr<Component> component_ptr);
     
+    virtual void disband();
+    
+    
+    
     //virtual void get_all_contained_component(std::set<std::shared_ptr<Component> >& all_components) {}
 };
 

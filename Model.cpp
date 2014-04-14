@@ -35,8 +35,10 @@ Model::Model() : time(0){
     
     for (auto& island_pair : island_container)
         object_container[island_pair.first.substr(0, 2)] = island_pair.second;
-    for (auto& ship_pair : ship_container)
+    for (auto& ship_pair : ship_container) {
         object_container[ship_pair.first.substr(0, 2)] = ship_pair.second;
+        components_not_in_group.insert(ship_pair.first);
+    }
     copy(ship_container.begin(), ship_container.end(), inserter(component_container, component_container.begin()));
 }
 
@@ -93,6 +95,7 @@ bool Model::is_component_present(const std::string& name) const
 void Model::add_component(shared_ptr<Component> new_component)
 {
     component_container[new_component->get_name()] = new_component;
+    components_not_in_group.insert(new_component->get_name());
     object_container[new_component->get_name().substr(0, 2)] = new_component;
     new_component->broadcast_current_state();
 }
@@ -104,6 +107,8 @@ shared_ptr<Component> Model::get_component_ptr(const string& name) const
         throw Error("Component not found!");
     return component_container_it->second;
 }
+
+
 
 
 void Model::describe() const
@@ -189,6 +194,20 @@ set<shared_ptr<Island>, Island_comp> Model::get_all_islands() const
         all_islands.insert(map_pair.second);
     return all_islands;
 }
+
+void Model::add_group_member(const std::string& name)
+{
+    if (components_not_in_group.find(name) == components_not_in_group.end())
+        throw Error("Cannot add this component!");
+    components_not_in_group.erase(name);
+}
+
+void Model::remove_group_member(const std::string& name)
+{
+    components_not_in_group.insert(name);
+}
+
+
 
 //ssx
 set <shared_ptr<Ship>, Ship_comp> Model::get_all_ships() const
