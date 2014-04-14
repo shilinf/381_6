@@ -1,6 +1,6 @@
-#include "Controller.h"
-#include "Participant.h"
-#include "Bot.h"
+#include "Player.h"
+#include "Human_player.h"
+#include "Computer_player.h"
 #include "Utility.h"
 #include <iostream>
 #include <string>
@@ -26,14 +26,14 @@ int main ()
 	cout.precision(2);
     
     // ask the number of human players and bots
-    int players;
-    int bots;
+    int human_players;
+    int computer_players;
     while (true) {
         try {
             cout << "Please specify number of human players: ";
-            players = read_positive_int();
+            human_players = read_positive_int();
             cout << "Please specify number of bots: ";
-            bots = read_positive_int();
+            computer_players = read_positive_int();
             break;
         } catch (Error& e) {
             cout << e.what() << endl;
@@ -41,27 +41,27 @@ int main ()
     }
     
     // create a container to hold all participants
-    map<string, shared_ptr<Participant>> participant_container;
-    for (int i = 1; i <= players; ++i) {
+    map<string, shared_ptr<Player>> player_container;
+    for (int i = 1; i <= human_players; ++i) {
         while (true) {
             cout << "Please specify player " << i << "'s name: ";
-            string player_name;
-            cin >> player_name;
-            if (participant_container.find(player_name) != participant_container.end()) {
+            string name;
+            cin >> name;
+            if (player_container.find(name) != player_container.end()) {
                 cout << "Name Already in use!" << endl;
                 continue;
             }
-            participant_container[player_name] = shared_ptr<Participant>(new Controller(player_name));
+            player_container[name] = shared_ptr<Player>(new Human_player(name));
             break;
         }
     }
-    for (int i = 0; i < bots; ++i) {
-        string bot_name = "Bot " + to_string(i);
-        participant_container[bot_name] = shared_ptr<Participant>(new Bot(bot_name));
+    for (int i = 0; i < computer_players; ++i) {
+        string name = "Computer player " + to_string(i);
+        player_container[name] = shared_ptr<Player>(new Computer_player(name));
     }
     
     // init 
-    for (auto& entry : participant_container) {
+    for (auto& entry : player_container) {
         entry.second->init();
     }
     
@@ -69,11 +69,11 @@ int main ()
     int turns = 5;
     for (int i = 0; i < turns; ++i) {
         cout << "\nTurn " << i << ":" << endl;
-        for (auto itr = participant_container.begin(); itr != participant_container.end();) {
-            cout << "\nParticipant " << itr->first << "'s turn:" << endl;
+        for (auto itr = player_container.begin(); itr != player_container.end();) {
+            cout << "\nPlayer " << itr->first << "'s turn:" << endl;
             if (!itr->second->run()) {
-                cout << "Player " << itr->first << " has quited!" << endl;
-                participant_container.erase(itr++);
+                cout << "Human player " << itr->first << " has quited!" << endl;
+                player_container.erase(itr++);
             } else {
                 ++itr;
             }

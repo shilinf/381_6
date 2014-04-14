@@ -1,7 +1,7 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#ifndef HUMAN_PLAYER_H
+#define HUMAN_PLAYER_H
 
-#include "Participant.h"
+#include "Player.h"
 #include <string>
 #include <map>
 #include <vector>
@@ -19,14 +19,14 @@ class Bridge_view;
 class Destination_view;
 class Island;
 class Component;
-class Controller;
+class Human_player;
 struct Point;
 
-using Command_map_t = std::map<std::string, void(Controller::*)()>;
+using Command_map_t = std::map<std::string, void(Human_player::*)()>;
 
-class Controller : public Participant {
+class Human_player : public Player {
 public:
-    Controller(std::string name_);
+    Human_player(const std::string& name_);
     
     void init() override;
     
@@ -92,9 +92,3 @@ private:
 };
 
 #endif
-
-
-
-
-
-

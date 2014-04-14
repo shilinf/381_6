@@ -1,13 +1,13 @@
-#ifndef PARTICIPANT_H
-#define PARTICIPANT_H
+#ifndef PLAYER_H
+#define PLAYER_H
 
 #include <string>
 
-class Participant {
+class Player {
 public:
-    Participant(std::string name_) : name(name_), score(0), resource(1000) {}
+    Player(const std::string& name_) : name(name_), score(0), resource(1000) {}
     
-    virtual ~Participant() {}
+    virtual ~Player() {}
     
     void add_score(int score_) {score += score_;}
     
