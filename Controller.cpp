@@ -61,6 +61,8 @@ Controller::Controller()
     commands_map["disband"] = &Controller::disband_group;
 }
 
+void Controller::init() {}
+
 void Controller::run()
 {
     string first_word, command;

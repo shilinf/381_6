@@ -1,6 +1,7 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
+#include "Participant.h"
 #include <string>
 #include <map>
 #include <vector>
@@ -23,12 +24,14 @@ struct Point;
 
 using Command_map_t = std::map<std::string, void(Controller::*)()>;
 
-
-class Controller {
+class Controller : public Participant {
 public:
     Controller();
+    
+    void init() override;
+    
 	// create View object, run the program by acccepting user commands, then destroy View object
-	void run();
+	void run() override;
     
 private:
     std::shared_ptr<Map_view> map_view_ptr;
