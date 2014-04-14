@@ -315,17 +315,22 @@ void Controller::remove_group_component()
     string remove_component_name = read_string();
     shared_ptr<Component> remove_component_ptr = Model::get_instance().get_component_ptr(remove_component_name);
     target_component->remove_component(remove_component_ptr);
+    Model::get_instance().remove_group_member(remove_component_name);
 }
 
 void Controller::add_group_component()
 {
     string new_component_name = read_string();
+    if (target_component->get_name() == new_component_name)
+        throw Error("Cannot add itself!");
     shared_ptr<Component> new_component_ptr = Model::get_instance().get_component_ptr(new_component_name);
+    Model::get_instance().add_group_member(new_component_name);
     target_component->add_component(new_component_ptr);
 }
 
 void Controller::disband_group()
 {
+    target_component->disband();
     Model::get_instance().remove_component(target_component);
 }
 

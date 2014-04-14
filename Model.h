@@ -61,6 +61,10 @@ public:
 	void add_component(std::shared_ptr<Component>);
 	// will throw Error("Component not found!") if no component of that name
 	std::shared_ptr<Component> get_component_ptr(const std::string& name) const;
+    
+    void add_group_member(const std::string& name);
+    
+    void remove_group_member(const std::string& name);
 	
 	// tell all objects to describe themselves
 	void describe() const;
@@ -106,6 +110,7 @@ private:
     std::map<std::string, std::shared_ptr<Island> > island_container;
     std::map<std::string, std::shared_ptr<Component> > component_container;
     std::map<std::string, std::shared_ptr<Ship> > ship_container;
+    std::set<std::string> components_not_in_group;
     std::set<std::shared_ptr<View> > view_container;
     
     // create the initial objects

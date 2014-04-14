@@ -3,15 +3,18 @@
 #include "Utility.h"
 #include "Island.h"
 #include "Ship.h"
+#include "Model.h"
 #include <algorithm>
 #include <functional>
 #include <iostream>
+#include <set>
 
 using std::for_each;
 using std::mem_fn; using std::bind;
 using std::placeholders::_1; using std::ref;
 using std::cout; using std::endl;
-using std::shared_ptr;
+using std::shared_ptr; using std::weak_ptr;
+using std::set;
 
 // No need for update because it's members will update by themselves. Group don't have things to update for themselves.
 void Group::update()
@@ -22,8 +25,13 @@ void Group::update()
 
 void Group::describe() const
 {
-    cout << "Group " << get_name() << " contains :";
-    for_each(children.begin(), children.end(), [](shared_ptr<Component> component_ptr){cout << " "<< component_ptr->get_name();});
+    cout << endl << "Group " << get_name() << " contains :";
+    for (auto child : children) {
+        shared_ptr<Component> sp = child.second.lock();
+        if (sp) {
+            cout << " "<< sp->get_name();
+        }
+    }
     cout << endl;
 }
 
@@ -35,11 +43,14 @@ void Group::broadcast_current_state()
 
 void Group::set_destination_position_and_speed(Point destination_position, double speed)
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->set_destination_position_and_speed(destination_position, speed);
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->set_destination_position_and_speed(destination_position, speed);
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
@@ -47,121 +58,186 @@ void Group::set_destination_position_and_speed(Point destination_position, doubl
 
 void Group::set_course_and_speed(double course, double speed)
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->set_course_and_speed(course, speed);
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->set_course_and_speed(course, speed);
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
 void Group::stop()
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->stop();
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->stop();
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
 
-void Group::dock(std::shared_ptr<Island> island_ptr)
+void Group::dock(shared_ptr<Island> island_ptr)
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->dock(island_ptr);
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->dock(island_ptr);
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
 void Group::refuel()
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->refuel();
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->refuel();
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
-void Group::set_load_destination(std::shared_ptr<Island> island_ptr)
+void Group::set_load_destination(shared_ptr<Island> island_ptr)
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->set_load_destination(island_ptr);
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->set_load_destination(island_ptr);
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
-void Group::set_unload_destination(std::shared_ptr<Island> island_ptr)
+void Group::set_unload_destination(shared_ptr<Island> island_ptr)
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->set_unload_destination(island_ptr);
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->set_unload_destination(island_ptr);
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
-void Group::attack(std::shared_ptr<Ship> in_target_ptr)
+void Group::attack(shared_ptr<Ship> in_target_ptr)
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->attack(in_target_ptr);
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->attack(in_target_ptr);
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
 void Group::stop_attack()
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->stop_attack();
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->stop_attack();
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
 void Group::set_terminus(Point position)
 {
-    for (auto component_ptr : children) {
-        try {
-            component_ptr->set_terminus(position);
-        } catch (Error& error) {
-            cout << component_ptr->get_name() << "'s error message : " << error.what() << endl;
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            try {
+                sp->set_terminus(position);
+            } catch (Error& error) {
+                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+            }
         }
     }
 }
 
-void Group::add_component(std::shared_ptr<Component> component_ptr)
+void Group::add_component(shared_ptr<Component> child)
 {
-    contain_component(component_ptr);
-    children.insert(component_ptr);
+    weak_ptr<Component> component_weak_ptr(child);
+    children[child->get_name()] = component_weak_ptr;
 }
 
-void Group::remove_component(std::shared_ptr<Component> component_ptr)
+void Group::remove_component(shared_ptr<Component> child)
 {
-    children.erase(component_ptr);
+    if (children.find(child->get_name()) == children.end())
+        throw Error("Component is not in the group!");
+    children.erase(child->get_name());
 }
 
-void Group::contain_component(std::shared_ptr<Component> component_ptr)
+void Group::disband()
 {
-    Component::contain_component(component_ptr);
-    for_each(children.begin(), children.end(), bind(&Component::contain_component, _1, ref(component_ptr)));
+    for (auto child : children) {
+        shared_ptr<Component> sp = check_get_component(child.second);
+        if (sp) {
+            Model::get_instance().remove_group_member(sp->get_name());
+        }
+    }
 }
 
 
+shared_ptr<Component> Group::check_get_component(weak_ptr<Component> component_ptr)
+{
+    shared_ptr<Component> sp = component_ptr.lock();
+    if (!sp)
+        children.erase(sp->get_name());
+    return sp;
+}
 
+
+/*void Group::contain_component(shared_ptr<Component> component_ptr)
+{
+    set<shared_ptr<Component> > all_components;
+    all_components.insert(component_ptr);
+    component_ptr->get_all_contained_component(all_components);
+    
+    set<shared_ptr<Component> > my_all_components;
+    get_all_contained_component(my_all_components);
+    
+    for (auto component_item : all_components) {
+        if (component_item->get_name() == get_name() || my_all_components.find(component_item) != my_all_components.end()) {
+            throw Error("Cannot add this component!");
+        }
+    }
+}
+
+
+void Group::get_all_contained_component(set<shared_ptr<Component> >& all_components)
+{
+    for (auto child : children) {
+        all_components.insert(child);
+        child->get_all_contained_component(all_components);
+    }
+}*/
 
