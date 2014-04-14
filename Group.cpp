@@ -6,12 +6,14 @@
 #include <algorithm>
 #include <functional>
 #include <iostream>
+#include <set>
 
 using std::for_each;
 using std::mem_fn; using std::bind;
 using std::placeholders::_1; using std::ref;
 using std::cout; using std::endl;
 using std::shared_ptr;
+using std::set;
 
 // No need for update because it's members will update by themselves. Group don't have things to update for themselves.
 void Group::update()
@@ -68,7 +70,7 @@ void Group::stop()
 }
 
 
-void Group::dock(std::shared_ptr<Island> island_ptr)
+void Group::dock(shared_ptr<Island> island_ptr)
 {
     for (auto component_ptr : children) {
         try {
@@ -90,7 +92,7 @@ void Group::refuel()
     }
 }
 
-void Group::set_load_destination(std::shared_ptr<Island> island_ptr)
+void Group::set_load_destination(shared_ptr<Island> island_ptr)
 {
     for (auto component_ptr : children) {
         try {
@@ -101,7 +103,7 @@ void Group::set_load_destination(std::shared_ptr<Island> island_ptr)
     }
 }
 
-void Group::set_unload_destination(std::shared_ptr<Island> island_ptr)
+void Group::set_unload_destination(shared_ptr<Island> island_ptr)
 {
     for (auto component_ptr : children) {
         try {
@@ -112,7 +114,7 @@ void Group::set_unload_destination(std::shared_ptr<Island> island_ptr)
     }
 }
 
-void Group::attack(std::shared_ptr<Ship> in_target_ptr)
+void Group::attack(shared_ptr<Ship> in_target_ptr)
 {
     for (auto component_ptr : children) {
         try {
@@ -145,23 +147,38 @@ void Group::set_terminus(Point position)
     }
 }
 
-void Group::add_component(std::shared_ptr<Component> component_ptr)
+void Group::add_component(shared_ptr<Component> component_ptr)
 {
-    contain_component(component_ptr);
     children.insert(component_ptr);
 }
 
-void Group::remove_component(std::shared_ptr<Component> component_ptr)
+void Group::remove_component(shared_ptr<Component> component_ptr)
 {
     children.erase(component_ptr);
 }
 
-void Group::contain_component(std::shared_ptr<Component> component_ptr)
+/*void Group::contain_component(shared_ptr<Component> component_ptr)
 {
-    Component::contain_component(component_ptr);
-    for_each(children.begin(), children.end(), bind(&Component::contain_component, _1, ref(component_ptr)));
+    set<shared_ptr<Component> > all_components;
+    all_components.insert(component_ptr);
+    component_ptr->get_all_contained_component(all_components);
+    
+    set<shared_ptr<Component> > my_all_components;
+    get_all_contained_component(my_all_components);
+    
+    for (auto component_item : all_components) {
+        if (component_item->get_name() == get_name() || my_all_components.find(component_item) != my_all_components.end()) {
+            throw Error("Cannot add this component!");
+        }
+    }
 }
 
 
-
+void Group::get_all_contained_component(set<shared_ptr<Component> >& all_components)
+{
+    for (auto child : children) {
+        all_components.insert(child);
+        child->get_all_contained_component(all_components);
+    }
+}*/
 

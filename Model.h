@@ -106,6 +106,7 @@ private:
     std::map<std::string, std::shared_ptr<Island> > island_container;
     std::map<std::string, std::shared_ptr<Component> > component_container;
     std::map<std::string, std::shared_ptr<Ship> > ship_container;
+    std::map<std::string, std::shared_ptr<Ship> > ships_not_in_group;
     std::set<std::shared_ptr<View> > view_container;
     
     // create the initial objects
