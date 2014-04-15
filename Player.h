@@ -16,6 +16,8 @@ public:
     
     void use_resource(int resource);
     
+    const std::string& get_name() const {return name;}
+    
     virtual void init() = 0;
     
     virtual bool run() = 0;
