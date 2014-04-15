@@ -1,6 +1,7 @@
 #include "Cruise_ship.h"
 #include "Model.h"
 #include "Island.h"
+#include "Player.h"
 #include <iostream>
 #include <algorithm>
 #include <cassert>
@@ -37,6 +38,7 @@ void Cruise_ship::update()
                 dock(current_destination);
                 cout << get_name() << " cruise is over at "
                     << start_island->get_name() << endl;
+                get_owner_ptr()->add_score(1000);
                 cruise_state = NO_DESTINATION;
                 remaining_islands = Model::get_instance().get_all_islands();
             }

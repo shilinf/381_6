@@ -1,6 +1,7 @@
 #include "Tanker.h"
 #include "Utility.h"
 #include "Island.h"
+#include "Player.h"
 #include <iostream>
 #include <cassert>
 
@@ -156,6 +157,7 @@ void Tanker::update()
                 tanker_state = MOVING_TO_LOADING;
             }
             else {
+                get_owner_ptr()->add_score(100);
                 unload_destination->accept_fuel(cargo);
                 cargo = 0.;
             }

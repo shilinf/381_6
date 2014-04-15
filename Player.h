@@ -14,6 +14,8 @@ public:
     
     int get_score() {return score;}
     
+    void use_resource(int resource);
+    
     virtual void init() = 0;
     
     virtual bool run() = 0;

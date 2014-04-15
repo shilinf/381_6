@@ -16,7 +16,7 @@ and in range, it will keep firing at it.
 
 Initial values:
 fuel capacity and initial amount: 1000, maximum speed 20., fuel consumption 10.tons/nm, 
-resistance 6, firepower 3, maximum attacking range 15
+resistance 6, firepower 3, maximum attacking range 15, resource needed 100
 */
 
 
