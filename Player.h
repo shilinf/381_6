@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include <string>
+#include <memory>
 
 class Player : public std::enable_shared_from_this<Player>{
 public:
@@ -10,7 +11,7 @@ public:
     virtual ~Player() {}
     
     void add_score(int score_) {score += score_;}
-    
+
     virtual void init() = 0;
     
     virtual bool run() = 0;

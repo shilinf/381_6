@@ -5,6 +5,7 @@ object's name, and has pure virtual accessor functions for the object's position
 and other information. */
 
 #include <string>
+#include <memory>
 
 class Player;
 struct Point;
