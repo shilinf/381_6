@@ -26,8 +26,8 @@ class Island;
 class Refuel_ship : public Ship {
 public:
     // initialize
-    Refuel_ship(const std::string& name_, Point position_) :
-        Ship(name_, position_, 400., 10., 2., 0), depot_capacity(2000.), depot(0.),
+    Refuel_ship(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_) :
+        Ship(name_, position_, 400., 10., 2., 0, owner_ptr_), depot_capacity(2000.), depot(0.),
         refuel_ship_state(NO_REFUEL_PATH), load_destination(nullptr), terminus(position_),  
         perception(20.) {}
 

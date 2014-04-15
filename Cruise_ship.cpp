@@ -10,8 +10,8 @@ using std::cout; using std::endl;
 using std::shared_ptr;
 using std::find_if;
 
-Cruise_ship::Cruise_ship(const std::string& name_, Point position_) :
-    Ship(name_, position_, 500., 15., 2., 0), cruise_state(NO_DESTINATION)
+Cruise_ship::Cruise_ship(const std::string& name_, Point position_, shared_ptr<Player> owner_ptr_) :
+    Ship(name_, position_, 500., 15., 2., 0, owner_ptr_), cruise_state(NO_DESTINATION)
 {
     remaining_islands = Model::get_instance().get_all_islands();
 }

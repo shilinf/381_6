@@ -10,7 +10,7 @@ class Ship;
 
 class Component : public Sim_object {
 public:
-    Component(const std::string& name_) : Sim_object(name_) {}
+    Component(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : Sim_object(name_, owner_ptr_) {}
     
 	/*** Command functions ***/
 	// Start moving to a destination position at a speed

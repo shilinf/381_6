@@ -56,14 +56,14 @@ private:
     void set_map_origin();
     void draw_map();
     void show_object_status();
-    void update_all_objects();
+    //void update_all_objects();
     void create_new_ship();
     void create_new_group();
     void quit();
     
     // control ship command functions
 
-	//ssx
+	
     void set_component_terminus();
     void set_component_course();
     void set_component_to_position();

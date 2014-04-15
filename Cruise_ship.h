@@ -23,7 +23,7 @@ class Island;
 
 class Cruise_ship : public Ship {
 public:
-	Cruise_ship(const std::string& name_, Point position_);
+	Cruise_ship(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_);
     
     void set_destination_position_and_speed(Point destination, double speed) override;
     

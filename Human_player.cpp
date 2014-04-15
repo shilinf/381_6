@@ -40,11 +40,9 @@ Human_player::Human_player(const string& name_) : Player(name_)
     commands_map["pan"] = &Human_player::set_map_origin;
     commands_map["show"] = &Human_player::draw_map;
     commands_map["status"] = &Human_player::show_object_status;
-    //commands_map["go"] = &Human_player::update_all_objects;
     commands_map["create"] = &Human_player::create_new_ship;
     commands_map["create_group"] = &Human_player::create_new_group;
     
-    //ssx
     commands_map["set_terminus"] = &Human_player::set_component_terminus;
     commands_map["course"] = &Human_player::set_component_course;
     commands_map["position"] = &Human_player::set_component_to_position;
@@ -77,13 +75,14 @@ bool Human_player::run()
             return false;
         }
         else if(first_word == "go") {
-            update_all_objects();
+            //update_all_objects();
             return true;
         }
         try {
             if (Model::get_instance().is_component_present(first_word)) {
-                // TO CHANGE: test presence and ownership
                 target_component = Model::get_instance().get_component_ptr(first_word);
+                if (target_component->get_owner_ptr() != shared_from_this())
+                    throw Error("Target is not yours!");
                 cin >> command;
             }
             else
@@ -228,10 +227,10 @@ void Human_player::show_object_status()
     Model::get_instance().describe();
 }
 
-void Human_player::update_all_objects()
+/*void Human_player::update_all_objects()
 {
     Model::get_instance().update();
-}
+}*/
 
 void Human_player::create_new_ship()
 {
@@ -241,8 +240,7 @@ void Human_player::create_new_ship()
     if (Model::get_instance().is_name_in_use(name))
         throw Error("Name is already in use!");
     string ship_type = read_string();
-    shared_ptr<Ship> new_ship = create_ship(name, ship_type, read_point());
-    Model::get_instance().add_component(new_ship);
+    shared_ptr<Ship> new_ship = create_ship(name, ship_type, read_point(), shared_from_this());
     Model::get_instance().add_ship(new_ship);
 }
 
@@ -254,8 +252,13 @@ void Human_player::create_new_group()
         throw Error("Name is too short!");
     if (Model::get_instance().is_name_in_use(name))
         throw Error("Name is already in use!");
-    shared_ptr<Component> new_component(new Group(name));
+    shared_ptr<Component> new_component(new Group(name, shared_from_this()));
     Model::get_instance().add_component(new_component);
+}
+
+void Human_player::set_component_terminus()
+{
+    target_component->set_terminus(read_point());
 }
 
 void Human_player::set_component_course()
@@ -317,7 +320,7 @@ void Human_player::set_component_stop_attack()
     target_component->stop_attack();
 }
 
-// if remove_component is not in the group, won't throw exception
+
 void Human_player::remove_group_component()
 {
     string remove_component_name = read_string();
@@ -332,6 +335,8 @@ void Human_player::add_group_component()
     if (target_component->get_name() == new_component_name)
         throw Error("Cannot add itself!");
     shared_ptr<Component> new_component_ptr = Model::get_instance().get_component_ptr(new_component_name);
+    if (new_component_ptr->get_owner_ptr() != shared_from_this())
+        throw Error("Target is not yours!");
     Model::get_instance().add_group_member(new_component_name);
     target_component->add_component(new_component_ptr);
 }
@@ -342,10 +347,6 @@ void Human_player::disband_group()
     Model::get_instance().remove_component(target_component);
 }
 
-void Human_player::set_component_terminus()
-{
-    target_component->set_terminus(read_point());
-}
 
 void Human_player::quit()
 {

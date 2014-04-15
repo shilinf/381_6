@@ -25,8 +25,8 @@ class Island;
 class Tanker : public Ship {
 public:
 	// initialize
-	Tanker(const std::string& name_, Point position_) :
-    Ship(name_, position_, 100., 10., 2., 0), cargo_capacity(1000.), cargo(0.),
+	Tanker(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_) :
+    Ship(name_, position_, 100., 10., 2., 0, owner_ptr_), cargo_capacity(1000.), cargo(0.),
     tanker_state(NO_CARGO_DESTINATIONS), load_destination(nullptr),
     unload_destination(nullptr) {}
 	
