@@ -20,7 +20,7 @@ void Computer_player::init()
 {
     for (int i = 0; i < 4; ++i) {
         shared_ptr<Island> new_island(new Island(random_string_gen(), 
-            Point(rand()%80, rand()%80), shared_from_this(),  1000, 200));
+            Point(rand()%60, rand()%60), shared_from_this(),  1000, 200));
         Model::get_instance().add_island(new_island);
     }
 }

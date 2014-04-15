@@ -79,6 +79,7 @@ void Refuel_ship::set_load_destination(shared_ptr<Island> destination)
     check_no_path();
     load_destination = destination;
     set_terminus(get_location());
+    cout << get_name() << " will refill depot at " << destination->get_name() << endl;
     start_cycle();
 }
     
