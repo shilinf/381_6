@@ -90,21 +90,25 @@ int main ()
         cout << endl;
         Model::get_instance().update();
     }
-    
-    // show result
-    cout << "----- Result -----" << endl;
-    cout << setw(20) << "Player" << setw(10) << "Score" << endl;    
-    int winner_score;
-    string winner_name;    
-    for (auto& entry : player_container) {
-        int score = entry.second->get_score();
-        if (winner_name.empty() || score > winner_score) {
-            winner_score = score;
-            winner_name = entry.first;
+   
+    if (player_container.empty()) 
+        cout << "\nAll the player have quitted, there is no winner" << endl; 
+    else {
+        // show result
+        cout << "----- Result -----" << endl;
+        cout << setw(20) << "Player" << setw(10) << "Score" << endl;    
+        int winner_score;
+        string winner_name;    
+        for (auto& entry : player_container) {
+            int score = entry.second->get_score();
+            if (winner_name.empty() || score > winner_score) {
+                winner_score = score;
+                winner_name = entry.first;
+            }
+            cout << setw(20) << entry.first << setw(10) << score << endl;
         }
-        cout << setw(20) << entry.first << setw(10) << score << endl;
+        cout << "\nWinner is: " << winner_name << ", score: " << winner_score << endl;
     }
-    cout << "\nWinner is: " << winner_name << ", score: " << winner_score << endl;
     return 0;
 }
 
