@@ -56,7 +56,7 @@ private:
     void set_map_origin();
     void draw_map();
     void show_object_status();
-    void update_all_objects();
+    //void update_all_objects();
     void create_new_ship();
     void create_new_group();
     void quit();
