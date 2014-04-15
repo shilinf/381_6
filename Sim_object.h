@@ -21,7 +21,7 @@ public:
 	const std::string& get_name() const
 		{return name;}
     
-    std::shared_ptr<Player> get_owner_ptr() const
+    std::shared_ptr<Player> get_owner_ptr()
         {return owner_ptr;}
     
 	// ask model to notify views of current state
