@@ -19,11 +19,12 @@ fuel capacity and initial amount: 1000, maximum speed 20., fuel consumption 10.t
 resistance 6, firepower 3, maximum attacking range 15
 */
 
+
 class Cruiser : public Warship {
 public:
 	// initialize
-	Cruiser(const std::string& name_, Point position_) :
-        Warship(name_, position_, 1000., 20., 10., 6, 3, 15.) {}
+	Cruiser(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_) :
+        Warship(name_, position_, 1000., 20., 10., 6, 3, 15., owner_ptr_) {}
     
 	void update() override;
 	void describe() const override;

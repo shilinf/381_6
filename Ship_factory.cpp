@@ -8,16 +8,16 @@
 
 using std::shared_ptr;
 
-shared_ptr<Ship> create_ship(const std::string& name, const std::string& type, Point initial_position)
+shared_ptr<Ship> create_ship(const std::string& name, const std::string& type, Point initial_position, std::shared_ptr<Player> owner_ptr)
 {
     if (type == "Cruiser")
-        return shared_ptr<Ship>(new Cruiser(name, initial_position));
+        return shared_ptr<Ship>(new Cruiser(name, initial_position, owner_ptr));
     else if (type == "Tanker")
-        return shared_ptr<Ship>(new Tanker(name, initial_position));
+        return shared_ptr<Ship>(new Tanker(name, initial_position, owner_ptr));
     else if (type == "Cruise_ship")
-        return shared_ptr<Ship>(new Cruise_ship(name, initial_position));
+        return shared_ptr<Ship>(new Cruise_ship(name, initial_position, owner_ptr));
     else if (type == "Refuel_ship")
-        return shared_ptr<Ship>(new Refuel_ship(name, initial_position));
+        return shared_ptr<Ship>(new Refuel_ship(name, initial_position, owner_ptr));
     else
         throw Error("Trying to create ship of unknown type!");
 }

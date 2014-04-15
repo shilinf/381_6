@@ -13,9 +13,8 @@ accordingly.
 class Island : public Sim_object {
 public:
 	// initialize then output constructor message
-	Island (const std::string& name_, Point position_, double fuel_ = 0.,
-            double production_rate_ = 0.) :
-        Sim_object(name_), position(position_), fuel(fuel_),
+	Island (const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_, double fuel_ = 0., double production_rate_ = 0.) :
+        Sim_object(name_, owner_ptr_), position(position_), fuel(fuel_),
         production_rate(production_rate_) {}
     
 	// Return whichever is less, the request or the amount left,

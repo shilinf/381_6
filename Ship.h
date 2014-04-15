@@ -28,8 +28,8 @@ class Ship : public Component, public std::enable_shared_from_this<Ship> {
 public:
 	// initialize, then output constructor message
 	Ship(const std::string& name_, Point position_, double fuel_capacity_,
-        double maximum_speed_, double fuel_consumption_, int resistance_) :
-        Component(name_), fuel_capacity(fuel_capacity_), fuel(fuel_capacity_),
+        double maximum_speed_, double fuel_consumption_, int resistance_, std::shared_ptr<Player> owner_ptr_) :
+        Component(name_, owner_ptr_), fuel_capacity(fuel_capacity_), fuel(fuel_capacity_),
         maximum_speed(maximum_speed_), fuel_consumption(fuel_consumption_),
         resistance(resistance_), ship_state(STOPPED), track(position_) {}
 		

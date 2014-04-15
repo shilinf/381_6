@@ -24,7 +24,7 @@ Model& Model::get_instance()
 }
 
 Model::Model() : time(0){
-	island_container["Exxon"] = shared_ptr<Island>(new Island("Exxon", Point(10, 10), 1000, 200));
+	/*island_container["Exxon"] = shared_ptr<Island>(new Island("Exxon", Point(10, 10), 1000, 200));
 	island_container["Shell"] = shared_ptr<Island>(new Island("Shell", Point(0, 30), 1000, 200));
 	island_container["Bermuda"] = shared_ptr<Island>(new Island("Bermuda", Point(20, 20)));
     island_container["Treasure_Island"] = shared_ptr<Island>(new Island("Treasure_Island", Point(50, 5), 100, 5));
@@ -39,7 +39,7 @@ Model::Model() : time(0){
         object_container[ship_pair.first.substr(0, 2)] = ship_pair.second;
         components_not_in_group.insert(ship_pair.first);
     }
-    copy(ship_container.begin(), ship_container.end(), inserter(component_container, component_container.begin()));
+    copy(ship_container.begin(), ship_container.end(), inserter(component_container, component_container.begin()));*/
 }
 
 bool Model::is_name_in_use(const string& name) const
