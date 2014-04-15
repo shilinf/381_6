@@ -30,7 +30,7 @@ bool Computer_player::run()
     
     if (Model::get_instance().get_time() == 0) {
         
-        set<shared_ptr<Island>, Island_comp> ship_list = Model::get_instance().get_all_islands();
+        set<shared_ptr<Island>, Sim_object_comp> ship_list = Model::get_instance().get_all_islands();
         
         shared_ptr<Ship> new_ship = create_ship(random_string_gen(), "Tanker", Point(10, 10), 
             shared_from_this());

@@ -186,7 +186,7 @@ void Refuel_ship::start_cycle()
 
 bool Refuel_ship::find_dead_ship()
 {
-    set<shared_ptr<Ship>, Ship_comp> all_ships = Model::get_instance().get_all_ships();
+    set<shared_ptr<Ship>, Sim_object_comp> all_ships = Model::get_instance().get_all_ships();
     for (auto& ship_ptr : all_ships) {
         if (ship_ptr->get_owner_ptr() == get_owner_ptr()) {
             double distance = cartesian_distance(get_location(), ship_ptr->get_location());

@@ -371,7 +371,7 @@ void Human_player::disband_group()
 void Human_player::quit()
 {
     // remove all ships and groups
-    set<shared_ptr<Component>, Component_comp> all_components = Model::get_instance().get_all_components();
+    set<shared_ptr<Component>, Sim_object_comp> all_components = Model::get_instance().get_all_components();
     for (auto component_ptr : all_components) {
         if (component_ptr->get_owner_ptr() == shared_from_this()) {
             Model::get_instance().remove_component(component_ptr);
@@ -379,7 +379,7 @@ void Human_player::quit()
     }
     
     // reset all islands' owner_ptrs
-    set<shared_ptr<Island>, Island_comp> all_islands = Model::get_instance().get_all_islands();
+    set<shared_ptr<Island>, Sim_object_comp> all_islands = Model::get_instance().get_all_islands();
     for (auto island_ptr : all_islands) {
         if (island_ptr->get_owner_ptr() == shared_from_this()) {
             island_ptr->get_owner_ptr().reset();
