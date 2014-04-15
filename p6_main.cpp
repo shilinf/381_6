@@ -95,8 +95,8 @@ int main ()
         cout << "\nAll the player have quitted, there is no winner" << endl; 
     else {
         // show result
-        cout << "----- Result -----" << endl;
-        cout << setw(20) << "Player" << setw(10) << "Score" << endl;    
+        cout << "\n---------------- Result ----------------" << endl;
+        cout << setw(20) << "Player" << setw(20) << "Score" << endl;    
         int winner_score;
         string winner_name;    
         for (auto& entry : player_container) {
@@ -105,7 +105,7 @@ int main ()
                 winner_score = score;
                 winner_name = entry.first;
             }
-            cout << setw(20) << entry.first << setw(10) << score << endl;
+            cout << setw(20) << entry.first << setw(20) << score << endl;
         }
         cout << "\nWinner is: " << winner_name << ", score: " << winner_score << endl;
     }
