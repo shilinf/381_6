@@ -20,21 +20,35 @@ void Computer_player::init()
 {
     for (int i = 0; i < 4; ++i) {
         shared_ptr<Island> new_island(new Island(random_string_gen(), 
-            Point(rand()%100, rand()%100), shared_from_this(),  1000, 200));
+            Point(rand()%80, rand()%80), shared_from_this(),  1000, 200));
         Model::get_instance().add_island(new_island);
     }
 }
 
 bool Computer_player::run() 
 {
+    
     if (Model::get_instance().get_time() == 0) {
+        
+        set<shared_ptr<Island>, Island_comp> ship_list = Model::get_instance().get_all_islands();
+        
         shared_ptr<Ship> new_ship = create_ship(random_string_gen(), "Tanker", Point(10, 10), 
             shared_from_this());
         Model::get_instance().add_ship(new_ship);
-        set<shared_ptr<Island>, Island_comp> ship_list = Model::get_instance().get_all_islands();
         auto it = ship_list.begin();
         new_ship->set_load_destination(*it);
         new_ship->set_unload_destination(*(++it));
+
+        new_ship = create_ship(random_string_gen(), "Cruise_ship", Point(20, 20),
+            shared_from_this());
+        Model::get_instance().add_ship(new_ship);
+        new_ship->set_destination_position_and_speed((*(++it))->get_location(), 10);
+        
+        new_ship = create_ship(random_string_gen(), "Refuel_ship", Point(30, 30), 
+            shared_from_this());
+        Model::get_instance().add_ship(new_ship);
+        new_ship->set_load_destination(*(++it));    
+    
     }
     return true;
 }
