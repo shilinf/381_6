@@ -238,7 +238,6 @@ void Human_player::create_new_ship()
         throw Error("Name is already in use!");
     string ship_type = read_string();
     shared_ptr<Ship> new_ship = create_ship(name, ship_type, read_point(), shared_from_this());
-    Model::get_instance().add_component(new_ship);
     Model::get_instance().add_ship(new_ship);
 }
 
@@ -318,7 +317,7 @@ void Human_player::set_component_stop_attack()
     target_component->stop_attack();
 }
 
-// if remove_component is not in the group, won't throw exception
+
 void Human_player::remove_group_component()
 {
     string remove_component_name = read_string();
@@ -333,6 +332,8 @@ void Human_player::add_group_component()
     if (target_component->get_name() == new_component_name)
         throw Error("Cannot add itself!");
     shared_ptr<Component> new_component_ptr = Model::get_instance().get_component_ptr(new_component_name);
+    if (new_component_ptr->get_owner_ptr() != shared_from_this())
+        throw Error("Target is not yours!");
     Model::get_instance().add_group_member(new_component_name);
     target_component->add_component(new_component_ptr);
 }

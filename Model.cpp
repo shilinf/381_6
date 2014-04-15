@@ -74,6 +74,7 @@ bool Model::is_ship_present(const string& name) const
 
 void Model::add_ship(shared_ptr<Ship> new_ship)
 {
+    add_component(new_ship);
     ship_container[new_ship->get_name()] = new_ship;
 }
 
