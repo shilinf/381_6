@@ -28,7 +28,6 @@ void Group::update()
     }
 }
 
-
 void Group::describe() const
 {
     cout << endl << "Group " << get_name() << " contains :";
@@ -203,5 +202,16 @@ void Group::disband()
         if (sp) {
             Model::get_instance().remove_group_member(sp->get_name());
         }
+    }
+}
+
+void Group::check_contain_component(std::shared_ptr<Component> component_ptr)
+{
+    if (component_ptr->get_name() == get_name())
+        throw Error("Cannot add this component!");
+    for (auto child : children) {
+        shared_ptr<Component> sp = child.second.lock();
+        if (sp)
+            sp->check_contain_component(component_ptr);
     }
 }

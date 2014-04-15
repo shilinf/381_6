@@ -15,6 +15,8 @@ public:
 	
 	void describe() const override;
 	
+    
+    // There is no need for component to broadcast. No view show its information
 	void broadcast_current_state() override {}
 	
 	/*** Command functions ***/
@@ -41,6 +43,8 @@ public:
     void add_component(std::shared_ptr<Component> component_ptr) override;
     
     void remove_component(std::shared_ptr<Component> component_ptr) override;
+    
+    void check_contain_component(std::shared_ptr<Component> component_ptr) override;
     
     void disband() override;
     

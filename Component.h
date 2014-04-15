@@ -50,15 +50,15 @@ public:
     // interactions with other objects
 	// receive a hit from an attacker
     
+
+    // Fat interface
     virtual void add_component(std::shared_ptr<Component> component_ptr);
     
     virtual void remove_component(std::shared_ptr<Component> component_ptr);
     
     virtual void disband();
     
-    
-    
-    //virtual void get_all_contained_component(std::set<std::shared_ptr<Component> >& all_components) {}
+    virtual void check_contain_component(std::shared_ptr<Component> component_ptr) {}
 };
 
 #endif
