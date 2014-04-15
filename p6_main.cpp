@@ -4,6 +4,7 @@
 #include "Model.h"
 #include "Utility.h"
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <map>
 #include <algorithm>
@@ -15,8 +16,9 @@ using std::string; using std::to_string;
 using std::map;
 using std::mem_fn;
 using std::shared_ptr;
+using std::setw;
 
-const int number_of_turn = 20;
+const int number_of_turn = 100;
 
 int read_positive_int();
 int read_non_nagetive_int();
@@ -68,6 +70,7 @@ int main ()
     // initial stage
     cout << "\nInitial stage:" << endl;
     for (auto& entry : player_container) {
+        cout << entry.first << ", ";
         entry.second->init();
     }
     
@@ -90,7 +93,19 @@ int main ()
     }
     
     // show result
-    
+    cout << "----- Result -----" << endl;
+    cout << setw(10) << "Player" << setw(10) << "Score" << endl;    
+    int winner_score;
+    string winner_name;    
+    for (auto& entry : player_container) {
+        int score = entry.second->get_score();
+        if (winner_name.empty() || score > winner_score) {
+            winner_score = score;
+            winner_name = entry.first;
+        }
+        cout << setw(10) << entry.first << setw(10) << score << endl;
+    }
+    cout << "\nWinner is: " << winner_name << ", score: " << winner_score << endl;
     return 0;
 }
 

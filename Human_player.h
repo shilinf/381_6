@@ -84,6 +84,7 @@ private:
     std::string read_string();
     void check_map_view_exist();
     std::shared_ptr<Island> read_get_island();
+    std::string read_check_name();
     void remove_view(std::shared_ptr<View> view);
     void discard_input_remainder();
     void restore_default_map();
