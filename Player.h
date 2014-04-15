@@ -11,7 +11,9 @@ public:
     virtual ~Player() {}
     
     void add_score(int score_) {score += score_;}
-
+    
+    int get_score() {return score;}
+    
     virtual void init() = 0;
     
     virtual bool run() = 0;

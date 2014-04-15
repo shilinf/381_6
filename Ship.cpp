@@ -9,7 +9,6 @@ using std::string;
 using std::cout; using std::endl;
 using std::shared_ptr;
 
-
 /*
  Define the destructor function even if it was declared as a pure virtual function.
  This seems odd, because pure virtual functions are usually not defined in the class

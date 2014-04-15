@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "Human_player.h"
 #include "Computer_player.h"
+#include "Model.h"
 #include "Utility.h"
 #include <iostream>
 #include <string>
@@ -15,7 +16,10 @@ using std::map;
 using std::mem_fn;
 using std::shared_ptr;
 
+const int number_of_turn = 20;
+
 int read_positive_int();
+int read_non_nagetive_int();
 void skip_line();
 
 int main ()
@@ -25,22 +29,23 @@ int main ()
 	cout.setf(ios::fixed, ios::floatfield);
 	cout.precision(2);
     
-    // ask the number of human players and bots
+    // ask the number of human players and computer players
     int human_players;
     int computer_players;
     while (true) {
         try {
             cout << "Please specify number of human players: ";
             human_players = read_positive_int();
-            cout << "Please specify number of bots: ";
-            computer_players = read_positive_int();
+            cout << "Please specify number of computer players: ";
+            computer_players = read_non_nagetive_int();
             break;
         } catch (Error& e) {
+            skip_line();
             cout << e.what() << endl;
         }
     }
     
-    // create a container to hold all participants
+    // create a container to hold all players
     map<string, shared_ptr<Player>> player_container;
     for (int i = 1; i <= human_players; ++i) {
         while (true) {
@@ -48,7 +53,7 @@ int main ()
             string name;
             cin >> name;
             if (player_container.find(name) != player_container.end()) {
-                cout << "Name Already in use!" << endl;
+                cout << "Name already in use!" << endl;
                 continue;
             }
             player_container[name] = shared_ptr<Player>(new Human_player(name));
@@ -60,15 +65,14 @@ int main ()
         player_container[name] = shared_ptr<Player>(new Computer_player(name));
     }
     
-    // init 
+    // initial stage
     for (auto& entry : player_container) {
         entry.second->init();
     }
     
     // start simulating
-    int turns = 80;
-    for (int i = 0; i < turns; ++i) {
-        cout << "\nTurn " << i << ":" << endl;
+    for (int i = 0; i < number_of_turn; ++i) {
+        cout << "\nTime " << i << ":" << endl;
         for (auto itr = player_container.begin(); itr != player_container.end();) {
             cout << "\nPlayer " << itr->first << "'s turn:" << endl;
             if (!itr->second->run()) {
@@ -78,18 +82,26 @@ int main ()
                 ++itr;
             }
         }
+        Model::get_instance().update();
     }
     
     return 0;
 }
 
 int read_positive_int() {
-    int positive_int;
-    if (!(cin >> positive_int) || positive_int <= 0) {
-        skip_line();
+    int i;
+    if (!(cin >> i) || i <= 0) {
         throw Error("Please enter a positive integer!");
     }
-    return positive_int;
+    return i;
+}
+
+int read_non_nagetive_int() {
+    int i;
+    if (!(cin >> i) || i < 0) {
+        throw Error("Please enter a non-nagetive integer!");
+    }
+    return i;
 }
 
 void skip_line() {

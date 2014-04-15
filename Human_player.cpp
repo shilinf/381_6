@@ -59,7 +59,10 @@ Human_player::Human_player(const string& name_) : Player(name_)
     commands_map["disband"] = &Human_player::disband_group;
 }
 
-void Human_player::init() {}
+void Human_player::init()
+{
+    
+}
 
 bool Human_player::run()
 {
@@ -72,7 +75,7 @@ bool Human_player::run()
             return false;
         }
         else if(first_word == "go") {
-            update_all_objects();
+            //update_all_objects();
             return true;
         }
         try {
@@ -224,10 +227,10 @@ void Human_player::show_object_status()
     Model::get_instance().describe();
 }
 
-void Human_player::update_all_objects()
+/*void Human_player::update_all_objects()
 {
     Model::get_instance().update();
-}
+}*/
 
 void Human_player::create_new_ship()
 {
