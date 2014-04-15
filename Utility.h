@@ -6,6 +6,7 @@
 
 class Island;
 class Ship;
+class Component;
 
 class Error : public std::exception {
 public:
@@ -25,7 +26,11 @@ struct Island_comp {
 struct Ship_comp {
     bool operator() (const std::shared_ptr<Ship> ship1,
                      const std::shared_ptr<Ship> ship2) const;
-}; 
+};
 
+struct Component_comp {
+    bool operator() (const std::shared_ptr<Component> component1,
+                     const std::shared_ptr<Component> component2) const;
+}; 
 
 #endif

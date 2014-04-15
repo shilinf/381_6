@@ -16,7 +16,6 @@ using std::shared_ptr;
 using std::for_each; using std::copy;
 using std::inserter;
 
-
 Model& Model::get_instance()
 {
     static Model the_model;
@@ -185,6 +184,7 @@ void Model::remove_component(shared_ptr<Component> component_ptr)
     ship_container.erase(component_ptr->get_name());
     component_container.erase(component_ptr->get_name());
     object_container.erase(component_ptr->get_name().substr(0, 2));
+    components_not_in_group.erase(component_ptr->get_name());
 }
 
 
@@ -208,13 +208,19 @@ void Model::remove_group_member(const std::string& name)
     components_not_in_group.insert(name);
 }
 
-
-
 //ssx
-set <shared_ptr<Ship>, Ship_comp> Model::get_all_ships() const
+set<shared_ptr<Ship>, Ship_comp> Model::get_all_ships() const
 {
     set<shared_ptr<Ship>, Ship_comp> all_ships;
     for (auto& map_pair : ship_container)
         all_ships.insert(map_pair.second);
     return all_ships;
+}
+
+set<shared_ptr<Component>, Component_comp> Model::get_all_components() const
+{
+    set<shared_ptr<Component>, Component_comp> all_components;
+    for (auto& map_pair : component_container)
+        all_components.insert(map_pair.second);
+    return all_components;
 }

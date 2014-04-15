@@ -100,17 +100,19 @@ public:
     
     std::set<std::shared_ptr<Island>, Island_comp> get_all_islands() const;
 
-//ssx
+    //ssx
     std::set<std::shared_ptr<Ship>, Ship_comp> get_all_ships() const;
+    
+    std::set<std::shared_ptr<Component>, Component_comp> get_all_components() const;
     
 private:
 	int time;		// the simulated time
-    std::map<std::string, std::shared_ptr<Sim_object> > object_container;
-    std::map<std::string, std::shared_ptr<Island> > island_container;
-    std::map<std::string, std::shared_ptr<Component> > component_container;
-    std::map<std::string, std::shared_ptr<Ship> > ship_container;
+    std::map<std::string, std::shared_ptr<Sim_object>> object_container;
+    std::map<std::string, std::shared_ptr<Island>> island_container;
+    std::map<std::string, std::shared_ptr<Component>> component_container;
+    std::map<std::string, std::shared_ptr<Ship>> ship_container;
     std::set<std::string> components_not_in_group;
-    std::set<std::shared_ptr<View> > view_container;
+    std::set<std::shared_ptr<View>> view_container;
     
     // create the initial objects
 	Model();

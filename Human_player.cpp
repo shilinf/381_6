@@ -15,10 +15,11 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
+#include <set>
 
 using std::string;
 using std::cout; using std::cin; using std::endl;
-using std::map;
+using std::map; using std::set;
 using std::shared_ptr;
 using std::for_each; using std::find_if;
 using std::mem_fn;
@@ -369,7 +370,21 @@ void Human_player::disband_group()
 
 void Human_player::quit()
 {
-    cout << "Done" << endl;
+    // remove all ships and groups
+    set<shared_ptr<Component>, Component_comp> all_components = Model::get_instance().get_all_components();
+    for (auto component_ptr : all_components) {
+        if (component_ptr->get_owner_ptr() == shared_from_this()) {
+            Model::get_instance().remove_component(component_ptr);
+        }
+    }
+    
+    // reset all islands' owner_ptrs
+    set<shared_ptr<Island>, Island_comp> all_islands = Model::get_instance().get_all_islands();
+    for (auto island_ptr : all_islands) {
+        if (island_ptr->get_owner_ptr() == shared_from_this()) {
+            island_ptr->get_owner_ptr().reset();
+        }
+    }
 }
 
 double Human_player::read_check_speed()

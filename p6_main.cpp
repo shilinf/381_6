@@ -82,9 +82,14 @@ int main ()
                 ++itr;
             }
         }
+        if (player_container.empty()) {
+            break;
+        }
         cout << endl;
         Model::get_instance().update();
     }
+    
+    // show result
     
     return 0;
 }
