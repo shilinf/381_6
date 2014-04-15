@@ -23,11 +23,13 @@ void Computer_player::init()
             Point(rand()%60, rand()%60), shared_from_this(),  1000, 200));
         Model::get_instance().add_island(new_island);
     }
+    cout << get_name() << " has created 4 islands" << endl;
 }
 
 bool Computer_player::run() 
 {
-    
+    cout << "\nTime " << Model::get_instance().get_time() 
+            << ": Computer player did commands" << endl;
     if (Model::get_instance().get_time() == 0) {
         
         set<shared_ptr<Island>, Sim_object_comp> ship_list = Model::get_instance().get_all_islands();
