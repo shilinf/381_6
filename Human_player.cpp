@@ -61,7 +61,10 @@ Human_player::Human_player(const string& name_) : Player(name_)
     commands_map["disband"] = &Human_player::disband_group;
 }
 
-void Human_player::init() {}
+void Human_player::init()
+{
+    
+}
 
 bool Human_player::run()
 {

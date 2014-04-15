@@ -5,13 +5,11 @@
 #include <iomanip>
 #include <iostream>
 
-
 using std::cout; using std::endl;
 using std::vector;
 using std::string;
 using std::ios; using std::setw;
 using std::streamsize;
-
 
 Map_view::Map_view()
 {
@@ -145,4 +143,3 @@ bool Map_view::get_subscripts(int &ix, int &iy, Point location)
 	else
 		return true;
 }
-
