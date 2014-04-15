@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 
-class Player : public std::enable_shared_from_this<Player>{
+class Player : public std::enable_shared_from_this<Player> {
 public:
     Player(const std::string& name_) : name(name_), score(0), resource(1000) {}
     

@@ -23,6 +23,8 @@ using std::shared_ptr;
 using std::for_each; using std::find_if;
 using std::mem_fn;
 
+const int number_of_islands = 4;
+
 Human_player::Human_player(const string& name_) : Player(name_)
 {
     commands_map["open_map_view"] = &Human_player::open_map_view;
@@ -61,7 +63,24 @@ Human_player::Human_player(const string& name_) : Player(name_)
 
 void Human_player::init()
 {
-    
+    cout << "You can create " << number_of_islands << " islands" << endl;
+    for (int i = 1; i <= number_of_islands; ++i) {
+        cout << "\nPlease specify island " << i << "'s name: ";
+        string name;
+        cin >> name;
+        while (true) {
+            try {
+                cout << "Please specify island " << i << "'s location: ";
+                Point location = read_point();
+                Model::get_instance().add_island(shared_ptr<Island>(new Island(name, location, shared_from_this(), 1000, 200)));
+                cout << "Island " << i << " created" << endl;
+                break;
+            } catch (Error& error) {
+                cout << error.what() << endl;
+                discard_input_remainder();
+            }
+        }
+    }
 }
 
 bool Human_player::run()

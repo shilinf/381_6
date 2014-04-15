@@ -66,13 +66,13 @@ int main ()
     }
     
     // initial stage
+    cout << "\nInitial stage:" << endl;
     for (auto& entry : player_container) {
         entry.second->init();
     }
     
     // start simulating
     for (int i = 0; i < number_of_turn; ++i) {
-        cout << "\nTime " << i << ":" << endl;
         for (auto itr = player_container.begin(); itr != player_container.end();) {
             cout << "\nPlayer " << itr->first << "'s turn:" << endl;
             if (!itr->second->run()) {
@@ -82,6 +82,7 @@ int main ()
                 ++itr;
             }
         }
+        cout << endl;
         Model::get_instance().update();
     }
     

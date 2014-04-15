@@ -22,8 +22,6 @@ class Component;
 class Human_player;
 struct Point;
 
-using Command_map_t = std::map<std::string, void(Human_player::*)()>;
-
 class Human_player : public Player {
 public:
     Human_player(const std::string& name_);
@@ -40,7 +38,7 @@ private:
     std::map<std::string, std::shared_ptr<Bridge_view>> bridge_view_container;
     std::vector<std::shared_ptr<View>> draw_view_order;
     std::shared_ptr<Component> target_component; // ship pointer for ship commands
-    Command_map_t commands_map;
+    std::map<std::string, void(Human_player::*)()> commands_map;
     
     // command functions
     void open_map_view();
