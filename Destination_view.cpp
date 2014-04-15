@@ -39,8 +39,8 @@ void Destination_view::update_destination(const string& name, Point destination)
 // draw the destination view
 void Destination_view::draw()
 {
-    cout << "----- Destination Data -----" << endl;
-    cout << setw(10) << "Ship" << setw(15) << "Destination" << setw(10) 
+    cout << "------------- Destination Data --------------" << endl;
+    cout << setw(10) << "Ship" << setw(20) << "Destination" << setw(15) 
         << "Distance" << endl;
         
     ostringstream osstream;
@@ -54,8 +54,8 @@ void Destination_view::draw()
             osstream.str("");
             osstream << '(' << entry.second.destination.x << ", " 
                 << entry.second.destination.y << ')';
-            cout << setw(10) << entry.first << setw(15) << osstream.str() 
-                << setw(10) << distance << endl;
+            cout << setw(10) << entry.first << setw(20) << osstream.str() 
+                << setw(15) << distance << endl;
         }
     }
 }
