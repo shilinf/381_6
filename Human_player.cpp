@@ -64,13 +64,12 @@ Human_player::Human_player(const string& name_) : Player(name_)
 
 void Human_player::init()
 {
-    cout << "You can create " << number_of_islands << " islands" << endl;
+    cout << get_name() << ", you can create " << number_of_islands << " islands" << endl;
     for (int i = 1; i <= number_of_islands; ++i) {
-        cout << "\nPlease specify island " << i << "'s name: ";
-        string name;
-        cin >> name;
         while (true) {
             try {
+                cout << "\nPlease specify island " << i << "'s name: ";
+                string name = read_check_name();
                 cout << "Please specify island " << i << "'s location: ";
                 Point location = read_point();
                 Model::get_instance().add_island(shared_ptr<Island>(new Island(name, location, shared_from_this(), 1000, 200)));
@@ -254,11 +253,7 @@ void Human_player::show_object_status()
 
 void Human_player::create_new_ship()
 {
-    string name = read_string();
-    if (name.length() < 2)
-        throw Error("Name is too short!");
-    if (Model::get_instance().is_name_in_use(name))
-        throw Error("Name is already in use!");
+    string name = read_check_name();
     string ship_type = read_string();
     shared_ptr<Ship> new_ship = create_ship(name, ship_type, read_point(), shared_from_this());
     Model::get_instance().add_ship(new_ship);
@@ -266,12 +261,7 @@ void Human_player::create_new_ship()
 
 void Human_player::create_new_group()
 {
-    // considering use a function here !!!!!!!!!!!!!!!!
-    string name = read_string();
-    if (name.length() < 2)
-        throw Error("Name is too short!");
-    if (Model::get_instance().is_name_in_use(name))
-        throw Error("Name is already in use!");
+    string name = read_check_name();
     shared_ptr<Component> new_component(new Group(name, shared_from_this()));
     Model::get_instance().add_component(new_component);
 }
@@ -432,6 +422,15 @@ shared_ptr<Island> Human_player::read_get_island()
 {
     string island_name = read_string();
     return Model::get_instance().get_island_ptr(island_name);
+}
+
+string Human_player::read_check_name() {
+    string name = read_string();
+    if (name.length() < 2)
+        throw Error("Name is too short!");
+    if (Model::get_instance().is_name_in_use(name))
+        throw Error("Name is already in use!");
+    return name;
 }
 
 void Human_player::remove_view(std::shared_ptr<View> view)
