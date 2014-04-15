@@ -12,13 +12,15 @@ protected classes to manage many of the details of warship behavior. This is an
 abstract base class, so concrete classes derived from Warship must be declared.
 */
 
+
+
 class Warship : public Ship {
 public:
 	// initialize, then output constructor message
 	Warship(const std::string& name_, Point position_, double fuel_capacity_, 
 		double maximum_speed_, double fuel_consumption_, int resistance_,
-        int firepower_, double maximum_range_) :
-        Ship(name_, position_, fuel_capacity_, maximum_speed_, fuel_consumption_, resistance_),
+        int firepower_, double maximum_range_, std::shared_ptr<Player> owner_ptr_) :
+        Ship(name_, position_, fuel_capacity_, maximum_speed_, fuel_consumption_, resistance_, owner_ptr_),
     firepower(firepower_), maximum_range(maximum_range_), attacking(false) {}
 
 	// a pure virtual function to mark this as an abstract class,

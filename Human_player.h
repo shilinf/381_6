@@ -63,7 +63,7 @@ private:
     
     // control ship command functions
 
-	//ssx
+	
     void set_component_terminus();
     void set_component_course();
     void set_component_to_position();

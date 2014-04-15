@@ -9,7 +9,7 @@ class Ship;
 
 class Group : public Component {
 public:
-    Group(const std::string& name_) : Component(name_) {}
+    Group(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : Component(name_, owner_ptr_) {}
     
     void update() override;
 	
