@@ -199,7 +199,7 @@ set<shared_ptr<Island>, Sim_object_comp> Model::get_all_islands() const
 void Model::add_group_member(const std::string& name)
 {
     if (components_not_in_group.find(name) == components_not_in_group.end())
-        throw Error("Cannot add this component!");
+        throw Error("This component is already in other groups!");
     components_not_in_group.erase(name);
 }
 
@@ -208,7 +208,7 @@ void Model::remove_group_member(const std::string& name)
     components_not_in_group.insert(name);
 }
 
-//ssx
+
 set<shared_ptr<Ship>, Sim_object_comp> Model::get_all_ships() const
 {
     set<shared_ptr<Ship>, Sim_object_comp> all_ships;
