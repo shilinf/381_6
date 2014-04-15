@@ -188,9 +188,9 @@ void Model::remove_component(shared_ptr<Component> component_ptr)
 }
 
 
-set<shared_ptr<Island>, Island_comp> Model::get_all_islands() const
+set<shared_ptr<Island>, Sim_object_comp> Model::get_all_islands() const
 {
-    set<shared_ptr<Island>, Island_comp> all_islands;
+    set<shared_ptr<Island>, Sim_object_comp> all_islands;
     for (auto& map_pair : island_container)
         all_islands.insert(map_pair.second);
     return all_islands;
@@ -209,17 +209,17 @@ void Model::remove_group_member(const std::string& name)
 }
 
 //ssx
-set<shared_ptr<Ship>, Ship_comp> Model::get_all_ships() const
+set<shared_ptr<Ship>, Sim_object_comp> Model::get_all_ships() const
 {
-    set<shared_ptr<Ship>, Ship_comp> all_ships;
+    set<shared_ptr<Ship>, Sim_object_comp> all_ships;
     for (auto& map_pair : ship_container)
         all_ships.insert(map_pair.second);
     return all_ships;
 }
 
-set<shared_ptr<Component>, Component_comp> Model::get_all_components() const
+set<shared_ptr<Component>, Sim_object_comp> Model::get_all_components() const
 {
-    set<shared_ptr<Component>, Component_comp> all_components;
+    set<shared_ptr<Component>, Sim_object_comp> all_components;
     for (auto& map_pair : component_container)
         all_components.insert(map_pair.second);
     return all_components;
