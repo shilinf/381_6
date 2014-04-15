@@ -15,7 +15,7 @@ public:
 	
 	void describe() const override;
 	
-	void broadcast_current_state() override;
+	void broadcast_current_state() override {}
 	
 	/*** Command functions ***/
     void set_destination_position_and_speed(Point destination_position, double speed) override;
@@ -44,13 +44,7 @@ public:
     
     void disband() override;
     
-    //void get_all_contained_component(std::set<std::shared_ptr<Component> >& all_components) override;
-    
-    //void contain_component(std::shared_ptr<Component> component_ptr);
-    
 private:
-    std::shared_ptr<Component> check_get_component(std::weak_ptr<Component> component_ptr);
-
     std::map<std::string, std::weak_ptr<Component> > children;
 };
 

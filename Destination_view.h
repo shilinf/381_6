@@ -12,10 +12,10 @@ public:
     
     void update_speed(const std::string& name, double speed) override;
     
+    void update_destination(const std::string& name, Point destination) override;
+
 	// Remove the ship; no error if the name is not present.
 	void update_remove(const std::string& name) override;
-	
-	void update_destination(const std::string& name, Point destination) override;
 	
 	// draw the destination view
 	void draw() override;

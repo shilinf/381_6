@@ -13,9 +13,9 @@ public:
     Bridge_view(std::string ownship_name_) :
     ownship_name(ownship_name_), sunk(false) {}
     
-    void update_course(const std::string& name, double course) override;
-    
     void update_location(const std::string& name, Point location) override;
+    
+    void update_course(const std::string& name, double course) override;
 	
 	// Remove the ship; no error if the name is not present.
     void update_remove(const std::string& name) override;
