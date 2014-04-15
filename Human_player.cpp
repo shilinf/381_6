@@ -64,7 +64,7 @@ Human_player::Human_player(const string& name_) : Player(name_)
 
 void Human_player::init()
 {
-    cout << "you can create " << number_of_islands << " islands" << endl;
+    cout << get_name() << ", you can create " << number_of_islands << " islands" << endl;
     for (int i = 1; i <= number_of_islands; ++i) {
         while (true) {
             try {
