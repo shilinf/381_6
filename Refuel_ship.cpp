@@ -23,56 +23,7 @@ void Refuel_ship::set_course_and_speed(double course, double speed)
     Ship::set_course_and_speed(course, speed);
 }
 
-void Refuel_ship::stop()
-{
-    Ship::stop();
-    clear_path();
-    cout << get_name() << " now has no path" << endl; 
-    
-}
 
-void Refuel_ship::describe() const
-{
-    cout << "\nRefuel_ship ";
-    Ship::describe();
-    cout << "Depot: " << depot << " tons";
-    switch (refuel_ship_state) {
-        case NO_REFUEL_PATH:
-            cout << ", no refuel path";
-            break;
-        case LOADING:
-            cout << ", loading";
-            break;
-        case MOVING_TO_TERMINUS:
-            cout << ",  moving to terminus";
-            break;
-        case MOVING_TO_LOADING:
-            cout << ", moving to loading destination";
-            break;
-        case MOVING_TO_SHIP:
-        {
-            shared_ptr<Ship> sp = get_target();
-            if (sp)
-                cout << ", moving to dead ship " << get_target()->get_name();
-            else 
-                cout << ", target is sunk";
-            break;
-        }
-        case REFUEL_SHIP:
-        {
-            shared_ptr<Ship> sp = get_target();
-            if (sp)
-                cout << ", refueling dead ship " << get_target()->get_name();
-            else
-                cout << ", target is sunk";
-            break;
-        }
-        default:
-            assert(false);
-            break;
-    }
-    cout << endl;
-}
 
 void Refuel_ship::set_load_destination(shared_ptr<Island> destination)
 {
@@ -86,6 +37,14 @@ void Refuel_ship::set_load_destination(shared_ptr<Island> destination)
 void Refuel_ship::set_terminus(Point position)
 {
     terminus = position;
+}
+
+void Refuel_ship::stop()
+{
+    Ship::stop();
+    clear_path();
+    cout << get_name() << " now has no path" << endl; 
+    
 }
 
 void Refuel_ship::update()
@@ -156,6 +115,48 @@ void Refuel_ship::update()
     } 
 }
 
+void Refuel_ship::describe() const
+{
+    cout << "\nRefuel_ship ";
+    Ship::describe();
+    cout << "Depot: " << depot << " tons";
+    switch (refuel_ship_state) {
+        case NO_REFUEL_PATH:
+            cout << ", no refuel path";
+            break;
+        case LOADING:
+            cout << ", loading";
+            break;
+        case MOVING_TO_TERMINUS:
+            cout << ",  moving to terminus";
+            break;
+        case MOVING_TO_LOADING:
+            cout << ", moving to loading destination";
+            break;
+        case MOVING_TO_SHIP:
+        {
+            shared_ptr<Ship> sp = get_target();
+            if (sp)
+                cout << ", moving to dead ship " << get_target()->get_name();
+            else 
+                cout << ", target is sunk";
+            break;
+        }
+        case REFUEL_SHIP:
+        {
+            shared_ptr<Ship> sp = get_target();
+            if (sp)
+                cout << ", refueling dead ship " << get_target()->get_name();
+            else
+                cout << ", target is sunk";
+            break;
+        }
+        default:
+            assert(false);
+            break;
+    }
+    cout << endl;
+}
 
 void Refuel_ship::check_no_path()
 {
