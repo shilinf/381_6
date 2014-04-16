@@ -11,7 +11,7 @@ class Component : public Sim_object {
 public:
     Component(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : Sim_object(name_, owner_ptr_), is_contained(false) {}
 
-    bool is_in_group()
+    bool is_in_group() const
         {return is_contained;}
     
     void added_to_group()

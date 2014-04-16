@@ -184,17 +184,17 @@ void Group::add_component(shared_ptr<Component> child)
 {
     if (child->is_in_group())
         throw Error("This component is already in group!");
-    child->added_to_group();
     weak_ptr<Component> component_weak_ptr(child);
     children[child->get_name()] = component_weak_ptr;
+    child->added_to_group();
 }
 
 void Group::remove_component(shared_ptr<Component> child)
 {
     if (children.find(child->get_name()) == children.end())
         throw Error("Component is not in the group!");
-    child->removed_from_group();
     children.erase(child->get_name());
+    child->removed_from_group();
 }
 
 void Group::disband()
