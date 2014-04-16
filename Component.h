@@ -58,7 +58,7 @@ public:
     
     virtual void disband();
     
-    virtual void check_contain_component(std::shared_ptr<Component> component_ptr) {}
+    virtual void check_contain_component(std::shared_ptr<Component> component_ptr);
 };
 
 #endif

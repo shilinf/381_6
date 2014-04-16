@@ -18,7 +18,6 @@ using std::mem_fn;
 using std::shared_ptr;
 using std::setw;
 
-const int number_of_turn = 100;
 
 int read_positive_int();
 int read_non_nagetive_int();
@@ -34,12 +33,15 @@ int main ()
     // ask the number of human players and computer players
     int human_players;
     int computer_players;
+    int num_rounds;
     while (true) {
         try {
             cout << "Please specify number of human players: ";
             human_players = read_positive_int();
             cout << "Please specify number of computer players: ";
             computer_players = read_non_nagetive_int();
+            cout << "Please specify number of rounds: ";
+            num_rounds = read_positive_int();
             break;
         } catch (Error& e) {
             skip_line();
@@ -74,7 +76,7 @@ int main ()
     }
     
     // start simulating
-    for (int i = 0; i < number_of_turn; ++i) {
+    for (int i = 0; i < num_rounds; ++i) {
         for (auto itr = player_container.begin(); itr != player_container.end();) {
             cout << "\nPlayer " << itr->first << "'s turn:" << endl;
             if (!itr->second->run()) {

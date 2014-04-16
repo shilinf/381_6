@@ -343,9 +343,9 @@ void Human_player::add_group_component()
 {
     string new_component_name = read_string();
     shared_ptr<Component> new_component_ptr = Model::get_instance().get_component_ptr(new_component_name);
-    new_component_ptr->check_contain_component(target_component);
     if (new_component_ptr->get_owner_ptr() != shared_from_this())
         throw Error("Target is not yours!");
+    new_component_ptr->check_contain_component(target_component);
     Model::get_instance().add_group_member(new_component_name);
     target_component->add_component(new_component_ptr);
 }

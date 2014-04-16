@@ -207,8 +207,7 @@ void Group::disband()
 
 void Group::check_contain_component(std::shared_ptr<Component> component_ptr)
 {
-    if (component_ptr->get_name() == get_name())
-        throw Error("Cannot add this component!");
+    Component::check_contain_component(component_ptr);
     for (auto child : children) {
         shared_ptr<Component> sp = child.second.lock();
         if (sp)
