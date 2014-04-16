@@ -27,10 +27,13 @@ public:
 	// but defined anyway to output destructor message
 	virtual ~Warship() = 0;
 	
-	// perform warship-specific behavior
 	void update() override;
 
-	// Warships will act on an attack and stop_attack command
+    void describe() const override;
+	
+	
+    // perform warship-specific behavior
+    // Warships will act on an attack and stop_attack command
 
 	// will	throw Error("Cannot attack!") if not Afloat
 	// will throw Error("Warship may not attack itself!")
@@ -40,7 +43,6 @@ public:
 	// will throw Error("Was not attacking!") if not Attacking
 	void stop_attack() override;
 	
-	void describe() const override;
 
 protected:
 	// future projects may need additional protected members

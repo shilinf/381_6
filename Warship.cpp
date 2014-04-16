@@ -20,6 +20,18 @@ void Warship::update()
     }
 }
 
+void Warship::describe() const
+{
+    Ship::describe();
+    if (attacking) {
+        shared_ptr<Ship> sp = get_target();
+        if (!sp)
+            cout << "Attacking absent ship" << endl;
+        else
+            cout << "Attacking " << sp->get_name() << endl;
+    }
+}
+
 void Warship::attack(shared_ptr<Ship> target_ptr_)
 {
     if (!is_afloat())
@@ -42,21 +54,6 @@ void Warship::stop_attack()
     cout << get_name() << " stopping attack" << endl;
 }
 
-
-
-void Warship::describe() const
-{
-    Ship::describe();
-    if (attacking) {
-        shared_ptr<Ship> sp = get_target();
-        if (!sp)
-            cout << "Attacking absent ship" << endl;
-        else
-            cout << "Attacking " << sp->get_name() << endl;
-    }
-}
-
-
 bool Warship::is_attacking() const
 {
     return attacking;
@@ -78,7 +75,4 @@ shared_ptr<Ship> Warship::get_target() const
 {
     return target_ptr.lock();
 }
-
-
-
 

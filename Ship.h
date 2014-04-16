@@ -57,12 +57,7 @@ public:
 	bool can_dock(std::shared_ptr<Island> island_ptr) const;
 	
 	/*** Interface to derived classes ***/
-	// Update the state of the Ship
-	void update() override;
-	// output a description of current state to cout
-	void describe() const override;
-	
-	void broadcast_current_state() override;
+		void broadcast_current_state() override;
 	
 	/*** Command functions ***/
 	// Start moving to a destination position at a speed
@@ -77,7 +72,13 @@ public:
      // may throw Error("Ship cannot move!");
     void stop() override;
 	// dock at an Island - set our position = Island's position, go into Docked state
-     // may throw Error("Can't dock!");
+    
+    // Update the state of the Ship
+	void update() override;
+	// output a description of current state to cout
+	void describe() const override;
+	
+    // may throw Error("Can't dock!");
     void dock(std::shared_ptr<Island> island_ptr) override;
 	// Refuel - must already be docked at an island; fill takes as much as possible
      // may throw Error("Must be docked!");
@@ -102,7 +103,6 @@ public:
 	// receive a hit from an attacker
 	virtual void receive_hit(int hit_force, std::shared_ptr<Ship> attacker_ptr);
 	
-	//ssx
 	// receive refuel from a refuel_ship.
 	// the argument is the refuel_ship and the available fuel in the depot
 	// return the actual refuel amount

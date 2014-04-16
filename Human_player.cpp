@@ -201,11 +201,7 @@ void Human_player::close_destination_view() {
     destination_view_ptr.reset();
 }
 
-void Human_player::restore_default_map()
-{
-    check_map_view_exist();
-    map_view_ptr->set_defaults();
-}
+
 
 void Human_player::set_map_size()
 {
@@ -235,21 +231,10 @@ void Human_player::draw_map()
     for_each(draw_view_order.begin(), draw_view_order.end(), mem_fn(&View::draw));
 }
 
-void Human_player::check_map_view_exist()
-{
-    if (!map_view_ptr)
-        throw Error("Map view is not open!");
-}
-
 void Human_player::show_object_status()
 {
     Model::get_instance().describe();
 }
-
-/*void Human_player::update_all_objects()
-{
-    Model::get_instance().update();
-}*/
 
 void Human_player::create_new_ship()
 {
@@ -266,6 +251,28 @@ void Human_player::create_new_group()
     Model::get_instance().add_component(new_component);
 }
 
+void Human_player::quit()
+{
+    // remove all ships and groups
+    set<shared_ptr<Component>, Sim_object_comp> all_components = Model::get_instance().get_all_components();
+    for (auto component_ptr : all_components) {
+        if (component_ptr->get_owner_ptr() == shared_from_this()) {
+            Model::get_instance().remove_component(component_ptr);
+        }
+    }
+    
+    // reset all islands' owner_ptrs
+    set<shared_ptr<Island>, Sim_object_comp> all_islands = Model::get_instance().get_all_islands();
+    for (auto island_ptr : all_islands) {
+        if (island_ptr->get_owner_ptr() == shared_from_this()) {
+            island_ptr->get_owner_ptr().reset();
+        }
+    }
+    
+    for (auto view_ptr : draw_view_order)
+        Model::get_instance().detach(view_ptr);
+
+}
 void Human_player::set_component_terminus()
 {
     target_component->set_terminus(read_point());
@@ -330,7 +337,6 @@ void Human_player::set_component_stop_attack()
     target_component->stop_attack();
 }
 
-
 void Human_player::remove_group_component()
 {
     string remove_component_name = read_string();
@@ -356,27 +362,19 @@ void Human_player::disband_group()
     Model::get_instance().remove_component(target_component);
 }
 
-
-void Human_player::quit()
+Point Human_player::read_point()
 {
-    // remove all ships and groups
-    set<shared_ptr<Component>, Sim_object_comp> all_components = Model::get_instance().get_all_components();
-    for (auto component_ptr : all_components) {
-        if (component_ptr->get_owner_ptr() == shared_from_this()) {
-            Model::get_instance().remove_component(component_ptr);
-        }
-    }
-    
-    // reset all islands' owner_ptrs
-    set<shared_ptr<Island>, Sim_object_comp> all_islands = Model::get_instance().get_all_islands();
-    for (auto island_ptr : all_islands) {
-        if (island_ptr->get_owner_ptr() == shared_from_this()) {
-            island_ptr->get_owner_ptr().reset();
-        }
-    }
-    
-    for (auto view_ptr : draw_view_order)
-        Model::get_instance().detach(view_ptr);
+    double x = read_double();
+    double y = read_double();
+    return Point(x, y);
+}
+
+double Human_player::read_double()
+{
+    double temp;
+    if (!(cin >> temp))
+        throw Error("Expected a double!");
+    return temp;
 }
 
 double Human_player::read_check_speed()
@@ -387,37 +385,17 @@ double Human_player::read_check_speed()
     return speed;
 }
 
-
-
-// Read to new line
-void Human_player::discard_input_remainder()
-{
-    cin.clear();
-    while (cin.get() != '\n')
-        ;
-}
-
-Point Human_player::read_point()
-{
-    double x = read_double();
-    double y = read_double();
-    return Point(x, y);
-}
-
-
-double Human_player::read_double()
-{
-    double temp;
-    if (!(cin >> temp))
-        throw Error("Expected a double!");
-    return temp;
-}
-
 string Human_player::read_string()
 {
     string read_string;
     cin>>read_string;
     return read_string;
+}
+
+void Human_player::check_map_view_exist()
+{
+    if (!map_view_ptr)
+        throw Error("Map view is not open!");
 }
 
 shared_ptr<Island> Human_player::read_get_island()
@@ -440,4 +418,18 @@ void Human_player::remove_view(std::shared_ptr<View> view)
     auto view_it = find_if(draw_view_order.begin(), draw_view_order.end(),
                            [&view](shared_ptr<View> view_ptr){return view_ptr == view;});
     draw_view_order.erase(view_it);
+}
+
+// Read to new line
+void Human_player::discard_input_remainder()
+{
+    cin.clear();
+    while (cin.get() != '\n')
+        ;
+}
+
+void Human_player::restore_default_map()
+{
+    check_map_view_exist();
+    map_view_ptr->set_defaults();
 }

@@ -12,6 +12,10 @@ using std::string;
 using std::ios; using std::setw;
 using std::streamsize;
 
+void Bridge_view::update_location(const std::string& name, Point location)
+{
+    points[name] = location;
+}
 
 void Bridge_view::update_course(const std::string& name, double course)
 {
@@ -19,10 +23,6 @@ void Bridge_view::update_course(const std::string& name, double course)
         ownship_course = course;
 }
 
-void Bridge_view::update_location(const std::string& name, Point location)
-{
-    points[name] = location;
-}
 
 void Bridge_view::update_remove(const std::string& name)
 {

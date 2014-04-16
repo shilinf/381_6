@@ -43,39 +43,6 @@ bool Ship::can_dock(shared_ptr<Island> island_ptr) const
         cartesian_distance(island_ptr->get_location(), get_location()) <= 0.1;
 }
 
-
-void Ship::describe() const
-{
-    cout << get_name() << " at " << get_location();
-    if (is_afloat())
-        cout << ", fuel: " << fuel << " tons, resistance: " << resistance << endl;
-    switch (ship_state) {
-        case SUNK:
-            cout << " sunk" << endl;
-            break;
-        case MOVING_TO_POSITION:
-            cout << "Moving to " << destination << " on " << track.get_course_speed() << endl;
-            break;
-        case STOPPED:
-            cout << "Stopped" << endl;
-            break;
-        case DEAD_IN_THE_WATER:
-            cout << "Dead in the water" << endl;
-            break;
-        case MOVING_ON_COURSE:
-            cout << "Moving on " << track.get_course_speed() << endl;
-            break;
-        case DOCKED:
-            cout << "Docked at " << docked_at->get_name() << endl;
-            break;
-        default:
-            assert(false);
-            break;
-    }
-}
-
-
-
 void Ship::broadcast_current_state()
 {
     Model::get_instance().notify_location(get_name(), get_location());
@@ -128,6 +95,65 @@ void Ship::stop()
     ship_state = STOPPED;
 }
 
+void Ship::update()
+{
+    switch (ship_state) {
+        case MOVING_TO_POSITION:
+        case MOVING_ON_COURSE:
+            calculate_movement();
+            cout << get_name() << " now at " << get_location() << endl;
+            Model::get_instance().notify_location(get_name(), get_location());
+            Model::get_instance().notify_fuel(get_name(), fuel);
+            Model::get_instance().notify_speed(get_name(), track.get_speed());
+            break;
+        case STOPPED:
+            cout << get_name() << " stopped at " << get_location() << endl;
+            break;
+        case DOCKED:
+            cout <<  get_name() << " docked at " << docked_at->get_name() << endl;
+            break;
+        case DEAD_IN_THE_WATER:
+            cout <<  get_name() << " dead in the water at " << get_location() << endl;
+            break;
+        case SUNK:
+            cout << get_name() << " sunk" << endl;
+            break;
+        default:
+            assert(false);
+            break;
+    }
+}
+
+void Ship::describe() const
+{
+    cout << get_name() << " at " << get_location();
+    if (is_afloat())
+        cout << ", fuel: " << fuel << " tons, resistance: " << resistance << endl;
+    switch (ship_state) {
+        case SUNK:
+            cout << " sunk" << endl;
+            break;
+        case MOVING_TO_POSITION:
+            cout << "Moving to " << destination << " on " << track.get_course_speed() << endl;
+            break;
+        case STOPPED:
+            cout << "Stopped" << endl;
+            break;
+        case DEAD_IN_THE_WATER:
+            cout << "Dead in the water" << endl;
+            break;
+        case MOVING_ON_COURSE:
+            cout << "Moving on " << track.get_course_speed() << endl;
+            break;
+        case DOCKED:
+            cout << "Docked at " << docked_at->get_name() << endl;
+            break;
+        default:
+            assert(false);
+            break;
+    }
+}
+
 void Ship::dock(shared_ptr<Island> island_ptr)
 {
     if (!can_dock(island_ptr))
@@ -168,7 +194,6 @@ void Ship::attack(shared_ptr<Ship> in_target_ptr)
     throw Error("Cannot attack!");
 }
 
-//ssx
 void Ship::set_terminus(Point position)
 {
 	throw Error("Cannot set terminus!");
@@ -193,7 +218,6 @@ void Ship::receive_hit(int hit_force, shared_ptr<Ship> attacker_ptr)
     }
 }
 
-//ssx
 double Ship::receive_fuel(double available, std::shared_ptr<Ship> refuel_ship)
 {
 	if (available >= fuel_capacity)
@@ -209,35 +233,6 @@ double Ship::receive_fuel(double available, std::shared_ptr<Ship> refuel_ship)
 shared_ptr<Island> Ship::get_docked_Island() const
 {
     return is_docked() ? docked_at : nullptr;
-}
-
-void Ship::update()
-{
-    switch (ship_state) {
-        case MOVING_TO_POSITION:
-        case MOVING_ON_COURSE:
-            calculate_movement();
-            cout << get_name() << " now at " << get_location() << endl;
-            Model::get_instance().notify_location(get_name(), get_location());
-            Model::get_instance().notify_fuel(get_name(), fuel);
-            Model::get_instance().notify_speed(get_name(), track.get_speed());
-            break;
-        case STOPPED:
-            cout << get_name() << " stopped at " << get_location() << endl;
-            break;
-        case DOCKED:
-            cout <<  get_name() << " docked at " << docked_at->get_name() << endl;
-            break;
-        case DEAD_IN_THE_WATER:
-            cout <<  get_name() << " dead in the water at " << get_location() << endl;
-            break;
-        case SUNK:
-            cout << get_name() << " sunk" << endl;
-            break;
-        default:
-            assert(false);
-            break;
-    }
 }
 
 /* Private Function Definitions */

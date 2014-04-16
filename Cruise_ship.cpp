@@ -17,6 +17,36 @@ Cruise_ship::Cruise_ship(const std::string& name_, Point position_, shared_ptr<P
     remaining_islands = Model::get_instance().get_all_islands();
 }
 
+void Cruise_ship::set_destination_position_and_speed(Point destination, double speed)
+{
+    check_cancle_cruise();
+    shared_ptr<Island> island_ptr = is_island_position(destination);
+    Ship::set_destination_position_and_speed(destination, speed);
+    if (island_ptr) {
+        cruise_state = MOVING;
+        cout << get_name() << " will visit " << island_ptr->get_name() << endl;
+        cout << get_name() <<  " cruise will start and end at "
+            << island_ptr->get_name() << endl;
+        cruise_speed = speed;
+        start_island = island_ptr;
+        current_destination = island_ptr;
+        remaining_islands.erase(island_ptr);
+    }
+}
+
+void Cruise_ship::set_course_and_speed(double course, double speed)
+{
+    check_cancle_cruise();
+    Ship::set_course_and_speed(course, speed);
+}
+
+
+void Cruise_ship::stop()
+{
+    check_cancle_cruise();
+    Ship::stop();
+}
+
 void Cruise_ship::update()
 {
     Ship::update();
@@ -71,39 +101,6 @@ void Cruise_ship::describe() const
         cout << "On cruise to " << current_destination->get_name() << endl;
     else if(cruise_state != NO_DESTINATION)
         cout << "Waiting during cruise at " << current_destination->get_name() << endl;
-}
-
-
-void Cruise_ship::set_destination_position_and_speed(Point destination, double speed)
-{
-    check_cancle_cruise();
-    shared_ptr<Island> island_ptr = is_island_position(destination);
-    Ship::set_destination_position_and_speed(destination, speed);
-    if (island_ptr) {
-        cruise_state = MOVING;
-        cout << get_name() << " will visit " << island_ptr->get_name() << endl;
-        cout << get_name() <<  " cruise will start and end at "
-            << island_ptr->get_name() << endl;
-        cruise_speed = speed;
-        start_island = island_ptr;
-        current_destination = island_ptr;
-        remaining_islands.erase(island_ptr);
-    }
-}
-
-
-
-void Cruise_ship::set_course_and_speed(double course, double speed)
-{
-    check_cancle_cruise();
-    Ship::set_course_and_speed(course, speed);
-}
-
-
-void Cruise_ship::stop()
-{
-    check_cancle_cruise();
-    Ship::stop();
 }
 
 void Cruise_ship::check_cancle_cruise()
