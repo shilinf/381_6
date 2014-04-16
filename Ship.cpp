@@ -43,58 +43,6 @@ bool Ship::can_dock(shared_ptr<Island> island_ptr) const
         cartesian_distance(island_ptr->get_location(), get_location()) <= 0.1;
 }
 
-void Ship::broadcast_current_state()
-{
-    Model::get_instance().notify_location(get_name(), get_location());
-    Model::get_instance().notify_fuel(get_name(), fuel);
-    notify_course_and_speed();
-}
-
-void Ship::set_destination_position_and_speed(Point destination_position, double speed)
-{
-    destination = destination_position;
-    check_and_set_course_speed(Compass_vector(get_location(), destination_position).direction, speed);
-    notify_course_and_speed();
-    Model::get_instance().notify_destination(get_name(), destination_position);
-    Model::get_instance().notify_location(get_name(), get_location());
-    cout << get_name() << " will sail on " << track.get_course_speed()
-        << " to " << destination << endl;
-    ship_state = MOVING_TO_POSITION;
-}
-
-void Ship::set_course_and_speed(double course, double speed)
-{
-    check_and_set_course_speed(course, speed);
-    notify_course_and_speed();
-    cout << get_name() << " will sail on " << track.get_course_speed() << endl;
-    ship_state = MOVING_ON_COURSE;
-}
-
-void Ship::check_and_set_course_speed(double course, double speed)
-{
-    if (!can_move())
-        throw Error("Ship cannot move!");
-    if (speed > maximum_speed)
-        throw Error("Ship cannot go that fast!");
-    track.set_course_speed(Course_speed(course, speed));
-}
-
-void Ship::notify_course_and_speed()
-{
-    Model::get_instance().notify_speed(get_name(), track.get_speed());
-    Model::get_instance().notify_course(get_name(), track.get_course());
-}
-
-void Ship::stop()
-{
-    if (!can_move())
-        throw Error("Ship cannot move!");
-    track.set_speed(0.);
-    Model::get_instance().notify_speed(get_name(), track.get_speed());
-    cout << get_name() << " stopping at " << track.get_position() << endl;
-    ship_state = STOPPED;
-}
-
 void Ship::update()
 {
     switch (ship_state) {
@@ -152,6 +100,43 @@ void Ship::describe() const
             assert(false);
             break;
     }
+}
+
+void Ship::broadcast_current_state()
+{
+    Model::get_instance().notify_location(get_name(), get_location());
+    Model::get_instance().notify_fuel(get_name(), fuel);
+    notify_course_and_speed();
+}
+
+void Ship::set_destination_position_and_speed(Point destination_position, double speed)
+{
+    destination = destination_position;
+    check_and_set_course_speed(Compass_vector(get_location(), destination_position).direction, speed);
+    notify_course_and_speed();
+    Model::get_instance().notify_destination(get_name(), destination_position);
+    Model::get_instance().notify_location(get_name(), get_location());
+    cout << get_name() << " will sail on " << track.get_course_speed()
+        << " to " << destination << endl;
+    ship_state = MOVING_TO_POSITION;
+}
+
+void Ship::set_course_and_speed(double course, double speed)
+{
+    check_and_set_course_speed(course, speed);
+    notify_course_and_speed();
+    cout << get_name() << " will sail on " << track.get_course_speed() << endl;
+    ship_state = MOVING_ON_COURSE;
+}
+
+void Ship::stop()
+{
+    if (!can_move())
+        throw Error("Ship cannot move!");
+    track.set_speed(0.);
+    Model::get_instance().notify_speed(get_name(), track.get_speed());
+    cout << get_name() << " stopping at " << track.get_position() << endl;
+    ship_state = STOPPED;
 }
 
 void Ship::dock(shared_ptr<Island> island_ptr)
@@ -233,6 +218,21 @@ double Ship::receive_fuel(double available, std::shared_ptr<Ship> refuel_ship)
 shared_ptr<Island> Ship::get_docked_Island() const
 {
     return is_docked() ? docked_at : nullptr;
+}
+
+void Ship::check_and_set_course_speed(double course, double speed)
+{
+    if (!can_move())
+        throw Error("Ship cannot move!");
+    if (speed > maximum_speed)
+        throw Error("Ship cannot go that fast!");
+    track.set_course_speed(Course_speed(course, speed));
+}
+
+void Ship::notify_course_and_speed()
+{
+    Model::get_instance().notify_speed(get_name(), track.get_speed());
+    Model::get_instance().notify_course(get_name(), track.get_course());
 }
 
 /* Private Function Definitions */

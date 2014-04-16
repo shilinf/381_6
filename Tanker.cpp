@@ -9,49 +9,6 @@ using std::string;
 using std::cout; using std::endl;
 using std::shared_ptr;
 
-
-void Tanker::set_destination_position_and_speed(Point destination, double speed)
-{
-    check_no_cargo_destination();
-    Ship::set_destination_position_and_speed(destination, speed);
-}
-
-void Tanker::set_course_and_speed(double course, double speed)
-{
-    check_no_cargo_destination();
-    Ship::set_course_and_speed(course, speed);
-}
-
-void Tanker::set_load_destination(shared_ptr<Island> destination)
-{
-    check_no_cargo_destination();
-    load_destination = destination;
-    if (destination == unload_destination)
-        throw Error("Load and unload cargo destinations are the same!");
-     cout <<  get_name() << " will load at " << destination->get_name() << endl;
-    if (unload_destination)
-        start_cycle();
-}
-
-
-void Tanker::set_unload_destination(shared_ptr<Island> destination)
-{
-    check_no_cargo_destination();
-    unload_destination = destination;
-    if (destination == load_destination)
-        throw Error("Load and unload cargo destinations are the same!");
-    cout << get_name() << " will unload at " << destination->get_name() << endl;
-    if (load_destination)
-        start_cycle();
-}
-
-void Tanker::stop()
-{
-    Ship::stop();
-    clear_destination();
-    cout << get_name() << " now has no cargo destinations" << endl;
-}
-
 void Tanker::update()
 {
     Ship::update();
@@ -137,6 +94,48 @@ void Tanker::describe() const
             break;
     }
     cout << endl;
+}
+
+void Tanker::set_destination_position_and_speed(Point destination, double speed)
+{
+    check_no_cargo_destination();
+    Ship::set_destination_position_and_speed(destination, speed);
+}
+
+void Tanker::set_course_and_speed(double course, double speed)
+{
+    check_no_cargo_destination();
+    Ship::set_course_and_speed(course, speed);
+}
+
+void Tanker::set_load_destination(shared_ptr<Island> destination)
+{
+    check_no_cargo_destination();
+    load_destination = destination;
+    if (destination == unload_destination)
+        throw Error("Load and unload cargo destinations are the same!");
+     cout <<  get_name() << " will load at " << destination->get_name() << endl;
+    if (unload_destination)
+        start_cycle();
+}
+
+
+void Tanker::set_unload_destination(shared_ptr<Island> destination)
+{
+    check_no_cargo_destination();
+    unload_destination = destination;
+    if (destination == load_destination)
+        throw Error("Load and unload cargo destinations are the same!");
+    cout << get_name() << " will unload at " << destination->get_name() << endl;
+    if (load_destination)
+        start_cycle();
+}
+
+void Tanker::stop()
+{
+    Ship::stop();
+    clear_destination();
+    cout << get_name() << " now has no cargo destinations" << endl;
 }
 
 void Tanker::check_no_cargo_destination()

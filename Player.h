@@ -12,11 +12,12 @@ public:
     
     void add_score(int score_) {score += score_;}
     
-    int get_score() {return score;}
-    
-    void use_resource(int resource);
+    int get_score() const {return score;}
     
     const std::string& get_name() const {return name;}
+
+    // throw error if resource is not enough
+    void use_resource(int resource_needed);
     
     virtual void init() = 0;
     

@@ -30,7 +30,11 @@ public:
         Ship(name_, position_, 400., 10., 2., 0, owner_ptr_), depot_capacity(2000.), depot(0.),
         refuel_ship_state(NO_REFUEL_PATH), load_destination(nullptr), terminus(position_),  
         perception(20.) {}
-
+    
+    void update() override;
+    
+    void describe() const override;
+    
     // This class overrides ship functions.
     // If the Refuel_ship has a load_destination, throw Error("Refuel_ship has refuel path!"); otherwise simply class Ship function.
     void set_destination_position_and_speed(Point destination, double speed) override;
@@ -48,11 +52,6 @@ public:
 
     // when told to stop, clear the load destination and set terminus to current location
     void stop() override;
-    
-    void update() override;
-    
-    void describe() const override;
-
 
 private:
     enum Refuel_ship_state_e {NO_REFUEL_PATH, LOADING, MOVING_TO_TERMINUS, MOVING_TO_LOADING,

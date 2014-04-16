@@ -65,3 +65,5 @@ void Destination_view::clear()
 {
     destination_location_container.clear();
 }
+
+

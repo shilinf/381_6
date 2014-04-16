@@ -17,6 +17,62 @@ Cruise_ship::Cruise_ship(const std::string& name_, Point position_, shared_ptr<P
     remaining_islands = Model::get_instance().get_all_islands();
 }
 
+void Cruise_ship::update()
+{
+    Ship::update();
+    if (!can_move()) {
+        check_cancle_cruise();
+        return;
+    }
+    switch (cruise_state) {
+        case NO_DESTINATION:
+            break;
+        case MOVING:
+            if (!is_moving() && can_dock(current_destination)) {
+                dock(current_destination);
+                cruise_state = REFUEL;
+            }
+            break;
+        case MOVING_TO_START_ISLAND:
+            if (!is_moving() && can_dock(current_destination)) {
+                dock(current_destination);
+                cout << get_name() << " cruise is over at "
+                << start_island->get_name() << endl;
+                get_owner_ptr()->add_score(1000);
+                cruise_state = NO_DESTINATION;
+                remaining_islands = Model::get_instance().get_all_islands();
+            }
+            break;
+        case REFUEL:
+            refuel();
+            cruise_state = WAIT;
+            break;
+        case WAIT:
+            cruise_state = FIND_NEXT_ISLAND;
+            break;
+        case FIND_NEXT_ISLAND:
+            get_next_destination();
+            Ship::set_destination_position_and_speed(current_destination->get_location(),
+                                                     cruise_speed);
+            cout << get_name() << " will visit "
+            << current_destination->get_name() << endl;
+            break;
+        default:
+            assert(false);
+            break;
+    }
+}
+
+void Cruise_ship::describe() const
+{
+    cout << "\nCruise_ship ";
+    Ship::describe();
+    if (cruise_state == MOVING || cruise_state == MOVING_TO_START_ISLAND)
+        cout << "On cruise to " << current_destination->get_name() << endl;
+    else if(cruise_state != NO_DESTINATION)
+        cout << "Waiting during cruise at " << current_destination->get_name() << endl;
+}
+
 void Cruise_ship::set_destination_position_and_speed(Point destination, double speed)
 {
     check_cancle_cruise();
@@ -45,62 +101,6 @@ void Cruise_ship::stop()
 {
     check_cancle_cruise();
     Ship::stop();
-}
-
-void Cruise_ship::update()
-{
-    Ship::update();
-    if (!can_move()) {
-        check_cancle_cruise();
-        return;
-    }
-    switch (cruise_state) {
-        case NO_DESTINATION:
-            break;
-        case MOVING:
-            if (!is_moving() && can_dock(current_destination)) {
-                dock(current_destination);
-                cruise_state = REFUEL;
-            }
-            break;
-        case MOVING_TO_START_ISLAND:
-            if (!is_moving() && can_dock(current_destination)) {
-                dock(current_destination);
-                cout << get_name() << " cruise is over at "
-                    << start_island->get_name() << endl;
-                get_owner_ptr()->add_score(1000);
-                cruise_state = NO_DESTINATION;
-                remaining_islands = Model::get_instance().get_all_islands();
-            }
-            break;
-        case REFUEL:
-            refuel();
-            cruise_state = WAIT;
-            break;
-        case WAIT:
-            cruise_state = FIND_NEXT_ISLAND;
-            break;
-        case FIND_NEXT_ISLAND:
-            get_next_destination();
-            Ship::set_destination_position_and_speed(current_destination->get_location(),
-                                                     cruise_speed);
-            cout << get_name() << " will visit "
-                << current_destination->get_name() << endl;
-            break;
-        default:
-            assert(false);
-            break;
-    }
-}
-
-void Cruise_ship::describe() const
-{
-    cout << "\nCruise_ship ";
-    Ship::describe();
-    if (cruise_state == MOVING || cruise_state == MOVING_TO_START_ISLAND)
-        cout << "On cruise to " << current_destination->get_name() << endl;
-    else if(cruise_state != NO_DESTINATION)
-        cout << "Waiting during cruise at " << current_destination->get_name() << endl;
 }
 
 void Cruise_ship::check_cancle_cruise()
@@ -144,8 +144,5 @@ std::shared_ptr<Island> Cruise_ship::is_island_position(Point position)
                             {return position == island_ptr->get_location();});
     return (set_it == remaining_islands.end()) ? nullptr : *set_it;
 }
-
-
-
 
 

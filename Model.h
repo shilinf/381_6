@@ -61,14 +61,10 @@ public:
 	// will throw Error("Component not found!") if no component of that name
 	std::shared_ptr<Component> get_component_ptr(const std::string& name) const;
     
-    void add_group_member(const std::string& name);
-    
-    void remove_group_member(const std::string& name);
-	
 	// tell all objects to describe themselves
 	void describe() const;
 	// increment the time, and tell all objects to update themselves
-	void update();	
+	void update();
 	   
 	/* View services */
 	// Attaching a View adds it to the container and causes it to be updated
@@ -96,11 +92,13 @@ public:
 	// notify the views about a ship's destination
 	void notify_destination(const std::string& name, Point destination);
     
+    // remove a component from the simulated world.
+    // No error if the component is not a ship or the component is
+    // not in components_not_in_group container
     void remove_component(std::shared_ptr<Component> ship_ptr);
     
     std::set<std::shared_ptr<Island>, Sim_object_comp> get_all_islands() const;
 
-    //ssx
     std::set<std::shared_ptr<Ship>, Sim_object_comp> get_all_ships() const;
     
     std::set<std::shared_ptr<Component>, Sim_object_comp> get_all_components() const;
@@ -111,11 +109,10 @@ private:
     std::map<std::string, std::shared_ptr<Island>> island_container;
     std::map<std::string, std::shared_ptr<Component>> component_container;
     std::map<std::string, std::shared_ptr<Ship>> ship_container;
-    std::set<std::string> components_not_in_group;
     std::set<std::shared_ptr<View>> view_container;
     
     // create the initial objects
-	Model();
+	Model() : time(0) {}
     
 	// disallow copy/move construction or assignment
     Model(const Model &) = delete;
