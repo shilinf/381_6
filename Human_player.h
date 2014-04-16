@@ -28,7 +28,6 @@ public:
     
     void init() override;
     
-	// create View object, run the program by acccepting user commands, then destroy View object
 	bool run() override;
     
 private:
@@ -37,7 +36,7 @@ private:
     std::shared_ptr<Destination_view> destination_view_ptr;
     std::map<std::string, std::shared_ptr<Bridge_view>> bridge_view_container;
     std::vector<std::shared_ptr<View>> draw_view_order;
-    std::shared_ptr<Component> target_component; // ship pointer for ship commands
+    std::shared_ptr<Component> target_component; // component pointer for component commands
     std::map<std::string, void(Human_player::*)()> commands_map;
     
     // command functions
@@ -49,6 +48,7 @@ private:
     void close_bridge_view();
     void open_destination_view();
     void close_destination_view();
+    void restore_default_map();
     void set_map_size();
     void set_map_scale();
     void set_map_origin();
@@ -58,10 +58,7 @@ private:
     void create_new_group();
     void quit();
     
-    // control ship command functions
-
-	
-    void set_component_terminus();
+    // control component command functions
     void set_component_course();
     void set_component_to_position();
     void set_component_destination_island();
@@ -72,8 +69,9 @@ private:
     void set_component_refuel();
     void set_component_stop();
     void set_component_stop_attack();
-    void remove_group_component();
+    void set_component_terminus();
     void add_group_component();
+    void remove_group_component();
     void disband_group();
 
     // helper functions
@@ -86,7 +84,6 @@ private:
     std::string read_check_name();
     void remove_view(std::shared_ptr<View> view);
     void discard_input_remainder();
-    void restore_default_map();
 };
 
 #endif

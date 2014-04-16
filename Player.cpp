@@ -1,7 +1,6 @@
 #include "Player.h"
 #include "Utility.h"
 
-
 void Player::use_resource(int resource_needed)
 {
     if (resource_needed > resource)

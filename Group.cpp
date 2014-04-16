@@ -16,7 +16,6 @@ using std::cout; using std::endl;
 using std::shared_ptr; using std::weak_ptr;
 using std::set;
 
-
 void Group::update()
 {
     auto it = children.begin();
@@ -53,7 +52,6 @@ void Group::set_destination_position_and_speed(Point destination_position, doubl
         }
     }
 }
-
 
 void Group::set_course_and_speed(double course, double speed)
 {
@@ -184,8 +182,11 @@ void Group::set_terminus(Point position)
 
 void Group::add_component(shared_ptr<Component> child)
 {
+    if (child->is_in_group())
+        throw Error("This component is already in group!");
     weak_ptr<Component> component_weak_ptr(child);
     children[child->get_name()] = component_weak_ptr;
+    child->added_to_group();
 }
 
 void Group::remove_component(shared_ptr<Component> child)
@@ -193,15 +194,15 @@ void Group::remove_component(shared_ptr<Component> child)
     if (children.find(child->get_name()) == children.end())
         throw Error("Component is not in the group!");
     children.erase(child->get_name());
+    child->removed_from_group();
 }
 
 void Group::disband()
 {
     for (auto child : children) {
         shared_ptr<Component> sp = child.second.lock();
-        if (sp) {
-            Model::get_instance().remove_group_member(sp->get_name());
-        }
+        if (sp)
+            sp->removed_from_group();
     }
 }
 

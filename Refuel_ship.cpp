@@ -11,42 +11,6 @@ using std::cout; using std::endl;
 using std::shared_ptr;
 using std::set;
 
-void Refuel_ship::set_destination_position_and_speed(Point destination, double speed)
-{
-    check_no_path();
-    Ship::set_destination_position_and_speed(destination, speed);
-}
-
-void Refuel_ship::set_course_and_speed(double course, double speed)
-{
-    check_no_path();
-    Ship::set_course_and_speed(course, speed);
-}
-
-
-
-void Refuel_ship::set_load_destination(shared_ptr<Island> destination)
-{
-    check_no_path();
-    load_destination = destination;
-    set_terminus(get_location());
-    cout << get_name() << " will refill depot at " << destination->get_name() << endl;
-    start_cycle();
-}
-    
-void Refuel_ship::set_terminus(Point position)
-{
-    terminus = position;
-}
-
-void Refuel_ship::stop()
-{
-    Ship::stop();
-    clear_path();
-    cout << get_name() << " now has no path" << endl; 
-    
-}
-
 void Refuel_ship::update()
 {
     Ship::update();
@@ -77,7 +41,7 @@ void Refuel_ship::update()
         }
         case MOVING_TO_TERMINUS:
             if (!find_dead_ship() && !is_moving())
-                moving_to_loading();    
+                moving_to_loading();
             break;
         case MOVING_TO_LOADING:
             if (!find_dead_ship() && !is_moving() && can_dock(load_destination)) {
@@ -89,8 +53,8 @@ void Refuel_ship::update()
         {
             shared_ptr<Ship> sp = get_target();
             if (!sp) {
-                cout << "the target of " << get_name() << 
-                        " has sunk, return to island" << endl;
+                cout << "the target of " << get_name() <<
+                " has sunk, return to island" << endl;
                 moving_to_loading();
             } else {
                 if (!is_moving()) {
@@ -103,16 +67,16 @@ void Refuel_ship::update()
             if (!is_moving()) {
                 shared_ptr<Ship> sp = get_target();
                 if (!sp)
-                    cout << "the target of " << get_name() << 
-                        " has sunk, return to island" << endl;
+                    cout << "the target of " << get_name() <<
+                    " has sunk, return to island" << endl;
                 else {
                     cout << get_name() << " refuels target" << endl;
                     double refuel_amount = sp->receive_fuel(depot, shared_from_this());
                     depot -= refuel_amount;
                 }
-                moving_to_loading(); 
-            }        
-    } 
+                moving_to_loading();
+            }
+    }
 }
 
 void Refuel_ship::describe() const
@@ -138,7 +102,7 @@ void Refuel_ship::describe() const
             shared_ptr<Ship> sp = get_target();
             if (sp)
                 cout << ", moving to dead ship " << get_target()->get_name();
-            else 
+            else
                 cout << ", target is sunk";
             break;
         }
@@ -156,6 +120,41 @@ void Refuel_ship::describe() const
             break;
     }
     cout << endl;
+}
+
+
+void Refuel_ship::set_destination_position_and_speed(Point destination, double speed)
+{
+    check_no_path();
+    Ship::set_destination_position_and_speed(destination, speed);
+}
+
+void Refuel_ship::set_course_and_speed(double course, double speed)
+{
+    check_no_path();
+    Ship::set_course_and_speed(course, speed);
+}
+
+void Refuel_ship::set_load_destination(shared_ptr<Island> destination)
+{
+    check_no_path();
+    load_destination = destination;
+    set_terminus(get_location());
+    cout << get_name() << " will refill depot at " << destination->get_name() << endl;
+    start_cycle();
+}
+    
+void Refuel_ship::set_terminus(Point position)
+{
+    terminus = position;
+}
+
+void Refuel_ship::stop()
+{
+    Ship::stop();
+    clear_path();
+    cout << get_name() << " now has no path" << endl; 
+    
 }
 
 void Refuel_ship::check_no_path()
@@ -203,14 +202,14 @@ bool Refuel_ship::find_dead_ship()
     return false;
 }
 
-shared_ptr<Ship> Refuel_ship::get_target() const
-{
-    return target_ptr.lock();
-}
-
 void Refuel_ship::moving_to_loading()
 {
     Ship::set_destination_position_and_speed(load_destination->get_location(),
                                              get_maximum_speed());
     refuel_ship_state = MOVING_TO_LOADING;
+}
+
+shared_ptr<Ship> Refuel_ship::get_target() const
+{
+    return target_ptr.lock();
 }

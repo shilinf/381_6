@@ -24,12 +24,15 @@ class Island;
 
 class Tanker : public Ship {
 public:
-	// initialize
 	Tanker(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_) :
     Ship(name_, position_, 100., 10., 2., 0, owner_ptr_), cargo_capacity(1000.), cargo(0.),
     tanker_state(NO_CARGO_DESTINATIONS), load_destination(nullptr),
     unload_destination(nullptr) {}
-	
+    
+    void update() override;
+    
+	void describe() const override;
+    
 	// This class overrides these Ship functions so that it can check if this Tanker has assigned cargo destinations.
 	// if so, throw an Error("Tanker has cargo destinations!"); otherwise, simply call the Ship functions.
     void set_destination_position_and_speed(Point destination, double speed) override;
@@ -44,11 +47,7 @@ public:
 	
 	// when told to stop, clear the cargo destinations and stop
 	void stop() override;
-	
-	void update() override;
-    
-	void describe() const override;
-    
+
 private:
     enum Tanker_state_e {NO_CARGO_DESTINATIONS, UNLOADING, MOVING_TO_LOADING,
         LOADING, MOVING_TO_UNLOADING};

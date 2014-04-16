@@ -13,8 +13,8 @@ using std::shared_ptr;
 using std::set;
 
 using std::cout; using std::endl;
-const int random_char_start = 97;
-const int random_char_range = 26;
+const int random_char_start_c = 97;
+const int random_char_range_c = 26;
 
 void Computer_player::init() 
 {
@@ -61,7 +61,7 @@ string Computer_player::random_string_gen()
     do {
         name.clear();
         for (int i = 0; i < 5; ++i) {
-            name += random_char_start + rand()%random_char_range;
+            name += random_char_start_c + rand()%random_char_range_c;
         }
     } while (Model::get_instance().is_name_in_use(name));
     return name;

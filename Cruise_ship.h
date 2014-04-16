@@ -25,15 +25,15 @@ class Cruise_ship : public Ship {
 public:
 	Cruise_ship(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_);
     
+    void update() override;
+    
+	void describe() const override;
+    
     void set_destination_position_and_speed(Point destination, double speed) override;
     
 	void set_course_and_speed(double course, double speed) override;
     
     void stop() override;
-	
-	void update() override;
-    
-	void describe() const override;
     
 private:
     enum Cruise_state_e {NO_DESTINATION, MOVING, REFUEL, WAIT, FIND_NEXT_ISLAND,

@@ -22,7 +22,6 @@ resistance 6, firepower 3, maximum attacking range 15, resource needed 100
 
 class Cruiser : public Warship {
 public:
-	// initialize
 	Cruiser(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_) :
         Warship(name_, position_, 1000., 20., 10., 6, 3, 15., owner_ptr_) {}
     

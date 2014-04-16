@@ -57,8 +57,13 @@ public:
 	bool can_dock(std::shared_ptr<Island> island_ptr) const;
 	
 	/*** Interface to derived classes ***/
-		void broadcast_current_state() override;
-	
+    // Update the state of the Ship
+    void update() override;
+    // output a description of current state to cout
+    void describe() const override;
+
+    void broadcast_current_state() override;
+
 	/*** Command functions ***/
 	// Start moving to a destination position at a speed
      // may throw Error("Ship cannot move!")
@@ -72,12 +77,7 @@ public:
      // may throw Error("Ship cannot move!");
     void stop() override;
 	// dock at an Island - set our position = Island's position, go into Docked state
-    
-    // Update the state of the Ship
-	void update() override;
-	// output a description of current state to cout
-	void describe() const override;
-	
+
     // may throw Error("Can't dock!");
     void dock(std::shared_ptr<Island> island_ptr) override;
 	// Refuel - must already be docked at an island; fill takes as much as possible
@@ -93,9 +93,7 @@ public:
     // will always throw Error("Cannot attack!");
     void attack(std::shared_ptr<Ship> in_target_ptr) override;
     // will always throw Error("Cannot attack!");
-
 	void stop_attack() override;
-
 	// will always throw Error("Cannot set terminus!");
     void set_terminus(Point position) override;
 	
@@ -129,10 +127,10 @@ private:
     Track_base track;
     std::shared_ptr<Island>docked_at;
 
-	// Updates position, fuel, and movement_state, assuming 1 time unit (1 hr)
-	void calculate_movement();
     void check_and_set_course_speed(double course, double speed);
     void notify_course_and_speed();
+    // Updates position, fuel, and movement_state, assuming 1 time unit (1 hr)
+    void calculate_movement();
 
 	// disallow copy/move, construction or assignment
     Ship(const Ship&) = delete;

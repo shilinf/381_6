@@ -14,14 +14,13 @@ public:
     void update() override;
 	
 	void describe() const override;
-	
     
-    // There is no need for component to broadcast. No view show its information
+    // There is no need for component to broadcast. No view show its information currently
 	void broadcast_current_state() override {}
 	
-	/*** Command functions ***/
+	/* Command functions */
     void set_destination_position_and_speed(Point destination_position, double speed) override;
-	
+
     void set_course_and_speed(double course, double speed) override;
 
     void stop() override;
@@ -44,9 +43,10 @@ public:
     
     void remove_component(std::shared_ptr<Component> component_ptr) override;
     
-    void check_contain_component(std::shared_ptr<Component> component_ptr) override;
-    
     void disband() override;
+    
+    // check whether this contains component_ptr
+    void check_contain_component(std::shared_ptr<Component> component_ptr) override;
     
 private:
     std::map<std::string, std::weak_ptr<Component> > children;

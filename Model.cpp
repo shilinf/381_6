@@ -22,25 +22,6 @@ Model& Model::get_instance()
     return the_model;
 }
 
-Model::Model() : time(0){
-	/*island_container["Exxon"] = shared_ptr<Island>(new Island("Exxon", Point(10, 10), 1000, 200));
-	island_container["Shell"] = shared_ptr<Island>(new Island("Shell", Point(0, 30), 1000, 200));
-	island_container["Bermuda"] = shared_ptr<Island>(new Island("Bermuda", Point(20, 20)));
-    island_container["Treasure_Island"] = shared_ptr<Island>(new Island("Treasure_Island", Point(50, 5), 100, 5));
-	
-	ship_container["Ajax"] = create_ship("Ajax", "Cruiser", Point (15, 15));
-	ship_container["Xerxes"] = create_ship("Xerxes", "Cruiser", Point (25, 25));
-	ship_container["Valdez"] = create_ship("Valdez", "Tanker", Point (30, 30));
-    
-    for (auto& island_pair : island_container)
-        object_container[island_pair.first.substr(0, 2)] = island_pair.second;
-    for (auto& ship_pair : ship_container) {
-        object_container[ship_pair.first.substr(0, 2)] = ship_pair.second;
-        components_not_in_group.insert(ship_pair.first);
-    }
-    copy(ship_container.begin(), ship_container.end(), inserter(component_container, component_container.begin()));*/
-}
-
 bool Model::is_name_in_use(const string& name) const
 {
     return object_container.find(name.substr(0, 2)) != object_container.end();
@@ -95,7 +76,6 @@ bool Model::is_component_present(const std::string& name) const
 void Model::add_component(shared_ptr<Component> new_component)
 {
     component_container[new_component->get_name()] = new_component;
-    components_not_in_group.insert(new_component->get_name());
     object_container[new_component->get_name().substr(0, 2)] = new_component;
     new_component->broadcast_current_state();
 }
@@ -108,16 +88,12 @@ shared_ptr<Component> Model::get_component_ptr(const string& name) const
     return component_container_it->second;
 }
 
-
-
-
 void Model::describe() const
 {    
     for_each(object_container.begin(), object_container.end(),
              bind(&Sim_object::describe,
                   bind(& map<string, shared_ptr<Sim_object> >::value_type::second, _1)));
 }
-
 
 void Model::update()
 {
@@ -184,9 +160,7 @@ void Model::remove_component(shared_ptr<Component> component_ptr)
     ship_container.erase(component_ptr->get_name());
     component_container.erase(component_ptr->get_name());
     object_container.erase(component_ptr->get_name().substr(0, 2));
-    components_not_in_group.erase(component_ptr->get_name());
 }
-
 
 set<shared_ptr<Island>, Sim_object_comp> Model::get_all_islands() const
 {
@@ -195,19 +169,6 @@ set<shared_ptr<Island>, Sim_object_comp> Model::get_all_islands() const
         all_islands.insert(map_pair.second);
     return all_islands;
 }
-
-void Model::add_group_member(const std::string& name)
-{
-    if (components_not_in_group.find(name) == components_not_in_group.end())
-        throw Error("This component is already in group!");
-    components_not_in_group.erase(name);
-}
-
-void Model::remove_group_member(const std::string& name)
-{
-    components_not_in_group.insert(name);
-}
-
 
 set<shared_ptr<Ship>, Sim_object_comp> Model::get_all_ships() const
 {

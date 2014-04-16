@@ -1,0 +1,37 @@
+1
+0
+100
+slf
+z1 
+0 0
+z2
+1 1
+z3
+2 2
+z4
+3 3
+create 1tanker Tanker 0 0
+create 2tanker Tanker 0 0
+create 1cruiser Cruiser 0 0
+create_group A1
+create_group A2
+A1 add 1tanker
+A1 add 2tanker
+A2 add 1cruiser
+status
+A1 course 10 10
+A1 remove 2tanker
+A2 remove 1cruiser
+status
+A1 add 1cruiser
+A1 position 2 2 2
+A1 load_at z1
+A2 add 2tanker
+A1 attack 2tanker
+go
+status
+A1 disband
+status
+A2 add 1tanker
+status
+quit

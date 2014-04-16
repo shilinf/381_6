@@ -46,7 +46,6 @@ Human_player::Human_player(const string& name_) : Player(name_)
     commands_map["create"] = &Human_player::create_new_ship;
     commands_map["create_group"] = &Human_player::create_new_group;
     
-    commands_map["set_terminus"] = &Human_player::set_component_terminus;
     commands_map["course"] = &Human_player::set_component_course;
     commands_map["position"] = &Human_player::set_component_to_position;
     commands_map["destination"] = &Human_player::set_component_destination_island;
@@ -57,8 +56,9 @@ Human_player::Human_player(const string& name_) : Player(name_)
     commands_map["refuel"] = &Human_player::set_component_refuel;
     commands_map["stop"] = &Human_player::set_component_stop;
     commands_map["stop_attack"] = &Human_player::set_component_stop_attack;
-    commands_map["remove"] = &Human_player::remove_group_component;
+    commands_map["set_terminus"] = &Human_player::set_component_terminus;
     commands_map["add"] = &Human_player::add_group_component;
+    commands_map["remove"] = &Human_player::remove_group_component;
     commands_map["disband"] = &Human_player::disband_group;
 }
 
@@ -94,7 +94,6 @@ bool Human_player::run()
             return false;
         }
         else if(first_word == "go") {
-            //update_all_objects();
             return true;
         }
         try {
@@ -201,7 +200,11 @@ void Human_player::close_destination_view() {
     destination_view_ptr.reset();
 }
 
-
+void Human_player::restore_default_map()
+{
+    check_map_view_exist();
+    map_view_ptr->set_defaults();
+}
 
 void Human_player::set_map_size()
 {
@@ -225,7 +228,6 @@ void Human_player::set_map_origin()
     map_view_ptr->set_origin(read_point());
 }
 
-// draw all the exist maps
 void Human_player::draw_map()
 {
     for_each(draw_view_order.begin(), draw_view_order.end(), mem_fn(&View::draw));
@@ -265,17 +267,13 @@ void Human_player::quit()
     set<shared_ptr<Island>, Sim_object_comp> all_islands = Model::get_instance().get_all_islands();
     for (auto island_ptr : all_islands) {
         if (island_ptr->get_owner_ptr() == shared_from_this()) {
-            island_ptr->get_owner_ptr().reset();
+            island_ptr->reset_owner_ptr();
         }
     }
     
+    // detach all its views
     for (auto view_ptr : draw_view_order)
         Model::get_instance().detach(view_ptr);
-
-}
-void Human_player::set_component_terminus()
-{
-    target_component->set_terminus(read_point());
 }
 
 void Human_player::set_component_course()
@@ -337,12 +335,9 @@ void Human_player::set_component_stop_attack()
     target_component->stop_attack();
 }
 
-void Human_player::remove_group_component()
+void Human_player::set_component_terminus()
 {
-    string remove_component_name = read_string();
-    shared_ptr<Component> remove_component_ptr = Model::get_instance().get_component_ptr(remove_component_name);
-    target_component->remove_component(remove_component_ptr);
-    Model::get_instance().remove_group_member(remove_component_name);
+    target_component->set_terminus(read_point());
 }
 
 void Human_player::add_group_component()
@@ -352,8 +347,14 @@ void Human_player::add_group_component()
     if (new_component_ptr->get_owner_ptr() != shared_from_this())
         throw Error("Target is not yours!");
     new_component_ptr->check_contain_component(target_component);
-    Model::get_instance().add_group_member(new_component_name);
     target_component->add_component(new_component_ptr);
+}
+
+void Human_player::remove_group_component()
+{
+    string remove_component_name = read_string();
+    shared_ptr<Component> remove_component_ptr = Model::get_instance().get_component_ptr(remove_component_name);
+    target_component->remove_component(remove_component_ptr);
 }
 
 void Human_player::disband_group()
@@ -426,10 +427,4 @@ void Human_player::discard_input_remainder()
     cin.clear();
     while (cin.get() != '\n')
         ;
-}
-
-void Human_player::restore_default_map()
-{
-    check_map_view_exist();
-    map_view_ptr->set_defaults();
 }
