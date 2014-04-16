@@ -331,7 +331,7 @@ Player Refuel_ship_test's turn:
 Time 21: Enter command: 
 Refuel_ship Ace at (24.14, 24.14), fuel: 360.00 tons, resistance: 0
 Moving to (30.00, 30.00) on course 45.00 deg, speed 10.00 nm/hr
-Depot: 2000.00 tons,  moving to terminus
+Depot: 2000.00 tons, moving to terminus
 
 Cruiser Ajax at (46.40, 31.17), fuel: 0.00 tons, resistance: 6
 Dead in the water

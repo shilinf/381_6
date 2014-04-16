@@ -128,7 +128,7 @@ void Refuel_ship::describe() const
             cout << ", loading";
             break;
         case MOVING_TO_TERMINUS:
-            cout << ",  moving to terminus";
+            cout << ", moving to terminus";
             break;
         case MOVING_TO_LOADING:
             cout << ", moving to loading destination";
