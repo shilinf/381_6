@@ -1,0 +1,39 @@
+Please specify number of human players: Please specify number of computer players: Please specify number of rounds: Please specify player 1's name: 
+Initial stage:
+slf, you can create 4 islands
+
+Please specify island 1's name: Please specify island 1's location: Island 1 created
+
+Please specify island 2's name: Please specify island 2's location: Island 2 created
+
+Please specify island 3's name: Please specify island 3's location: Island 3 created
+
+Please specify island 4's name: Please specify island 4's location: Island 4 created
+
+Player slf's turn:
+
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: This component is already in group!
+
+Time 0: Enter command: Cannot add this component!
+
+Time 0: Enter command: This component is already in group!
+
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: Cannot add this component!
+
+Time 0: Enter command: 
+Time 0: Enter command: Ship not found!
+
+Time 0: Enter command: Component is not in the group!
+
+Time 0: Enter command: Cannot disband!
+
+Time 0: Enter command: Human player slf has quited!
+
+All the player have quitted, there is no winner

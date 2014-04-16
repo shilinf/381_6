@@ -1,0 +1,44 @@
+1
+0
+100
+Player1
+Exxon 10 10
+Shell 0 30
+Bermuda 20 20
+Treasure_Island 50 5
+create Ajax Cruiser 15 15
+create Xerxes Cruiser 25 25
+create Valdez Tanker 30 30
+close_destination_view
+open_destination_view
+open_destination_view
+show
+Ajax position 0 0 10
+Xerxes position 100 100 10
+show
+go
+show
+go
+go
+show
+Xerxes stop
+show
+Xerxes position 100 100 10
+Valdez position -5 -5 10
+show
+go
+go
+go
+Ajax attack Valdez
+go
+show
+go
+go
+go
+go
+show
+Ajax position 20 20 10
+show
+Ajax position 30 30 10
+show
+quit

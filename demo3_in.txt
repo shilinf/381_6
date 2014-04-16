@@ -1,0 +1,48 @@
+2
+0
+100
+Player1
+Player2
+Exxon 10 10
+Shell 0 30
+Bermuda 20 20
+Treasure_Island 50 5
+Daby 15 15
+Woodley 5 35
+Indian 25 25
+Hawaii 55 10
+create Ajax Cruiser 15 15
+create Xerxes Cruiser 25 25
+create Valdez Tanker 30 30
+go
+create Tom Cruiser 20 20
+create Jerry Cruiser 30 30
+create Ross Tanker 35 35
+go
+Tom position 10 10 10
+create_group N1_Group
+N1_Group add Tom
+N1_Group add Ajax
+N1_Group add Xerxes
+create_group N2_Group
+N2_Group add Valdez
+N2_Group add N1_Group
+go
+N2_Group disband
+create_group G1_Group
+G1_Group add Tom
+G1_Group add Jerry
+G1_Group add Ross
+go
+Ajax attack Tom
+go
+Jerry attack Xerxes
+go
+go
+go
+go
+go
+status
+quit
+status
+quit

@@ -1,0 +1,275 @@
+Please specify number of human players: Please specify number of computer players: Please specify number of rounds: Please specify player 1's name: Please specify player 2's name: 
+Initial stage:
+Player1, you can create 4 islands
+
+Please specify island 1's name: Please specify island 1's location: Island 1 created
+
+Please specify island 2's name: Please specify island 2's location: Island 2 created
+
+Please specify island 3's name: Please specify island 3's location: Island 3 created
+
+Please specify island 4's name: Please specify island 4's location: Island 4 created
+Player2, you can create 4 islands
+
+Please specify island 1's name: Please specify island 1's location: Island 1 created
+
+Please specify island 2's name: Please specify island 2's location: Island 2 created
+
+Please specify island 3's name: Please specify island 3's location: Island 3 created
+
+Please specify island 4's name: Please specify island 4's location: Island 4 created
+
+Player Player1's turn:
+
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Player Player2's turn:
+
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Ajax stopped at (15.00, 15.00)
+Island Bermuda now has 1200.00 tons
+Island Daby now has 1200.00 tons
+Island Exxon now has 1200.00 tons
+Island Hawaii now has 1200.00 tons
+Island Indian now has 1200.00 tons
+Jerry stopped at (30.00, 30.00)
+Ross stopped at (35.00, 35.00)
+Island Shell now has 1200.00 tons
+Tom stopped at (20.00, 20.00)
+Island Treasure_Island now has 1200.00 tons
+Valdez stopped at (30.00, 30.00)
+Island Woodley now has 1200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Player1's turn:
+
+Time 1: Enter command: Target is not yours!
+
+Time 1: Enter command: 
+Time 1: Enter command: Target is not yours!
+
+Time 1: Enter command: 
+Time 1: Enter command: 
+Time 1: Enter command: 
+Time 1: Enter command: 
+Time 1: Enter command: 
+Time 1: Enter command: 
+Player Player2's turn:
+
+Time 1: Enter command: Target is not yours!
+
+Time 1: Enter command: 
+Time 1: Enter command: 
+Time 1: Enter command: 
+Time 1: Enter command: 
+Time 1: Enter command: 
+Ajax stopped at (15.00, 15.00)
+Island Bermuda now has 1400.00 tons
+Island Daby now has 1400.00 tons
+Island Exxon now has 1400.00 tons
+Island Hawaii now has 1400.00 tons
+Island Indian now has 1400.00 tons
+Jerry stopped at (30.00, 30.00)
+Ross stopped at (35.00, 35.00)
+Island Shell now has 1400.00 tons
+Tom stopped at (20.00, 20.00)
+Island Treasure_Island now has 1400.00 tons
+Valdez stopped at (30.00, 30.00)
+Island Woodley now has 1400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Player1's turn:
+
+Time 2: Enter command: Ajax will attack Tom
+
+Time 2: Enter command: 
+Player Player2's turn:
+
+Time 2: Enter command: Jerry will attack Xerxes
+
+Time 2: Enter command: 
+Ajax stopped at (15.00, 15.00)
+Ajax is attacking 
+Ajax fires
+Tom hit with 3, resistance now 3
+Tom will attack Ajax
+Island Bermuda now has 1600.00 tons
+Island Daby now has 1600.00 tons
+Island Exxon now has 1600.00 tons
+Island Hawaii now has 1600.00 tons
+Island Indian now has 1600.00 tons
+Jerry stopped at (30.00, 30.00)
+Jerry is attacking 
+Jerry fires
+Xerxes hit with 3, resistance now 3
+Xerxes will attack Jerry
+Ross stopped at (35.00, 35.00)
+Island Shell now has 1600.00 tons
+Tom stopped at (20.00, 20.00)
+Tom is attacking 
+Tom fires
+Ajax hit with 3, resistance now 3
+Island Treasure_Island now has 1600.00 tons
+Valdez stopped at (30.00, 30.00)
+Island Woodley now has 1600.00 tons
+Xerxes stopped at (25.00, 25.00)
+Xerxes is attacking 
+Xerxes fires
+Jerry hit with 3, resistance now 3
+
+Player Player1's turn:
+
+Time 3: Enter command: 
+Player Player2's turn:
+
+Time 3: Enter command: 
+Ajax stopped at (15.00, 15.00)
+Ajax is attacking 
+Ajax fires
+Tom hit with 3, resistance now 0
+Island Bermuda now has 1800.00 tons
+Island Daby now has 1800.00 tons
+Island Exxon now has 1800.00 tons
+Island Hawaii now has 1800.00 tons
+Island Indian now has 1800.00 tons
+Jerry stopped at (30.00, 30.00)
+Jerry is attacking 
+Jerry fires
+Xerxes hit with 3, resistance now 0
+Ross stopped at (35.00, 35.00)
+Island Shell now has 1800.00 tons
+Tom stopped at (20.00, 20.00)
+Tom is attacking 
+Tom fires
+Ajax hit with 3, resistance now 0
+Island Treasure_Island now has 1800.00 tons
+Valdez stopped at (30.00, 30.00)
+Island Woodley now has 1800.00 tons
+Xerxes stopped at (25.00, 25.00)
+Xerxes is attacking 
+Xerxes fires
+Jerry hit with 3, resistance now 0
+
+Player Player1's turn:
+
+Time 4: Enter command: 
+Player Player2's turn:
+
+Time 4: Enter command: 
+Ajax stopped at (15.00, 15.00)
+Ajax is attacking 
+Ajax fires
+Tom hit with 3, resistance now -3
+Tom sunk
+Island Bermuda now has 2000.00 tons
+Island Daby now has 2000.00 tons
+Island Exxon now has 2000.00 tons
+Island Hawaii now has 2000.00 tons
+Island Indian now has 2000.00 tons
+Jerry stopped at (30.00, 30.00)
+Jerry is attacking 
+Jerry fires
+Xerxes hit with 3, resistance now -3
+Xerxes sunk
+Ross stopped at (35.00, 35.00)
+Island Shell now has 2000.00 tons
+Island Treasure_Island now has 2000.00 tons
+Valdez stopped at (30.00, 30.00)
+Island Woodley now has 2000.00 tons
+
+Player Player1's turn:
+
+Time 5: Enter command: 
+Cruiser Ajax at (15.00, 15.00), fuel: 1000.00 tons, resistance: 0
+Stopped
+Attacking absent ship
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 2000.00 tons
+
+Island Daby at position (15.00, 15.00)
+Fuel available: 2000.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 2000.00 tons
+
+Group G1_Group contains : Jerry Ross
+
+Island Hawaii at position (55.00, 10.00)
+Fuel available: 2000.00 tons
+
+Island Indian at position (25.00, 25.00)
+Fuel available: 2000.00 tons
+
+Cruiser Jerry at (30.00, 30.00), fuel: 1000.00 tons, resistance: 0
+Stopped
+Attacking absent ship
+
+Group N1_Group contains : Ajax
+
+Group N2_Group contains : N1_Group Valdez
+
+Tanker Ross at (35.00, 35.00), fuel: 100.00 tons, resistance: 0
+Stopped
+Cargo: 0.00 tons, no cargo destinations
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 2000.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 2000.00 tons
+
+Tanker Valdez at (30.00, 30.00), fuel: 100.00 tons, resistance: 0
+Stopped
+Cargo: 0.00 tons, no cargo destinations
+
+Island Woodley at position (5.00, 35.00)
+Fuel available: 2000.00 tons
+
+Time 5: Enter command: Human player Player1 has quited!
+
+Player Player2's turn:
+
+Time 5: Enter command: 
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 2000.00 tons
+
+Island Daby at position (15.00, 15.00)
+Fuel available: 2000.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 2000.00 tons
+
+Group G1_Group contains : Jerry Ross
+
+Island Hawaii at position (55.00, 10.00)
+Fuel available: 2000.00 tons
+
+Island Indian at position (25.00, 25.00)
+Fuel available: 2000.00 tons
+
+Cruiser Jerry at (30.00, 30.00), fuel: 1000.00 tons, resistance: 0
+Stopped
+Attacking absent ship
+
+Tanker Ross at (35.00, 35.00), fuel: 100.00 tons, resistance: 0
+Stopped
+Cargo: 0.00 tons, no cargo destinations
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 2000.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 2000.00 tons
+
+Island Woodley at position (5.00, 35.00)
+Fuel available: 2000.00 tons
+
+Time 5: Enter command: Human player Player2 has quited!
+
+All the player have quitted, there is no winner

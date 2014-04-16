@@ -1,0 +1,184 @@
+Please specify number of human players: Please specify number of computer players: Please specify number of rounds: Please specify player 1's name: 
+Initial stage:
+slf, you can create 4 islands
+
+Please specify island 1's name: Please specify island 1's location: Island 1 created
+
+Please specify island 2's name: Please specify island 2's location: Island 2 created
+
+Please specify island 3's name: Please specify island 3's location: Island 3 created
+
+Please specify island 4's name: Please specify island 4's location: Island 4 created
+
+Player slf's turn:
+
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Cruiser 1cruiser at (0.00, 0.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Tanker 1tanker at (0.00, 0.00), fuel: 100.00 tons, resistance: 0
+Stopped
+Cargo: 0.00 tons, no cargo destinations
+
+Tanker 2tanker at (0.00, 0.00), fuel: 100.00 tons, resistance: 0
+Stopped
+Cargo: 0.00 tons, no cargo destinations
+
+Group A1 contains : 1tanker 2tanker
+
+Group A2 contains : 1cruiser
+
+Island z1 at position (0.00, 0.00)
+Fuel available: 1000.00 tons
+
+Island z2 at position (1.00, 1.00)
+Fuel available: 1000.00 tons
+
+Island z3 at position (2.00, 2.00)
+Fuel available: 1000.00 tons
+
+Island z4 at position (3.00, 3.00)
+Fuel available: 1000.00 tons
+
+Time 0: Enter command: 1tanker will sail on course 10.00 deg, speed 10.00 nm/hr
+2tanker will sail on course 10.00 deg, speed 10.00 nm/hr
+
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Cruiser 1cruiser at (0.00, 0.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Tanker 1tanker at (0.00, 0.00), fuel: 100.00 tons, resistance: 0
+Moving on course 10.00 deg, speed 10.00 nm/hr
+Cargo: 0.00 tons, no cargo destinations
+
+Tanker 2tanker at (0.00, 0.00), fuel: 100.00 tons, resistance: 0
+Moving on course 10.00 deg, speed 10.00 nm/hr
+Cargo: 0.00 tons, no cargo destinations
+
+Group A1 contains : 1tanker
+
+Group A2 contains :
+
+Island z1 at position (0.00, 0.00)
+Fuel available: 1000.00 tons
+
+Island z2 at position (1.00, 1.00)
+Fuel available: 1000.00 tons
+
+Island z3 at position (2.00, 2.00)
+Fuel available: 1000.00 tons
+
+Island z4 at position (3.00, 3.00)
+Fuel available: 1000.00 tons
+
+Time 0: Enter command: 
+Time 0: Enter command: 1cruiser will sail on course 45.00 deg, speed 2.00 nm/hr to (2.00, 2.00)
+1tanker will sail on course 45.00 deg, speed 2.00 nm/hr to (2.00, 2.00)
+
+Time 0: Enter command: 1cruiser's error message : Cannot load at a destination!
+1tanker will load at z1
+
+Time 0: Enter command: 
+Time 0: Enter command: 1cruiser will attack 2tanker
+1tanker's error message : Cannot attack!
+
+Time 0: Enter command: 
+1cruiser now at (1.41, 1.41)
+1cruiser is attacking 
+1cruiser fires
+2tanker hit with 3, resistance now -3
+2tanker sunk
+1tanker now at (1.41, 1.41)
+Island z1 now has 1200.00 tons
+Island z2 now has 1200.00 tons
+Island z3 now has 1200.00 tons
+Island z4 now has 1200.00 tons
+
+Player slf's turn:
+
+Time 1: Enter command: 
+Cruiser 1cruiser at (1.41, 1.41), fuel: 980.00 tons, resistance: 6
+Moving to (2.00, 2.00) on course 45.00 deg, speed 2.00 nm/hr
+Attacking absent ship
+
+Tanker 1tanker at (1.41, 1.41), fuel: 96.00 tons, resistance: 0
+Moving to (2.00, 2.00) on course 45.00 deg, speed 2.00 nm/hr
+Cargo: 0.00 tons, no cargo destinations
+
+Group A1 contains : 1cruiser 1tanker
+
+Group A2 contains :
+
+Island z1 at position (0.00, 0.00)
+Fuel available: 1200.00 tons
+
+Island z2 at position (1.00, 1.00)
+Fuel available: 1200.00 tons
+
+Island z3 at position (2.00, 2.00)
+Fuel available: 1200.00 tons
+
+Island z4 at position (3.00, 3.00)
+Fuel available: 1200.00 tons
+
+Time 1: Enter command: 
+Time 1: Enter command: 
+Cruiser 1cruiser at (1.41, 1.41), fuel: 980.00 tons, resistance: 6
+Moving to (2.00, 2.00) on course 45.00 deg, speed 2.00 nm/hr
+Attacking absent ship
+
+Tanker 1tanker at (1.41, 1.41), fuel: 96.00 tons, resistance: 0
+Moving to (2.00, 2.00) on course 45.00 deg, speed 2.00 nm/hr
+Cargo: 0.00 tons, no cargo destinations
+
+Group A2 contains :
+
+Island z1 at position (0.00, 0.00)
+Fuel available: 1200.00 tons
+
+Island z2 at position (1.00, 1.00)
+Fuel available: 1200.00 tons
+
+Island z3 at position (2.00, 2.00)
+Fuel available: 1200.00 tons
+
+Island z4 at position (3.00, 3.00)
+Fuel available: 1200.00 tons
+
+Time 1: Enter command: 
+Time 1: Enter command: 
+Cruiser 1cruiser at (1.41, 1.41), fuel: 980.00 tons, resistance: 6
+Moving to (2.00, 2.00) on course 45.00 deg, speed 2.00 nm/hr
+Attacking absent ship
+
+Tanker 1tanker at (1.41, 1.41), fuel: 96.00 tons, resistance: 0
+Moving to (2.00, 2.00) on course 45.00 deg, speed 2.00 nm/hr
+Cargo: 0.00 tons, no cargo destinations
+
+Group A2 contains : 1tanker
+
+Island z1 at position (0.00, 0.00)
+Fuel available: 1200.00 tons
+
+Island z2 at position (1.00, 1.00)
+Fuel available: 1200.00 tons
+
+Island z3 at position (2.00, 2.00)
+Fuel available: 1200.00 tons
+
+Island z4 at position (3.00, 3.00)
+Fuel available: 1200.00 tons
+
+Time 1: Enter command: Human player slf has quited!
+
+All the player have quitted, there is no winner
