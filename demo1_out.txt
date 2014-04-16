@@ -1,0 +1,1226 @@
+Please specify number of human players: Please specify number of computer players: Please specify number of rounds: Please specify player 1's name: 
+Initial stage:
+Refuel_ship_test, you can create 4 islands
+
+Please specify island 1's name: Please specify island 1's location: Island 1 created
+
+Please specify island 2's name: Please specify island 2's location: Island 2 created
+
+Please specify island 3's name: Please specify island 3's location: Island 3 created
+
+Please specify island 4's name: Please specify island 4's location: Island 4 created
+
+Player Refuel_ship_test's turn:
+
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: 
+Time 0: Enter command: Ajax will sail on course 45.00 deg, speed 20.00 nm/hr to (60.00, 60.00)
+
+Time 0: Enter command: Ace will refill depot at Exxon
+Ace will sail on course 45.00 deg, speed 10.00 nm/hr to (10.00, 10.00)
+
+Time 0: Enter command: 
+Ace now at (8.17, 8.17)
+Ajax now at (29.14, 29.14)
+Island Bermuda now has 1200.00 tons
+Island Exxon now has 1200.00 tons
+Island Shell now has 1200.00 tons
+Island Treasure_Island now has 1200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 1: Enter command: 
+Ace now at (10.00, 10.00)
+Ace docked at Exxon
+Ajax now at (43.28, 43.28)
+Island Bermuda now has 1400.00 tons
+Island Exxon now has 1400.00 tons
+Island Shell now has 1400.00 tons
+Island Treasure_Island now has 1400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 2: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 25.17 tons of fuel
+Ace now has 400.00 tons of fuel
+Island Exxon supplied 1374.83 tons of fuel
+Depot of Ace now has 1374.83 of fuel
+Ajax now at (57.43, 57.43)
+Island Bermuda now has 1600.00 tons
+Island Exxon now has 200.00 tons
+Island Shell now has 1600.00 tons
+Island Treasure_Island now has 1600.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 3: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 200.00 tons of fuel
+Depot of Ace now has 1574.83 of fuel
+Ajax now at (60.00, 60.00)
+Island Bermuda now has 1800.00 tons
+Island Exxon now has 200.00 tons
+Island Shell now has 1800.00 tons
+Island Treasure_Island now has 1800.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 4: Enter command: Ajax will sail on course 225.00 deg, speed 20.00 nm/hr to (-10.00, -10.00)
+
+Time 4: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 200.00 tons of fuel
+Depot of Ace now has 1774.83 of fuel
+Ajax now at (45.86, 45.86)
+Island Bermuda now has 2000.00 tons
+Island Exxon now has 200.00 tons
+Island Shell now has 2000.00 tons
+Island Treasure_Island now has 2000.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 5: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 200.00 tons of fuel
+Depot of Ace now has 1974.83 of fuel
+Ajax now at (34.29, 34.29)
+Island Bermuda now has 2200.00 tons
+Island Exxon now has 200.00 tons
+Island Shell now has 2200.00 tons
+Island Treasure_Island now has 2200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 6: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 25.17 tons of fuel
+Depot of Ace now has 2000.00 of fuel
+Ajax dead in the water at (34.29, 34.29)
+Island Bermuda now has 2400.00 tons
+Island Exxon now has 374.83 tons
+Island Shell now has 2400.00 tons
+Island Treasure_Island now has 2400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 7: Enter command: 
+Time 7: Enter command: 
+Ace docked at Exxon
+Ace will sail on course 45.00 deg, speed 10.00 nm/hr to (30.00, 30.00)
+Ajax dead in the water at (34.29, 34.29)
+Island Bermuda now has 2600.00 tons
+Island Exxon now has 574.83 tons
+Island Shell now has 2600.00 tons
+Island Treasure_Island now has 2600.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 8: Enter command: 
+Ace now at (17.07, 17.07)
+Ajax dead in the water at (34.29, 34.29)
+Island Bermuda now has 2800.00 tons
+Island Exxon now has 774.83 tons
+Island Shell now has 2800.00 tons
+Island Treasure_Island now has 2800.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 9: Enter command: 
+Ace now at (24.14, 24.14)
+Ace will sail on course 45.00 deg, speed 10.00 nm/hr to (34.29, 34.29)
+Ajax dead in the water at (34.29, 34.29)
+Island Bermuda now has 3000.00 tons
+Island Exxon now has 974.83 tons
+Island Shell now has 3000.00 tons
+Island Treasure_Island now has 3000.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 10: Enter command: 
+Ace now at (31.21, 31.21)
+Ajax dead in the water at (34.29, 34.29)
+Island Bermuda now has 3200.00 tons
+Island Exxon now has 1174.83 tons
+Island Shell now has 3200.00 tons
+Island Treasure_Island now has 3200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 11: Enter command: 
+Ace now at (34.29, 34.29)
+Ajax dead in the water at (34.29, 34.29)
+Island Bermuda now has 3400.00 tons
+Island Exxon now has 1374.83 tons
+Island Shell now has 3400.00 tons
+Island Treasure_Island now has 3400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 12: Enter command: 
+Refuel_ship Ace at (34.29, 34.29), fuel: 331.30 tons, resistance: 0
+Stopped
+Depot: 2000.00 tons, refueling dead ship Ajax
+
+Cruiser Ajax at (34.29, 34.29), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 3400.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 1374.83 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 3400.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 3400.00 tons
+
+Cruiser Xerxes at (25.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Time 12: Enter command: 
+Ace stopped at (34.29, 34.29)
+Ace refuels target
+Ajax receives fuel of 1000.00 tons, now stop at (34.29, 34.29)
+Ace will sail on course 225.00 deg, speed 10.00 nm/hr to (10.00, 10.00)
+Ajax stopped at (34.29, 34.29)
+Island Bermuda now has 3600.00 tons
+Island Exxon now has 1574.83 tons
+Island Shell now has 3600.00 tons
+Island Treasure_Island now has 3600.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 13: Enter command: 
+Refuel_ship Ace at (34.29, 34.29), fuel: 331.30 tons, resistance: 0
+Moving to (10.00, 10.00) on course 225.00 deg, speed 10.00 nm/hr
+Depot: 1000.00 tons, moving to loading destination
+
+Cruiser Ajax at (34.29, 34.29), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 3600.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 1574.83 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 3600.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 3600.00 tons
+
+Cruiser Xerxes at (25.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Time 13: Enter command: 
+Ace now at (27.22, 27.22)
+Ajax stopped at (34.29, 34.29)
+Island Bermuda now has 3800.00 tons
+Island Exxon now has 1774.83 tons
+Island Shell now has 3800.00 tons
+Island Treasure_Island now has 3800.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 14: Enter command: 
+Ace now at (20.15, 20.15)
+Ajax stopped at (34.29, 34.29)
+Island Bermuda now has 4000.00 tons
+Island Exxon now has 1974.83 tons
+Island Shell now has 4000.00 tons
+Island Treasure_Island now has 4000.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 15: Enter command: Ajax will sail on course 90.00 deg, speed 20.00 nm/hr to (90.29, 34.29)
+
+Time 15: Enter command: 
+Ace now at (13.08, 13.08)
+Ajax now at (54.29, 34.29)
+Island Bermuda now has 4200.00 tons
+Island Exxon now has 2174.83 tons
+Island Shell now has 4200.00 tons
+Island Treasure_Island now has 4200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 16: Enter command: 
+Ace now at (10.00, 10.00)
+Ace docked at Exxon
+Ajax now at (74.29, 34.29)
+Island Bermuda now has 4400.00 tons
+Island Exxon now has 2374.83 tons
+Island Shell now has 4400.00 tons
+Island Treasure_Island now has 4400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 17: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 137.40 tons of fuel
+Ace now has 400.00 tons of fuel
+Island Exxon supplied 1000.00 tons of fuel
+Depot of Ace now has 2000.00 of fuel
+Ajax now at (90.29, 34.29)
+Island Bermuda now has 4600.00 tons
+Island Exxon now has 1437.43 tons
+Island Shell now has 4600.00 tons
+Island Treasure_Island now has 4600.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 18: Enter command: Ajax will sail on course 265.93 deg, speed 20.00 nm/hr to (30.00, 30.00)
+
+Time 18: Enter command: 
+Ace docked at Exxon
+Ace will sail on course 45.00 deg, speed 10.00 nm/hr to (30.00, 30.00)
+Ajax now at (70.34, 32.87)
+Island Bermuda now has 4800.00 tons
+Island Exxon now has 1637.43 tons
+Island Shell now has 4800.00 tons
+Island Treasure_Island now has 4800.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 19: Enter command: 
+Ace now at (17.07, 17.07)
+Ajax now at (50.39, 31.45)
+Island Bermuda now has 5000.00 tons
+Island Exxon now has 1837.43 tons
+Island Shell now has 5000.00 tons
+Island Treasure_Island now has 5000.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 20: Enter command: 
+Ace now at (24.14, 24.14)
+Ajax now at (46.40, 31.17)
+Island Bermuda now has 5200.00 tons
+Island Exxon now has 2037.43 tons
+Island Shell now has 5200.00 tons
+Island Treasure_Island now has 5200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 21: Enter command: 
+Refuel_ship Ace at (24.14, 24.14), fuel: 360.00 tons, resistance: 0
+Moving to (30.00, 30.00) on course 45.00 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons,  moving to terminus
+
+Cruiser Ajax at (46.40, 31.17), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 5200.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 2037.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 5200.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 5200.00 tons
+
+Cruiser Xerxes at (25.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Time 21: Enter command: 
+Ace now at (30.00, 30.00)
+Ace will sail on course 85.93 deg, speed 10.00 nm/hr to (46.40, 31.17)
+Ajax dead in the water at (46.40, 31.17)
+Island Bermuda now has 5400.00 tons
+Island Exxon now has 2237.43 tons
+Island Shell now has 5400.00 tons
+Island Treasure_Island now has 5400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 22: Enter command: 
+Refuel_ship Ace at (30.00, 30.00), fuel: 343.43 tons, resistance: 0
+Moving to (46.40, 31.17) on course 85.93 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons, moving to dead ship Ajax
+
+Cruiser Ajax at (46.40, 31.17), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 5400.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 2237.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 5400.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 5400.00 tons
+
+Cruiser Xerxes at (25.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Time 22: Enter command: 
+Ace now at (39.97, 30.71)
+Ajax dead in the water at (46.40, 31.17)
+Island Bermuda now has 5600.00 tons
+Island Exxon now has 2437.43 tons
+Island Shell now has 5600.00 tons
+Island Treasure_Island now has 5600.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 23: Enter command: 
+Ace now at (46.40, 31.17)
+Ajax dead in the water at (46.40, 31.17)
+Island Bermuda now has 5800.00 tons
+Island Exxon now has 2637.43 tons
+Island Shell now has 5800.00 tons
+Island Treasure_Island now has 5800.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 24: Enter command: 
+Refuel_ship Ace at (46.40, 31.17), fuel: 310.55 tons, resistance: 0
+Stopped
+Depot: 2000.00 tons, refueling dead ship Ajax
+
+Cruiser Ajax at (46.40, 31.17), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 5800.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 2637.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 5800.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 5800.00 tons
+
+Cruiser Xerxes at (25.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Time 24: Enter command: 
+Ace stopped at (46.40, 31.17)
+Ace refuels target
+Ajax receives fuel of 1000.00 tons, now stop at (46.40, 31.17)
+Ace will sail on course 239.82 deg, speed 10.00 nm/hr to (10.00, 10.00)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 6000.00 tons
+Island Exxon now has 2837.43 tons
+Island Shell now has 6000.00 tons
+Island Treasure_Island now has 6000.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 25: Enter command: 
+Ace now at (37.76, 26.14)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 6200.00 tons
+Island Exxon now has 3037.43 tons
+Island Shell now has 6200.00 tons
+Island Treasure_Island now has 6200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 26: Enter command: 
+Ace now at (29.11, 21.11)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 6400.00 tons
+Island Exxon now has 3237.43 tons
+Island Shell now has 6400.00 tons
+Island Treasure_Island now has 6400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 27: Enter command: 
+Ace now at (20.47, 16.09)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 6600.00 tons
+Island Exxon now has 3437.43 tons
+Island Shell now has 6600.00 tons
+Island Treasure_Island now has 6600.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 28: Enter command: 
+Ace now at (11.82, 11.06)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 6800.00 tons
+Island Exxon now has 3637.43 tons
+Island Shell now has 6800.00 tons
+Island Treasure_Island now has 6800.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 29: Enter command: 
+Ace now at (10.00, 10.00)
+Ace docked at Exxon
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 7000.00 tons
+Island Exxon now has 3837.43 tons
+Island Shell now has 7000.00 tons
+Island Treasure_Island now has 7000.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 30: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 173.67 tons of fuel
+Ace now has 400.00 tons of fuel
+Island Exxon supplied 1000.00 tons of fuel
+Depot of Ace now has 2000.00 of fuel
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 7200.00 tons
+Island Exxon now has 2863.75 tons
+Island Shell now has 7200.00 tons
+Island Treasure_Island now has 7200.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 31: Enter command: 
+Ace docked at Exxon
+Ace will sail on course 45.00 deg, speed 10.00 nm/hr to (30.00, 30.00)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 7400.00 tons
+Island Exxon now has 3063.75 tons
+Island Shell now has 7400.00 tons
+Island Treasure_Island now has 7400.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 32: Enter command: 
+Ace now at (17.07, 17.07)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 7600.00 tons
+Island Exxon now has 3263.75 tons
+Island Shell now has 7600.00 tons
+Island Treasure_Island now has 7600.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 33: Enter command: 
+Ace now at (24.14, 24.14)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 7800.00 tons
+Island Exxon now has 3463.75 tons
+Island Shell now has 7800.00 tons
+Island Treasure_Island now has 7800.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 34: Enter command: 
+Ace now at (30.00, 30.00)
+Ace will sail on course 225.00 deg, speed 10.00 nm/hr to (10.00, 10.00)
+Ajax stopped at (46.40, 31.17)
+Island Bermuda now has 8000.00 tons
+Island Exxon now has 3663.75 tons
+Island Shell now has 8000.00 tons
+Island Treasure_Island now has 8000.00 tons
+Xerxes stopped at (25.00, 25.00)
+
+Player Refuel_ship_test's turn:
+
+Time 35: Enter command: Ace stopping at (30.00, 30.00)
+Ace now has no path
+
+Time 35: Enter command: 
+Time 35: Enter command: Zorro will sail on course 90.00 deg, speed 10.00 nm/hr to (60.00, 30.00)
+
+Time 35: Enter command: Xerxes will sail on course 90.00 deg, speed 20.00 nm/hr to (80.00, 25.00)
+
+Time 35: Enter command: Ajax will sail on course 90.00 deg, speed 20.00 nm/hr to (85.00, 31.17)
+
+Time 35: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax now at (66.40, 31.17)
+Island Bermuda now has 8200.00 tons
+Island Exxon now has 3863.75 tons
+Island Shell now has 8200.00 tons
+Island Treasure_Island now has 8200.00 tons
+Xerxes now at (45.00, 25.00)
+Zorro now at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 36: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax now at (85.00, 31.17)
+Island Bermuda now has 8400.00 tons
+Island Exxon now has 4063.75 tons
+Island Shell now has 8400.00 tons
+Island Treasure_Island now has 8400.00 tons
+Xerxes now at (65.00, 25.00)
+Zorro now at (50.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 37: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax stopped at (85.00, 31.17)
+Island Bermuda now has 8600.00 tons
+Island Exxon now has 4263.75 tons
+Island Shell now has 8600.00 tons
+Island Treasure_Island now has 8600.00 tons
+Xerxes now at (80.00, 25.00)
+Zorro now at (60.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 38: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax stopped at (85.00, 31.17)
+Island Bermuda now has 8800.00 tons
+Island Exxon now has 4463.75 tons
+Island Shell now has 8800.00 tons
+Island Treasure_Island now has 8800.00 tons
+Xerxes stopped at (80.00, 25.00)
+Zorro stopped at (60.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 39: Enter command: Zorro will sail on course 270.00 deg, speed 10.00 nm/hr to (0.00, 30.00)
+
+Time 39: Enter command: Xerxes will sail on course 270.00 deg, speed 20.00 nm/hr to (0.00, 25.00)
+
+Time 39: Enter command: Ajax will sail on course 270.00 deg, speed 20.00 nm/hr to (0.00, 31.17)
+
+Time 39: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax now at (65.00, 31.17)
+Island Bermuda now has 9000.00 tons
+Island Exxon now has 4663.75 tons
+Island Shell now has 9000.00 tons
+Island Treasure_Island now has 9000.00 tons
+Xerxes now at (60.00, 25.00)
+Zorro now at (50.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 40: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax now at (45.00, 31.17)
+Island Bermuda now has 9200.00 tons
+Island Exxon now has 4863.75 tons
+Island Shell now has 9200.00 tons
+Island Treasure_Island now has 9200.00 tons
+Xerxes now at (40.00, 25.00)
+Zorro now at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 41: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax now at (25.00, 31.17)
+Island Bermuda now has 9400.00 tons
+Island Exxon now has 5063.75 tons
+Island Shell now has 9400.00 tons
+Island Treasure_Island now has 9400.00 tons
+Xerxes now at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 42: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax now at (23.60, 31.17)
+Island Bermuda now has 9600.00 tons
+Island Exxon now has 5263.75 tons
+Island Shell now has 9600.00 tons
+Island Treasure_Island now has 9600.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 43: Enter command: 
+Ace stopped at (30.00, 30.00)
+Ajax dead in the water at (23.60, 31.17)
+Island Bermuda now has 9800.00 tons
+Island Exxon now has 5463.75 tons
+Island Shell now has 9800.00 tons
+Island Treasure_Island now has 9800.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 44: Enter command: Ace will refill depot at Exxon
+Ace will sail on course 225.00 deg, speed 10.00 nm/hr to (10.00, 10.00)
+
+Time 44: Enter command: 
+Refuel_ship Ace at (30.00, 30.00), fuel: 343.43 tons, resistance: 0
+Moving to (10.00, 10.00) on course 225.00 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons, moving to loading destination
+
+Cruiser Ajax at (23.60, 31.17), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 9800.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 5463.75 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 9800.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 9800.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 44: Enter command: 
+Ace now at (22.93, 22.93)
+Ace will sail on course 4.64 deg, speed 10.00 nm/hr to (23.60, 31.17)
+Ajax dead in the water at (23.60, 31.17)
+Island Bermuda now has 10000.00 tons
+Island Exxon now has 5663.75 tons
+Island Shell now has 10000.00 tons
+Island Treasure_Island now has 10000.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 45: Enter command: 
+Refuel_ship Ace at (22.93, 22.93), fuel: 323.43 tons, resistance: 0
+Moving to (23.60, 31.17) on course 4.64 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons, moving to dead ship Ajax
+
+Cruiser Ajax at (23.60, 31.17), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 10000.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 5663.75 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 10000.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 10000.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 45: Enter command: 
+Ace now at (23.60, 31.17)
+Ajax dead in the water at (23.60, 31.17)
+Island Bermuda now has 10200.00 tons
+Island Exxon now has 5863.75 tons
+Island Shell now has 10200.00 tons
+Island Treasure_Island now has 10200.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 46: Enter command: 
+Refuel_ship Ace at (23.60, 31.17), fuel: 306.90 tons, resistance: 0
+Stopped
+Depot: 2000.00 tons, refueling dead ship Ajax
+
+Cruiser Ajax at (23.60, 31.17), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 10200.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 5863.75 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 10200.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 10200.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 46: Enter command: 
+Ace stopped at (23.60, 31.17)
+Ace refuels target
+Ajax receives fuel of 1000.00 tons, now stop at (23.60, 31.17)
+Ace will sail on course 212.71 deg, speed 10.00 nm/hr to (10.00, 10.00)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 10400.00 tons
+Island Exxon now has 6063.75 tons
+Island Shell now has 10400.00 tons
+Island Treasure_Island now has 10400.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 47: Enter command: 
+Refuel_ship Ace at (23.60, 31.17), fuel: 306.90 tons, resistance: 0
+Moving to (10.00, 10.00) on course 212.71 deg, speed 10.00 nm/hr
+Depot: 1000.00 tons, moving to loading destination
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 10400.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 6063.75 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 10400.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 10400.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 47: Enter command: 
+Ace now at (18.19, 22.76)
+Ace will sail on course 82.40 deg, speed 10.00 nm/hr to (35.00, 25.00)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 10600.00 tons
+Island Exxon now has 6263.75 tons
+Island Shell now has 10600.00 tons
+Island Treasure_Island now has 10600.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 48: Enter command: 
+Refuel_ship Ace at (18.19, 22.76), fuel: 286.90 tons, resistance: 0
+Moving to (35.00, 25.00) on course 82.40 deg, speed 10.00 nm/hr
+Depot: 1000.00 tons, moving to dead ship Xerxes
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 10600.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 6263.75 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 10600.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 10600.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 0.00 tons, resistance: 6
+Dead in the water
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 48: Enter command: 
+Ace now at (28.11, 24.08)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 10800.00 tons
+Island Exxon now has 6463.75 tons
+Island Shell now has 10800.00 tons
+Island Treasure_Island now has 10800.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 49: Enter command: 
+Ace now at (35.00, 25.00)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 11000.00 tons
+Island Exxon now has 6663.75 tons
+Island Shell now has 11000.00 tons
+Island Treasure_Island now has 11000.00 tons
+Xerxes dead in the water at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 50: Enter command: 
+Ace stopped at (35.00, 25.00)
+Ace refuels target
+Xerxes receives fuel of 1000.00 tons, now stop at (35.00, 25.00)
+Ace will sail on course 239.04 deg, speed 10.00 nm/hr to (10.00, 10.00)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 11200.00 tons
+Island Exxon now has 6863.75 tons
+Island Shell now has 11200.00 tons
+Island Treasure_Island now has 11200.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 51: Enter command: 
+Refuel_ship Ace at (35.00, 25.00), fuel: 252.98 tons, resistance: 0
+Moving to (10.00, 10.00) on course 239.04 deg, speed 10.00 nm/hr
+Depot: 0.00 tons, moving to loading destination
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 11200.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 6863.75 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 11200.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 11200.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 51: Enter command: 
+Ace now at (26.43, 19.86)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 11400.00 tons
+Island Exxon now has 7063.75 tons
+Island Shell now has 11400.00 tons
+Island Treasure_Island now has 11400.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 52: Enter command: 
+Refuel_ship Ace at (26.43, 19.86), fuel: 232.98 tons, resistance: 0
+Moving to (10.00, 10.00) on course 239.04 deg, speed 10.00 nm/hr
+Depot: 0.00 tons, moving to loading destination
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 11400.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 7063.75 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 11400.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 11400.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 52: Enter command: 
+Ace now at (17.85, 14.71)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 11600.00 tons
+Island Exxon now has 7263.75 tons
+Island Shell now has 11600.00 tons
+Island Treasure_Island now has 11600.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 53: Enter command: 
+Ace now at (10.00, 10.00)
+Ace docked at Exxon
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 11800.00 tons
+Island Exxon now has 7463.75 tons
+Island Shell now has 11800.00 tons
+Island Treasure_Island now has 11800.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 54: Enter command: 
+Ace docked at Exxon
+Island Exxon supplied 205.33 tons of fuel
+Ace now has 400.00 tons of fuel
+Island Exxon supplied 2000.00 tons of fuel
+Depot of Ace now has 2000.00 of fuel
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 12000.00 tons
+Island Exxon now has 5458.43 tons
+Island Shell now has 12000.00 tons
+Island Treasure_Island now has 12000.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 55: Enter command: 
+Refuel_ship Ace at (10.00, 10.00), fuel: 400.00 tons, resistance: 0
+Docked at Exxon
+Depot: 2000.00 tons, loading
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 12000.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 5458.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 12000.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 12000.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 55: Enter command: 
+Ace docked at Exxon
+Ace will sail on course 45.00 deg, speed 10.00 nm/hr to (30.00, 30.00)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 12200.00 tons
+Island Exxon now has 5658.43 tons
+Island Shell now has 12200.00 tons
+Island Treasure_Island now has 12200.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 56: Enter command: 
+Ace now at (17.07, 17.07)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 12400.00 tons
+Island Exxon now has 5858.43 tons
+Island Shell now has 12400.00 tons
+Island Treasure_Island now has 12400.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 57: Enter command: 
+Ace now at (24.14, 24.14)
+Ace will sail on course 69.73 deg, speed 10.00 nm/hr to (40.00, 30.00)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 12600.00 tons
+Island Exxon now has 6058.43 tons
+Island Shell now has 12600.00 tons
+Island Treasure_Island now has 12600.00 tons
+Xerxes stopped at (35.00, 25.00)
+Zorro dead in the water at (40.00, 30.00)
+
+Player Refuel_ship_test's turn:
+
+Time 58: Enter command: 
+Refuel_ship Ace at (24.14, 24.14), fuel: 360.00 tons, resistance: 0
+Moving to (40.00, 30.00) on course 69.73 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons, moving to dead ship Zorro
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 12600.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 6058.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 12600.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 12600.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 58: Enter command: Xerxes will attack Zorro
+
+Time 58: Enter command: 
+Refuel_ship Ace at (24.14, 24.14), fuel: 360.00 tons, resistance: 0
+Moving to (40.00, 30.00) on course 69.73 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons, moving to dead ship Zorro
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 12600.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 6058.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 12600.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 12600.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+Attacking Zorro
+
+Tanker Zorro at (40.00, 30.00), fuel: 0.00 tons, resistance: 0
+Dead in the water
+Cargo: 0.00 tons, no cargo destinations
+
+Time 58: Enter command: 
+Ace now at (33.52, 27.61)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 12800.00 tons
+Island Exxon now has 6258.43 tons
+Island Shell now has 12800.00 tons
+Island Treasure_Island now has 12800.00 tons
+Xerxes stopped at (35.00, 25.00)
+Xerxes is attacking 
+Xerxes fires
+Zorro hit with 3, resistance now -3
+Zorro sunk
+
+Player Refuel_ship_test's turn:
+
+Time 59: Enter command: 
+Refuel_ship Ace at (33.52, 27.61), fuel: 340.00 tons, resistance: 0
+Moving to (40.00, 30.00) on course 69.73 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons, target is sunk
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 12800.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 6258.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 12800.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 12800.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+Attacking absent ship
+
+Time 59: Enter command: 
+Ace now at (40.00, 30.00)
+the target of Ace has sunk, return to island
+Ace will sail on course 236.31 deg, speed 10.00 nm/hr to (10.00, 10.00)
+Ajax stopped at (23.60, 31.17)
+Island Bermuda now has 13000.00 tons
+Island Exxon now has 6458.43 tons
+Island Shell now has 13000.00 tons
+Island Treasure_Island now has 13000.00 tons
+Xerxes stopped at (35.00, 25.00)
+Xerxes stopping attack
+
+Player Refuel_ship_test's turn:
+
+Time 60: Enter command: 
+Refuel_ship Ace at (40.00, 30.00), fuel: 326.19 tons, resistance: 0
+Moving to (10.00, 10.00) on course 236.31 deg, speed 10.00 nm/hr
+Depot: 2000.00 tons, moving to loading destination
+
+Cruiser Ajax at (23.60, 31.17), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Island Bermuda at position (20.00, 20.00)
+Fuel available: 13000.00 tons
+
+Island Exxon at position (10.00, 10.00)
+Fuel available: 6458.43 tons
+
+Island Shell at position (0.00, 30.00)
+Fuel available: 13000.00 tons
+
+Island Treasure_Island at position (50.00, 5.00)
+Fuel available: 13000.00 tons
+
+Cruiser Xerxes at (35.00, 25.00), fuel: 1000.00 tons, resistance: 6
+Stopped
+
+Time 60: Enter command: Human player Refuel_ship_test has quited!
+
+All the player have quitted, there is no winner

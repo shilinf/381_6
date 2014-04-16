@@ -1,0 +1,109 @@
+1
+0
+100
+Refuel_ship_test
+Exxon
+10 10
+Shell
+0 30
+Bermuda
+20 20
+Treasure_Island
+50 5
+create Ajax Cruiser 15 15
+create Xerxes Cruiser 25 25
+create Ace Refuel_ship 1.1 1.1
+Ajax position 60 60 20
+Ace load_at Exxon
+go
+go
+go
+go
+Ajax position -10 -10 20
+go
+go
+go
+Ace set_terminus 30 30
+go
+go
+go
+go
+go
+status
+go
+status
+go
+go
+Ajax position 90.29 34.29 20
+go
+go
+go
+Ajax position 30 30 20
+go
+go
+go
+status
+go
+status
+go
+go
+status
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+Ace stop
+create Zorro Tanker 30 30
+Zorro position 60 30 10
+Xerxes position 80 25 20
+Ajax position 85 31.17 20
+go
+go
+go
+go
+Zorro position 0 30 10
+Xerxes position 0 25 20
+Ajax position 0 31.17 20
+go
+go
+go
+go
+go
+Ace load_at Exxon
+status
+go
+status
+go
+status
+go
+status
+go
+status
+go
+go
+go
+status
+go
+status
+go
+go
+go
+status
+go
+go
+go
+status
+Xerxes attack Zorro
+status
+go
+status
+go
+status
+quit
