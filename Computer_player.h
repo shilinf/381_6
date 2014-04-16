@@ -12,9 +12,7 @@ public:
     bool run() override;
     
 private:
-    
-    std::string random_string_gen();    
-
+    std::string random_string_gen();
 };
 
 #endif

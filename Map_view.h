@@ -2,7 +2,6 @@
 #define MAP_VIEW_H
 
 #include "View.h"
-#include "Navigation.h"
 #include "Geometry.h"
 #include <map>
 #include <string>
@@ -47,6 +46,5 @@ private:
 	// Return true if the location is within the map, false if not
 	bool get_subscripts(int &ix, int &iy, Point location);
 };
-
 
 #endif

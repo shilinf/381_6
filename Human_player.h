@@ -19,7 +19,6 @@ class Bridge_view;
 class Destination_view;
 class Island;
 class Component;
-class Human_player;
 struct Point;
 
 class Human_player : public Player {

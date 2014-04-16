@@ -1,10 +1,10 @@
 #include "Bridge_view.h"
+#include "Navigation.h"
 #include "Utility.h"
 #include <cmath>
 #include <vector>
 #include <iomanip>
 #include <iostream>
-
 
 using std::cout; using std::endl;
 using std::vector;
@@ -86,5 +86,3 @@ bool Bridge_view::compute_subscribt(double bearing, int &x)
 	x = int(floor(delta_x));
     return (x >= 0 && x <= 18);
 }
-
-

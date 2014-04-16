@@ -9,19 +9,17 @@
 
 /*
 Model is part of a simplified Model-View-Controller pattern.
-Model keeps track of the Sim_objects in our little world. It is the only
-component that knows how many Islands and Ships there are, but it does not
+Model keeps track of the Sim_objects in our little world. It knows 
+how many Islands and Ships there are, but it does not
 know about any of their derived classes, nor which Ships are of what kind of Ship. 
-It has facilities for looking up objects by name, and removing Ships.  When
-created, it creates an initial group of Islands and Ships using the Ship_factory.
+It has facilities for looking up objects by name, and removing Ships.
 Finally, it keeps the system's time.
 
-Controller tells Model what to do; Model in turn tells the objects what do, and
+Human Player tells Model what to do; Model in turn tells the objects what do, and
 when asked to do so by an object, tells all the Views whenever anything changes that might be relevant.
 Model also provides facilities for looking up objects given their name.
 */
 
-class Model;
 class Sim_object;
 class Ship;
 class Component;
@@ -121,6 +119,4 @@ private:
     Model &operator= (Model &&) = delete;
 };
 
-
 #endif
-

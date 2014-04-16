@@ -5,13 +5,11 @@
 #include <iomanip>
 #include <iostream>
 
-
 using std::cout; using std::endl;
 using std::vector;
 using std::string;
 using std::ios; using std::setw;
 using std::streamsize;
-
 
 void Sailing_view::update_fuel(const std::string& name, double fuel)
 {

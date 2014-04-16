@@ -2,17 +2,17 @@
 #include "Model.h"
 #include "Ship_factory.h"
 #include "Island.h"
-#include "Tanker.h"
+#include "Ship.h"
 #include <cstdlib>
 #include <memory>
 #include <set>
-
 #include <iostream>
+
 using std::string;
 using std::shared_ptr;
 using std::set;
-
 using std::cout; using std::endl;
+
 const int random_char_start_c = 97;
 const int random_char_range_c = 26;
 

@@ -6,13 +6,13 @@
 
 /***** Island Class *****/
 /* Islands are a kind of Sim_object; they have an amount of fuel and a an amount by which it increases
-every update (default is zero). The can also provide or accept fuel, and update their amount
+every update (default is zero). They can also provide or accept fuel, and update their amount
 accordingly.
 */
 
 class Island : public Sim_object {
 public:
-	// initialize then output constructor message
+	// initialize
 	Island (const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_, double fuel_ = 0., double production_rate_ = 0.) :
         Sim_object(name_, owner_ptr_), position(position_), fuel(fuel_),
         production_rate(production_rate_) {}
@@ -40,7 +40,7 @@ private:
     double fuel;
     double production_rate;
     
-	// forbid  copy/move, construction/assignment
+	// forbid copy/move, construction/assignment
     Island(const Island &) = delete;
     Island(Island &&) = delete;
     Island &operator= (const Island &) = delete;

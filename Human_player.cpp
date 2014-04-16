@@ -7,6 +7,7 @@
 #include "Destination_view.h"
 #include "Ship.h"
 #include "Group.h"
+#include "Component.h"
 #include "Island.h"
 #include "Geometry.h"
 #include "Ship_factory.h"
@@ -24,7 +25,7 @@ using std::shared_ptr;
 using std::for_each; using std::find_if;
 using std::mem_fn;
 
-const int number_of_islands = 4;
+const int number_of_islands_c = 4;
 
 Human_player::Human_player(const string& name_) : Player(name_)
 {
@@ -64,8 +65,8 @@ Human_player::Human_player(const string& name_) : Player(name_)
 
 void Human_player::init()
 {
-    cout << get_name() << ", you can create " << number_of_islands << " islands" << endl;
-    for (int i = 1; i <= number_of_islands; ++i) {
+    cout << get_name() << ", you can create " << number_of_islands_c << " islands" << endl;
+    for (int i = 1; i <= number_of_islands_c; ++i) {
         while (true) {
             try {
                 cout << "\nPlease specify island " << i << "'s name: ";

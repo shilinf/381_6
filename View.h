@@ -23,7 +23,7 @@ public:
 	// Remove the ship; no error if the name is not present.
 	virtual void update_remove(const std::string& name) {};
     
-	// prints out the current map
+	// prints out the current view
 	virtual void draw() = 0;
 	
 	// Discard the saved information - drawing will show only a empty pattern

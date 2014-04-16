@@ -2,11 +2,9 @@
 #define BRIDGE_VIEW_H
 
 #include "View.h"
-#include "Navigation.h"
 #include "Geometry.h"
 #include <map>
 #include <string>
-
 
 class Bridge_view : public View {
 public:

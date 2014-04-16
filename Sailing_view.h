@@ -3,7 +3,6 @@
 
 #include "View.h"
 #include "Navigation.h"
-#include "Geometry.h"
 #include <map>
 #include <string>
 
@@ -18,7 +17,7 @@ public:
     // Remove the ship; no error if the name is not present.
     void update_remove(const std::string& name) override;
     
-	// prints out the current map
+	// prints out the current view
     void draw() override;
 	
 	// Discard the saved information - drawing will show only a empty pattern
