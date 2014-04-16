@@ -374,6 +374,9 @@ void Human_player::quit()
             island_ptr->get_owner_ptr().reset();
         }
     }
+    
+    for (auto view_ptr : draw_view_order)
+        Model::get_instance().detach(view_ptr);
 }
 
 double Human_player::read_check_speed()
