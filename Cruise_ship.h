@@ -1,15 +1,7 @@
 #ifndef CRUISE_SHIP_H
 #define CRUISE_SHIP_H
 
-
-#include "Ship.h"
-#include "Utility.h"
-#include <set>
-#include <memory>
-#include <string>
-
-/*
-A Cruise_ship has the capability to automatically visit all of the islands. When 
+/* A Cruise_ship has the capability to automatically visit all of the islands. When 
 it arrives at an island, it docks, and then it stays for a few updates. On the 
 first one, it attempts to refuel from the island. On the next update it does 
 nothing while the passengers see the local sights. On the third update, it sets 
@@ -18,8 +10,15 @@ the first in alphabetical order). When it has visited the last island, it return
 to the first island, the one it was originally sent to.
 */
 
+#include "Ship.h"
+#include "Utility.h"
+#include <set>
+#include <memory>
+#include <string>
 
+class Player;
 class Island;
+struct Point;
 
 class Cruise_ship : public Ship {
 public:
@@ -49,6 +48,5 @@ private:
     void get_next_destination();
     std::shared_ptr<Island> is_island_position(Point position);
 };
-
 
 #endif

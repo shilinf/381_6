@@ -12,6 +12,7 @@ The update function updates its children by checking whether the child still exi
 class Player;
 class Island;
 class Ship;
+struct Point;
 
 class Group : public Component {
 public:

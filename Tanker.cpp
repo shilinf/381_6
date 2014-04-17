@@ -5,7 +5,6 @@
 #include <iostream>
 #include <cassert>
 
-using std::string;
 using std::cout; using std::endl;
 using std::shared_ptr;
 
@@ -178,5 +177,4 @@ void Tanker::clear_destination()
     unload_destination.reset();
     tanker_state = NO_CARGO_DESTINATIONS;
 }
-
 

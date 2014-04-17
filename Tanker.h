@@ -1,12 +1,6 @@
 #ifndef TANKER_H
 #define TANKER_H
 
-
-#include "Ship.h"
-#include <memory>
-#include <string>
-
-
 /*
 A Tanker is a ship with a large corgo capacity for fuel.
 It can be told an Island to load fuel at, and an Island to unload at.
@@ -20,14 +14,20 @@ fuel capacity and initial amount 100 tons, maximum speed 10., fuel consumption 2
 resistance 0, cargo capacity 1000 tons, initial cargo is 0 tons.
 */
 
+#include "Ship.h"
+#include <memory>
+#include <string>
+
+class Player;
 class Island;
+struct Point;
 
 class Tanker : public Ship {
 public:
 	Tanker(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_) :
-    Ship(name_, position_, 100., 10., 2., 0, owner_ptr_), cargo_capacity(1000.), cargo(0.),
-    tanker_state(NO_CARGO_DESTINATIONS), load_destination(nullptr),
-    unload_destination(nullptr) {}
+        Ship(name_, position_, 100., 10., 2., 0, owner_ptr_), cargo_capacity(1000.), 
+        cargo(0.), tanker_state(NO_CARGO_DESTINATIONS), load_destination(nullptr),
+        unload_destination(nullptr) {}
     
     void update() override;
     
@@ -61,6 +61,5 @@ private:
     void start_cycle();
     void clear_destination();
 };
-
 
 #endif

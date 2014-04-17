@@ -11,6 +11,7 @@ abstract base class, so concrete classes derived from Warship must be declared.
 #include <memory>
 
 class Player;
+struct Point;
 
 class Warship : public Ship {
 public:
@@ -20,8 +21,7 @@ public:
         Ship(name_, position_, fuel_capacity_, maximum_speed_, fuel_consumption_, 
         resistance_, owner_ptr_), firepower(firepower_), maximum_range(maximum_range_), 
         attacking(false) {}
-
-	// a pure virtual function to mark this as an abstract class
+	
 	virtual ~Warship() = 0;
 	
 	void update() override;
@@ -37,8 +37,7 @@ public:
 	void attack(std::shared_ptr<Ship> target_ptr_) override;
 
 	// will throw Error("Was not attacking!") if not Attacking
-	void stop_attack() override;
-	
+	void stop_attack() override;	
 
 protected:
 	// return true if this Warship is in the attacking state
@@ -59,7 +58,5 @@ private:
     bool attacking;
     std::weak_ptr<Ship> target_ptr;
 };
-
-
 
 #endif

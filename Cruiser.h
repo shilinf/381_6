@@ -1,12 +1,6 @@
 #ifndef CRUISER_H
 #define CRUISER_H
 
-
-#include "Warship.h"
-#include <memory>
-#include <string>
-
-
 /*
 A Cruiser is a Warship with moderate speed, firepower, and resistance.
 When told to attack it will start firing at the target if it is in range.
@@ -19,6 +13,12 @@ fuel capacity and initial amount: 1000, maximum speed 20., fuel consumption 10.t
 resistance 6, firepower 3, maximum attacking range 15, resource needed 100
 */
 
+#include "Warship.h"
+#include <memory>
+#include <string>
+
+class Player;
+struct Point;
 
 class Cruiser : public Warship {
 public:
@@ -26,7 +26,9 @@ public:
         Warship(name_, position_, 1000., 20., 10., 6, 3, 15., owner_ptr_) {}
     
 	void update() override;
+	
 	void describe() const override;
+	
     void receive_hit(int hit_force, std::shared_ptr<Ship> attacker_ptr) override;
 };
 

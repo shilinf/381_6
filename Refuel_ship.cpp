@@ -1,12 +1,11 @@
 #include "Refuel_ship.h"
 #include "Utility.h"
 #include "Island.h"
+#include "Model.h"
 #include <iostream>
 #include <cassert>
 #include <set>
-#include "Model.h"
 
-using std::string;
 using std::cout; using std::endl;
 using std::shared_ptr;
 using std::set;
@@ -35,7 +34,8 @@ void Refuel_ship::update()
             }
             else {
                 depot += load_destination->provide_fuel(depot_needed);
-                cout << "Depot of " << get_name() << " now has " << depot << " of fuel" << endl;
+                cout << "Depot of " << get_name() << " now has " << depot 
+                    << " of fuel" << endl;
             }
             break;
         }

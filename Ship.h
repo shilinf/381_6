@@ -34,8 +34,7 @@ public:
         fuel(fuel_capacity_), maximum_speed(maximum_speed_), 
         fuel_consumption(fuel_consumption_),
         resistance(resistance_), ship_state(STOPPED), track(position_) {}
-		
-	// made pure virtual to mark this class as abstract
+	
 	virtual ~Ship() = 0;
 	
 	/* Readers */

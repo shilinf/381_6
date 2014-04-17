@@ -1,9 +1,7 @@
 #include "Cruiser.h"
 #include <iostream>
 
-using std::string;
 using std::cout; using std::endl;
-
 
 void Cruiser::update()
 {
@@ -30,5 +28,3 @@ void Cruiser::receive_hit(int hit_force, std::shared_ptr<Ship> attacker_ptr)
     if (!is_attacking() && is_afloat())
         Warship::attack(attacker_ptr);
 }
-
-

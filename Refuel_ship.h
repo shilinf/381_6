@@ -1,10 +1,6 @@
 #ifndef REFUEL_SHIP_H
 #define REFUEL_SHIP_H
 
-#include "Ship.h"
-#include <memory>
-#include <string>
-
 /*
 A Refuel_ship is a ship with a large cargo capacity for fuel.
 It can be told an Island to load fuel at, and an arbitrary terminus to travel back and forth.
@@ -21,11 +17,16 @@ The prceive distance is 20nm
 The terminus is the original place of the ship.
 */
 
+#include "Ship.h"
+#include <memory>
+#include <string>
+
+class Player;
 class Island;
+struct Point;
 
 class Refuel_ship : public Ship {
 public:
-    // initialize
     Refuel_ship(const std::string& name_, Point position_, std::shared_ptr<Player> owner_ptr_) :
         Ship(name_, position_, 400., 10., 2., 0, owner_ptr_), depot_capacity(2000.), depot(0.),
         refuel_ship_state(NO_REFUEL_PATH), load_destination(nullptr), terminus(position_),  
@@ -36,7 +37,8 @@ public:
     void describe() const override;
     
     // This class overrides ship functions.
-    // If the Refuel_ship has a load_destination, throw Error("Refuel_ship has refuel path!"); otherwise simply class Ship function.
+    // If the Refuel_ship has a load_destination, throw Error("Refuel_ship has refuel path!");
+    // otherwise simply class Ship function.
     void set_destination_position_and_speed(Point destination, double speed) override;
     
     void set_course_and_speed(double course, double speed) override;
@@ -71,4 +73,5 @@ private:
     void moving_to_loading();
     std::shared_ptr<Ship> get_target() const;
 };
+
 #endif
