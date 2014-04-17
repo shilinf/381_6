@@ -422,7 +422,7 @@ string Human_player::read_check_name() {
     return name;
 }
 
-void Human_player::remove_view(std::shared_ptr<View> view)
+void Human_player::remove_view(shared_ptr<View> view)
 {
     auto view_it = find_if(draw_view_order.begin(), draw_view_order.end(),
                            [&view](shared_ptr<View> view_ptr){return view_ptr == view;});

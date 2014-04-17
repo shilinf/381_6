@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <iostream>
 
+using std::string;
 using std::cout; using std::endl;
 using std::vector;
 using std::string;
@@ -15,12 +16,12 @@ Map_view::Map_view()
     set_defaults();
 }
 
-void Map_view::update_location(const std::string& name, Point location)
+void Map_view::update_location(const string& name, Point location)
 {
     points[name] = location;
 }
 
-void Map_view::update_remove(const std::string& name)
+void Map_view::update_remove(const string& name)
 {
     points.erase(name);
 }

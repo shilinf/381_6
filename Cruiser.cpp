@@ -2,6 +2,7 @@
 #include <iostream>
 
 using std::cout; using std::endl;
+using std::shared_ptr;
 
 void Cruiser::update()
 {
@@ -22,7 +23,7 @@ void Cruiser::describe() const
     Warship::describe();
 }
 
-void Cruiser::receive_hit(int hit_force, std::shared_ptr<Ship> attacker_ptr)
+void Cruiser::receive_hit(int hit_force, shared_ptr<Ship> attacker_ptr)
 {
     Ship::receive_hit(hit_force, attacker_ptr);
     if (!is_attacking() && is_afloat())

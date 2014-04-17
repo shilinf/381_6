@@ -8,8 +8,9 @@
 #include "Player.h"
 
 using std::shared_ptr;
+using std::string;
 
-shared_ptr<Ship> create_ship(const std::string& name, const std::string& type, Point initial_position, std::shared_ptr<Player> owner_ptr)
+shared_ptr<Ship> create_ship(const string& name, const string& type, Point initial_position, shared_ptr<Player> owner_ptr)
 {
     if (type == "Cruiser") {
         owner_ptr->use_resource(150);

@@ -6,11 +6,12 @@
 #include <algorithm>
 #include <cassert>
 
+using std::string;
 using std::cout; using std::endl;
 using std::shared_ptr;
 using std::find_if;
 
-Cruise_ship::Cruise_ship(const std::string& name_, Point position_, 
+Cruise_ship::Cruise_ship(const string& name_, Point position_,
     shared_ptr<Player> owner_ptr_) : Ship(name_, position_, 500., 15., 2., 0, 
     owner_ptr_), cruise_state(NO_DESTINATION)
 {
@@ -135,7 +136,7 @@ void Cruise_ship::get_next_destination()
     remaining_islands.erase(closest_unvisited_island);
 }
 
-std::shared_ptr<Island> Cruise_ship::is_island_position(Point position)
+shared_ptr<Island> Cruise_ship::is_island_position(Point position)
 {
     auto set_it = find_if(remaining_islands.begin(), remaining_islands.end(),
                           [&position](const shared_ptr<Island> island_ptr)

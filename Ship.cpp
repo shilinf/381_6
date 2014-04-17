@@ -200,7 +200,7 @@ void Ship::receive_hit(int hit_force, shared_ptr<Ship> attacker_ptr)
     }
 }
 
-double Ship::receive_fuel(double available, std::shared_ptr<Ship> refuel_ship)
+double Ship::receive_fuel(double available, shared_ptr<Ship> refuel_ship)
 {
 	if (available >= fuel_capacity)
 		fuel = fuel_capacity;

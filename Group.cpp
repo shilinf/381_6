@@ -207,7 +207,7 @@ void Group::disband()
     }
 }
 
-void Group::check_contain_component(std::shared_ptr<Component> component_ptr)
+void Group::check_contain_component(shared_ptr<Component> component_ptr)
 {
     Component::check_contain_component(component_ptr);
     for (auto child : children) {

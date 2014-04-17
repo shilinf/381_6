@@ -5,23 +5,24 @@
 #include <iomanip>
 #include <iostream>
 
+using std::string;
 using std::cout; using std::endl;
 using std::vector;
 using std::string;
 using std::setw;
 
-void Bridge_view::update_location(const std::string& name, Point location)
+void Bridge_view::update_location(const string& name, Point location)
 {
     points[name] = location;
 }
 
-void Bridge_view::update_course(const std::string& name, double course)
+void Bridge_view::update_course(const string& name, double course)
 {
     if (ownship_name == name)
         ownship_course = course;
 }
 
-void Bridge_view::update_remove(const std::string& name)
+void Bridge_view::update_remove(const string& name)
 {
     if (name == ownship_name)
         sunk = true;

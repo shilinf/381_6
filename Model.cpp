@@ -57,7 +57,7 @@ void Model::add_ship(shared_ptr<Ship> new_ship)
     ship_container[new_ship->get_name()] = new_ship;
 }
 
-shared_ptr<Ship> Model::get_ship_ptr(const std::string& name) const
+shared_ptr<Ship> Model::get_ship_ptr(const string& name) const
 {
     auto ship_container_it = ship_container.find(name);
     if (ship_container_it == ship_container.end())
@@ -66,7 +66,7 @@ shared_ptr<Ship> Model::get_ship_ptr(const std::string& name) const
 }
 
 
-bool Model::is_component_present(const std::string& name) const
+bool Model::is_component_present(const string& name) const
 {
     return component_container.find(name) != component_container.end();
 }
@@ -114,39 +114,39 @@ void Model::detach(shared_ptr<View> view)
     view_container.erase(view);
 }
 
-void Model::notify_location(const std::string& name, Point location)
+void Model::notify_location(const string& name, Point location)
 {
     for_each(view_container.begin(), view_container.end(),
              bind(&View::update_location, _1, ref(name), ref(location)));
 }
 
-void Model::notify_fuel(const std::string& name, double fuel)
+void Model::notify_fuel(const string& name, double fuel)
 {
     for_each(view_container.begin(), view_container.end(),
              bind(&View::update_fuel, _1, ref(name), ref(fuel)));
 }
 
-void Model::notify_course(const std::string& name, double course)
+void Model::notify_course(const string& name, double course)
 {
     for_each(view_container.begin(), view_container.end(),
              bind(&View::update_course, _1, ref(name), ref(course)));
 }
 
 
-void Model::notify_speed(const std::string& name, double speed)
+void Model::notify_speed(const string& name, double speed)
 {
     for_each(view_container.begin(), view_container.end(),
              bind(&View::update_speed, _1, ref(name), ref(speed)));
 }
 
 
-void Model::notify_gone(const std::string& name)
+void Model::notify_gone(const string& name)
 {
     for_each(view_container.begin(), view_container.end(),
              bind(&View::update_remove, _1, ref(name)));
 }
 
-void Model::notify_destination(const std::string& name, Point destination)
+void Model::notify_destination(const string& name, Point destination)
 {
     for_each(view_container.begin(), view_container.end(),
              bind(&View::update_destination, _1, ref(name), ref(destination)));
