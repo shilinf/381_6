@@ -1,6 +1,5 @@
 #include "Bridge_view.h"
 #include "Navigation.h"
-#include "Utility.h"
 #include <cmath>
 #include <vector>
 #include <iomanip>
@@ -9,8 +8,7 @@
 using std::cout; using std::endl;
 using std::vector;
 using std::string;
-using std::ios; using std::setw;
-using std::streamsize;
+using std::setw;
 
 void Bridge_view::update_location(const std::string& name, Point location)
 {
@@ -22,7 +20,6 @@ void Bridge_view::update_course(const std::string& name, double course)
     if (ownship_name == name)
         ownship_course = course;
 }
-
 
 void Bridge_view::update_remove(const std::string& name)
 {

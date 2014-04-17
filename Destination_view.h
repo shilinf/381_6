@@ -1,6 +1,10 @@
 #ifndef DESTINATION_VIEW_H
 #define DESTINATION_VIEW_H
 
+/* The Sailing view is a "statistics" view that shows the destination, and distance
+to destination for all ships with a destination
+*/
+
 #include "View.h"
 #include "Geometry.h"
 #include <string>

@@ -8,4 +8,3 @@ void Player::use_resource(int resource_needed)
     else
         resource -= resource_needed;
 }
-

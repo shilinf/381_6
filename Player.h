@@ -1,6 +1,10 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+/* The player class provides interfaces for all kinds of players. It also stores 
+player's name, score, and resource and has pure virtual funtions for run and init.
+*/
+
 #include <string>
 #include <memory>
 

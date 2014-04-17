@@ -5,15 +5,14 @@
 #include "Sailing_view.h"
 #include "Bridge_view.h"
 #include "Destination_view.h"
+#include "Component.h"
 #include "Ship.h"
 #include "Group.h"
-#include "Component.h"
 #include "Island.h"
 #include "Geometry.h"
 #include "Ship_factory.h"
 #include "Utility.h"
 #include <iostream>
-#include <utility>
 #include <algorithm>
 #include <functional>
 #include <set>
@@ -65,7 +64,8 @@ Human_player::Human_player(const string& name_) : Player(name_)
 
 void Human_player::init()
 {
-    cout << get_name() << ", you can create " << number_of_islands_c << " islands" << endl;
+    cout << get_name() << ", you can create " << number_of_islands_c << " islands" 
+        << endl;
     for (int i = 1; i <= number_of_islands_c; ++i) {
         while (true) {
             try {
@@ -73,7 +73,8 @@ void Human_player::init()
                 string name = read_check_name();
                 cout << "Please specify island " << i << "'s location: ";
                 Point location = read_point();
-                Model::get_instance().add_island(shared_ptr<Island>(new Island(name, location, shared_from_this(), 1000, 200)));
+                Model::get_instance().add_island(shared_ptr<Island>(
+                    new Island(name, location, shared_from_this(), 1000, 200)));
                 cout << "Island " << i << " created" << endl;
                 break;
             } catch (Error& error) {
@@ -243,7 +244,8 @@ void Human_player::create_new_ship()
 {
     string name = read_check_name();
     string ship_type = read_string();
-    shared_ptr<Ship> new_ship = create_ship(name, ship_type, read_point(), shared_from_this());
+    shared_ptr<Ship> new_ship = create_ship(name, ship_type, read_point(), 
+        shared_from_this());
     Model::get_instance().add_ship(new_ship);
 }
 
@@ -257,7 +259,8 @@ void Human_player::create_new_group()
 void Human_player::quit()
 {
     // remove all ships and groups
-    set<shared_ptr<Component>, Sim_object_comp> all_components = Model::get_instance().get_all_components();
+    set<shared_ptr<Component>, Sim_object_comp> all_components = 
+        Model::get_instance().get_all_components();
     for (auto component_ptr : all_components) {
         if (component_ptr->get_owner_ptr() == shared_from_this()) {
             Model::get_instance().remove_component(component_ptr);
@@ -265,7 +268,8 @@ void Human_player::quit()
     }
     
     // reset all islands' owner_ptrs
-    set<shared_ptr<Island>, Sim_object_comp> all_islands = Model::get_instance().get_all_islands();
+    set<shared_ptr<Island>, Sim_object_comp> all_islands = 
+        Model::get_instance().get_all_islands();
     for (auto island_ptr : all_islands) {
         if (island_ptr->get_owner_ptr() == shared_from_this()) {
             island_ptr->reset_owner_ptr();
@@ -296,7 +300,8 @@ void Human_player::set_component_to_position()
 void Human_player::set_component_destination_island()
 {
     Point island_location = read_get_island()->get_location();
-    target_component->set_destination_position_and_speed(island_location, read_check_speed());
+    target_component->set_destination_position_and_speed(island_location, 
+        read_check_speed());
 }
 
 void Human_player::set_component_load_island()
@@ -344,7 +349,8 @@ void Human_player::set_component_terminus()
 void Human_player::add_group_component()
 {
     string new_component_name = read_string();
-    shared_ptr<Component> new_component_ptr = Model::get_instance().get_component_ptr(new_component_name);
+    shared_ptr<Component> new_component_ptr = 
+        Model::get_instance().get_component_ptr(new_component_name);
     if (new_component_ptr->get_owner_ptr() != shared_from_this())
         throw Error("Target is not yours!");
     new_component_ptr->check_contain_component(target_component);
@@ -354,7 +360,8 @@ void Human_player::add_group_component()
 void Human_player::remove_group_component()
 {
     string remove_component_name = read_string();
-    shared_ptr<Component> remove_component_ptr = Model::get_instance().get_component_ptr(remove_component_name);
+    shared_ptr<Component> remove_component_ptr = 
+        Model::get_instance().get_component_ptr(remove_component_name);
     target_component->remove_component(remove_component_ptr);
 }
 

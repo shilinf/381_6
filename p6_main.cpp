@@ -8,16 +8,15 @@
 #include <string>
 #include <map>
 #include <algorithm>
+#include <functional>
 #include <memory>
 
-using std::ios;
+using std::ios; using std::setw;
 using std::cin; using std::cout; using std::endl;
 using std::string; using std::to_string;
 using std::map;
 using std::mem_fn;
 using std::shared_ptr;
-using std::setw;
-
 
 int read_positive_int();
 int read_non_nagetive_int();

@@ -3,6 +3,7 @@
 #include "Ship_factory.h"
 #include "Island.h"
 #include "Ship.h"
+#include "Utility.h"
 #include <cstdlib>
 #include <memory>
 #include <set>
@@ -32,10 +33,11 @@ bool Computer_player::run()
             << ": Computer player did commands" << endl;
     if (Model::get_instance().get_time() == 0) {
         
-        set<shared_ptr<Island>, Sim_object_comp> ship_list = Model::get_instance().get_all_islands();
+        set<shared_ptr<Island>, Sim_object_comp> ship_list = 
+            Model::get_instance().get_all_islands();
         
-        shared_ptr<Ship> new_ship = create_ship(random_string_gen(), "Tanker", Point(10, 10), 
-            shared_from_this());
+        shared_ptr<Ship> new_ship = create_ship(random_string_gen(), "Tanker", 
+            Point(10, 10), shared_from_this());
         Model::get_instance().add_ship(new_ship);
         auto it = ship_list.begin();
         new_ship->set_load_destination(*it);
@@ -50,7 +52,6 @@ bool Computer_player::run()
             shared_from_this());
         Model::get_instance().add_ship(new_ship);
         new_ship->set_load_destination(*(++it));    
-    
     }
     return true;
 }

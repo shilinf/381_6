@@ -1,16 +1,15 @@
 #ifndef HUMAN_PLAYER_H
 #define HUMAN_PLAYER_H
 
+/* The Human Player class is responsible for controlling the Model and Views 
+according to interactions with the user.
+*/
+
 #include "Player.h"
 #include <string>
 #include <map>
 #include <vector>
 #include <memory>
-
-/* Controller
-This class is responsible for controlling the Model and View according to interactions
-with the user.
-*/
 
 class View;
 class Map_view;

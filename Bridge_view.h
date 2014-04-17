@@ -1,6 +1,10 @@
 #ifndef BRIDGE_VIEW_H
 #define BRIDGE_VIEW_H
 
+/* The Bridge view shows what things look like as if one is on the bridge of a 
+particular ship and looking straight out the front, over the bow of the ship.
+*/
+
 #include "View.h"
 #include "Geometry.h"
 #include <map>
@@ -18,7 +22,7 @@ public:
 	// Remove the ship; no error if the name is not present.
     void update_remove(const std::string& name) override;
     
-	// prints out the current map
+	// prints out the current view
     void draw() override;
 	
 	// Discard the saved information - drawing will show only a empty pattern
