@@ -5,16 +5,9 @@
 #include <iostream>
 #include <cassert>
 
-using std::string;
 using std::cout; using std::endl;
 using std::shared_ptr;
 
-/*
- Define the destructor function even if it was declared as a pure virtual function.
- This seems odd, because pure virtual functions are usually not defined in the class
- that declares them. But this is often done as a way to make a class abstract,
- if there is no other virtual function that makes sense to mark as pure. 
- */
 Ship::~Ship() {}
 
 bool Ship::can_move() const
@@ -61,7 +54,8 @@ void Ship::update()
             cout <<  get_name() << " docked at " << docked_at->get_name() << endl;
             break;
         case DEAD_IN_THE_WATER:
-            cout <<  get_name() << " dead in the water at " << get_location() << endl;
+            cout <<  get_name() << " dead in the water at " << get_location() 
+                << endl;
             break;
         case SUNK:
             cout << get_name() << " sunk" << endl;
@@ -82,7 +76,8 @@ void Ship::describe() const
             cout << " sunk" << endl;
             break;
         case MOVING_TO_POSITION:
-            cout << "Moving to " << destination << " on " << track.get_course_speed() << endl;
+            cout << "Moving to " << destination << " on " 
+                << track.get_course_speed() << endl;
             break;
         case STOPPED:
             cout << "Stopped" << endl;
@@ -109,10 +104,12 @@ void Ship::broadcast_current_state()
     notify_course_and_speed();
 }
 
-void Ship::set_destination_position_and_speed(Point destination_position, double speed)
+void Ship::set_destination_position_and_speed(Point destination_position, 
+    double speed)
 {
     destination = destination_position;
-    check_and_set_course_speed(Compass_vector(get_location(), destination_position).direction, speed);
+    check_and_set_course_speed(Compass_vector(get_location(), 
+        destination_position).direction, speed);
     notify_course_and_speed();
     Model::get_instance().notify_destination(get_name(), destination_position);
     Model::get_instance().notify_location(get_name(), get_location());
@@ -179,14 +176,14 @@ void Ship::attack(shared_ptr<Ship> in_target_ptr)
     throw Error("Cannot attack!");
 }
 
-void Ship::set_terminus(Point position)
-{
-	throw Error("Cannot set terminus!");
-}
-
 void Ship::stop_attack()
 {
     throw Error("Cannot attack!");
+}
+
+void Ship::set_terminus(Point position)
+{
+	throw Error("Cannot set terminus!");
 }
 
 void Ship::receive_hit(int hit_force, shared_ptr<Ship> attacker_ptr)
@@ -209,7 +206,8 @@ double Ship::receive_fuel(double available, std::shared_ptr<Ship> refuel_ship)
 		fuel = fuel_capacity;
 	else
 		fuel = available;
-	cout << get_name() << " receives fuel of " << fuel << " tons, now stop at " << get_location() << endl;
+	cout << get_name() << " receives fuel of " << fuel << " tons, now stop at " 
+	    << get_location() << endl;
 	ship_state = STOPPED;
 	Model::get_instance().notify_fuel(get_name(), fuel);
 	return fuel;		
@@ -235,8 +233,6 @@ void Ship::notify_course_and_speed()
     Model::get_instance().notify_course(get_name(), track.get_course());
 }
 
-/* Private Function Definitions */
-
 /*
 Calculate the new position of a ship based on how it is moving, its speed, and
 fuel state. This function should be called only if the state is 
@@ -248,9 +244,6 @@ for a full time unit (one hour), then it will get go the "full step" distance,
 so update_position would be called with time = 1.0. If we can move less than that,
 e.g. due to not enough fuel, update position  will be called with the corresponding
 time less than 1.0.
-
-For clarity in specifying the computation, this code assumes the specified private variable names, 
-but you may change the variable names or state names if you wish (e.g. movement_state).
 */
 void Ship:: calculate_movement()
 {

@@ -1,20 +1,10 @@
 #include "Group.h"
 #include "Geometry.h"
 #include "Utility.h"
-#include "Island.h"
-#include "Ship.h"
-#include "Model.h"
-#include <algorithm>
-#include <functional>
 #include <iostream>
-#include <set>
 
-using std::for_each;
-using std::mem_fn; using std::bind;
-using std::placeholders::_1; using std::ref;
 using std::cout; using std::endl;
 using std::shared_ptr; using std::weak_ptr;
-using std::set;
 
 void Group::update()
 {
@@ -39,7 +29,8 @@ void Group::describe() const
     cout << endl;
 }
 
-void Group::set_destination_position_and_speed(Point destination_position, double speed)
+void Group::set_destination_position_and_speed(Point destination_position, 
+    double speed)
 {
     for (auto child : children) {
         shared_ptr<Component> sp = child.second.lock();
@@ -47,7 +38,8 @@ void Group::set_destination_position_and_speed(Point destination_position, doubl
             try {
                 sp->set_destination_position_and_speed(destination_position, speed);
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what()
+                    << endl;
             }
         }
     }
@@ -61,7 +53,8 @@ void Group::set_course_and_speed(double course, double speed)
             try {
                 sp->set_course_and_speed(course, speed);
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -75,7 +68,8 @@ void Group::stop()
             try {
                 sp->stop();
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -90,7 +84,8 @@ void Group::dock(shared_ptr<Island> island_ptr)
             try {
                 sp->dock(island_ptr);
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -104,7 +99,8 @@ void Group::refuel()
             try {
                 sp->refuel();
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -118,7 +114,8 @@ void Group::set_load_destination(shared_ptr<Island> island_ptr)
             try {
                 sp->set_load_destination(island_ptr);
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -132,7 +129,8 @@ void Group::set_unload_destination(shared_ptr<Island> island_ptr)
             try {
                 sp->set_unload_destination(island_ptr);
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -146,7 +144,8 @@ void Group::attack(shared_ptr<Ship> in_target_ptr)
             try {
                 sp->attack(in_target_ptr);
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -160,7 +159,8 @@ void Group::stop_attack()
             try {
                 sp->stop_attack();
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }
@@ -174,7 +174,8 @@ void Group::set_terminus(Point position)
             try {
                 sp->set_terminus(position);
             } catch (Error& error) {
-                cout << sp->get_name() << "'s error message : " << error.what() << endl;
+                cout << sp->get_name() << "'s error message : " << error.what() 
+                    << endl;
             }
         }
     }

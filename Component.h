@@ -1,15 +1,21 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include "Sim_object.h"
-#include <set>
+/* This class provides interfaces for ships and groups, it also stores a boolean
+value to indicate whether it is contained in any group. 
+*/
 
+#include "Sim_object.h"
+
+class Player;
 class Island;
 class Ship;
+struct Point;
 
 class Component : public Sim_object {
 public:
-    Component(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : Sim_object(name_, owner_ptr_), is_contained(false) {}
+    Component(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : 
+        Sim_object(name_, owner_ptr_), is_contained(false) {}
 
     bool is_in_group() const
         {return is_contained;}
@@ -21,7 +27,8 @@ public:
         {is_contained = false;}
     
     /* Interface for derived classes */
-	virtual void set_destination_position_and_speed(Point destination_position, double speed) = 0;
+	virtual void set_destination_position_and_speed(Point destination_position, 
+	    double speed) = 0;
 
 	virtual void set_course_and_speed(double course, double speed) = 0;
 

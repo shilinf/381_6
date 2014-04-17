@@ -1,46 +1,48 @@
 #ifndef SHIP_H
 #define SHIP_H
 
-
-#include "Geometry.h"
-#include "Component.h"
-#include "Track_base.h"
-#include <memory>
-
-/***** Ship Class *****/
 /* A Ship has a name, initial position, amount of fuel, and parameters 
-that govern its movement. It can be commanded to move to either a position or follow a course, or stop,
-dock at or refuel at an Island. It consumes fuel while moving, and becomes immobile
-if it runs out of fuel. It inherits the Sim_object interface to the rest of the system,
-and the Track_base class provides the basic movement functionality, with the unit of time
-corresponding to 1.0 for one "tick" - an hour of simulated time.
+that govern its movement. It can be commanded to move to either a position or 
+follow a course, or stop, dock at or refuel at an Island. It consumes fuel while
+moving, and becomes immobile if it runs out of fuel. It inherits the Component 
+interface to the rest of the system, and the Track_base class provides the basic
+movement functionality, with the unit of time corresponding to 1.0 for one "tick"
+- an hour of simulated time.
 
 The update function updates the position and/or state of the ship.
 The describe function outputs information about the ship state.
 Accessors make the ship state available to either the public or to derived classes.
-The is a "fat interface" for the capabilities of derived types of Ships. These
+This is a "fat interface" for the capabilities of derived types of Ships. These
 functions are implemented in this class to throw an Error exception.
 */
 
+#include "Component.h"
+#include "Geometry.h"
+#include "Track_base.h"
+#include <string>
+#include <memory>
+
+class Player;
 class Island;
 
 class Ship : public Component, public std::enable_shared_from_this<Ship> {
 public:
-	// initialize, then output constructor message
 	Ship(const std::string& name_, Point position_, double fuel_capacity_,
-        double maximum_speed_, double fuel_consumption_, int resistance_, std::shared_ptr<Player> owner_ptr_) :
-        Component(name_, owner_ptr_), fuel_capacity(fuel_capacity_), fuel(fuel_capacity_),
-        maximum_speed(maximum_speed_), fuel_consumption(fuel_consumption_),
+        double maximum_speed_, double fuel_consumption_, int resistance_, 
+        std::shared_ptr<Player> owner_ptr_) :
+        Component(name_, owner_ptr_), fuel_capacity(fuel_capacity_), 
+        fuel(fuel_capacity_), maximum_speed(maximum_speed_), 
+        fuel_consumption(fuel_consumption_),
         resistance(resistance_), ship_state(STOPPED), track(position_) {}
 		
 	// made pure virtual to mark this class as abstract
 	virtual ~Ship() = 0;
 	
-	/*** Readers ***/
+	/* Readers */
 	// return the current position
 	Point get_location() const override {return track.get_position();}
 	
-	// Return true if ship can move (it is not dead in the water or in the process or sinking); 
+	// Return true if ship can move (it is not dead in the water or sunk);
 	bool can_move() const;
 	
 	// Return true if ship is moving;
@@ -49,7 +51,7 @@ public:
 	// Return true if ship is docked; 
 	bool is_docked() const;
 	
-	// Return true if ship is afloat (not in process of sinking), false if not
+	// Return true if ship is afloat, false if not
 	bool is_afloat() const;
     
 	// Return true if the ship is Stopped and the distance to the supplied island
@@ -68,7 +70,8 @@ public:
 	// Start moving to a destination position at a speed
      // may throw Error("Ship cannot move!")
      // may throw Error("Ship cannot go that fast!")
-    void set_destination_position_and_speed(Point destination_position, double speed) override;
+    void set_destination_position_and_speed(Point destination_position, 
+        double speed) override;
 	// Start moving on a course and speed
      // may throw Error("Ship cannot move!")
      // may throw Error("Ship cannot go that fast!");
@@ -77,8 +80,7 @@ public:
      // may throw Error("Ship cannot move!");
     void stop() override;
 	// dock at an Island - set our position = Island's position, go into Docked state
-
-    // may throw Error("Can't dock!");
+     // may throw Error("Can't dock!");
     void dock(std::shared_ptr<Island> island_ptr) override;
 	// Refuel - must already be docked at an island; fill takes as much as possible
      // may throw Error("Must be docked!");
@@ -101,14 +103,12 @@ public:
 	// receive a hit from an attacker
 	virtual void receive_hit(int hit_force, std::shared_ptr<Ship> attacker_ptr);
 	
-	// receive refuel from a refuel_ship.
+	// receive fuel from a refuel_ship.
 	// the argument is the refuel_ship and the available fuel in the depot
 	// return the actual refuel amount
 	virtual double receive_fuel(double available, std::shared_ptr<Ship> refuel_ship);
 		
 protected:
-	// future projects may need additional protected members
-
 	double get_maximum_speed() const
         {return maximum_speed;}
 	// return pointer to the Island currently docked at, or nullptr if not docked
@@ -140,7 +140,4 @@ private:
 };
 
 #endif
-
-
-
 

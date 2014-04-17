@@ -1,5 +1,6 @@
 #ifndef SIM_OBJECT_H
 #define SIM_OBJECT_H
+
 /* This class provides the interface for all of simulation objects. It also stores the
 object's name, owner_ptr and has pure virtual accessor functions for the object's position
 and other information. */
@@ -12,7 +13,8 @@ struct Point;
 
 class Sim_object {
 public:
-	Sim_object(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : name(name_), owner_ptr(owner_ptr_) {}
+	Sim_object(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : 
+	    name(name_), owner_ptr(owner_ptr_) {}
 
     virtual ~Sim_object() {}
 	
@@ -41,6 +43,4 @@ private:
     std::shared_ptr<Player> owner_ptr;
 };
 
-
 #endif
-

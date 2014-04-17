@@ -1,24 +1,25 @@
 #ifndef WARSHIP_H
 #define WARSHIP_H
 
+/* A Warship is a ship with firepower and range member variables, and some services for
+protected classes to manage many of the details of warship behavior. This is an
+abstract base class, so concrete classes derived from Warship must be declared.
+*/
 
 #include "Ship.h"
 #include <string>
 #include <memory>
 
-/* Warship class
-A Warship is a ship with firepower and range member variables, and some services for
-protected classes to manage many of the details of warship behavior. This is an
-abstract base class, so concrete classes derived from Warship must be declared.
-*/
+class Player;
 
 class Warship : public Ship {
 public:
 	Warship(const std::string& name_, Point position_, double fuel_capacity_,
 		double maximum_speed_, double fuel_consumption_, int resistance_,
         int firepower_, double maximum_range_, std::shared_ptr<Player> owner_ptr_) :
-        Ship(name_, position_, fuel_capacity_, maximum_speed_, fuel_consumption_, resistance_, owner_ptr_),
-    firepower(firepower_), maximum_range(maximum_range_), attacking(false) {}
+        Ship(name_, position_, fuel_capacity_, maximum_speed_, fuel_consumption_, 
+        resistance_, owner_ptr_), firepower(firepower_), maximum_range(maximum_range_), 
+        attacking(false) {}
 
 	// a pure virtual function to mark this as an abstract class
 	virtual ~Warship() = 0;

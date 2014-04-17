@@ -2,7 +2,6 @@
 #include "Model.h"
 #include <iostream>
 
-using std::string;
 using std::cout; using std::endl;
 
 double Island::provide_fuel(double request)

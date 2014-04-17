@@ -1,15 +1,22 @@
 #ifndef GROUP_H
 #define GROUP_H
 
+/* Group stores weak_ptrs to its children, it overrides the Component's interfaces.
+The update function updates its children by checking whether the child still exists.
+*/
+
 #include "Component.h"
 #include <map>
 #include <memory>
 
+class Player;
+class Island;
 class Ship;
 
 class Group : public Component {
 public:
-    Group(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : Component(name_, owner_ptr_) {}
+    Group(const std::string& name_, std::shared_ptr<Player> owner_ptr_) : 
+        Component(name_, owner_ptr_) {}
     
     void update() override;
 	
@@ -19,7 +26,8 @@ public:
 	void broadcast_current_state() override {}
 	
 	/* Command functions */
-    void set_destination_position_and_speed(Point destination_position, double speed) override;
+    void set_destination_position_and_speed(Point destination_position, 
+        double speed) override;
 
     void set_course_and_speed(double course, double speed) override;
 
