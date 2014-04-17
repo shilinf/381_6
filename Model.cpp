@@ -3,7 +3,6 @@
 #include "Component.h"
 #include "Island.h"
 #include "Ship.h"
-#include "Ship_factory.h"
 #include "View.h"
 #include "Geometry.h"
 #include <algorithm>
@@ -14,8 +13,7 @@ using std::bind;
 using std::placeholders::_1; using std::ref;
 using std::map; using std::set;
 using std::shared_ptr;
-using std::for_each; using std::copy;
-using std::inserter;
+using std::for_each;
 
 Model& Model::get_instance()
 {
@@ -58,7 +56,6 @@ void Model::add_ship(shared_ptr<Ship> new_ship)
     add_component(new_ship);
     ship_container[new_ship->get_name()] = new_ship;
 }
-
 
 shared_ptr<Ship> Model::get_ship_ptr(const std::string& name) const
 {

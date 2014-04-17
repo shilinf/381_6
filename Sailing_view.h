@@ -1,6 +1,10 @@
 #ifndef SAILING_VIEW_H
 #define SAILING_VIEW_H
 
+/* Sailing view is a "statistics" view that shows the current fuel amount, 
+course, and speed for all ships
+*/
+
 #include "View.h"
 #include "Navigation.h"
 #include <map>
@@ -33,6 +37,5 @@ private:
     };
     std::map<std::string, Fuel_course_speed> ships_info;
 };
-
 
 #endif

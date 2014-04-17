@@ -1,10 +1,10 @@
 #ifndef VIEW_H
 #define VIEW_H
 
+/* This class provides the interface for all of view objects. */
+
 #include "Geometry.h"
 #include <string>
-
-/* This class provides the interface for all of view objects. */
 
 class View {
 public:

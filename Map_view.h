@@ -1,6 +1,12 @@
 #ifndef MAP_VIEW_H
 #define MAP_VIEW_H
 
+/* 
+The Map View class encapsulates the data and functions needed to generate the map
+display, and control its properties. It has a "memory" for the names and locations
+of the to-be-plotted objects.
+*/
+
 #include "View.h"
 #include "Geometry.h"
 #include <map>

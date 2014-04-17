@@ -1,21 +1,15 @@
 #include "Sailing_view.h"
-#include "Utility.h"
-#include <cmath>
-#include <vector>
 #include <iomanip>
 #include <iostream>
 
 using std::cout; using std::endl;
-using std::vector;
 using std::string;
-using std::ios; using std::setw;
-using std::streamsize;
+using std::setw;
 
 void Sailing_view::update_fuel(const std::string& name, double fuel)
 {
     ships_info[name].fuel = fuel;
 }
-
 
 void Sailing_view::update_course(const std::string& name, double course)
 {

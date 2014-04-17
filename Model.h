@@ -1,12 +1,6 @@
 #ifndef MODEL_H
 #define MODEL_H
 
-#include "Utility.h"
-#include <string>
-#include <map>
-#include <set>
-#include <memory>
-
 /*
 Model is part of a simplified Model-View-Controller pattern.
 Model keeps track of the Sim_objects in our little world. It knows 
@@ -16,15 +10,22 @@ It has facilities for looking up objects by name, and removing Ships.
 Finally, it keeps the system's time.
 
 Human Player tells Model what to do; Model in turn tells the objects what do, and
-when asked to do so by an object, tells all the Views whenever anything changes that might be relevant.
-Model also provides facilities for looking up objects given their name.
+when asked to do so by an object, tells all the Views whenever anything changes 
+that might be relevant. Model also provides facilities for looking up objects 
+given their name.
 */
 
+#include "Utility.h"
+#include <string>
+#include <map>
+#include <set>
+#include <memory>
+
 class Sim_object;
-class Ship;
-class Component;
-class View;
 class Island;
+class Component;
+class Ship;
+class View;
 struct Point;
 
 class Model {
@@ -109,7 +110,6 @@ private:
     std::map<std::string, std::shared_ptr<Ship>> ship_container;
     std::set<std::shared_ptr<View>> view_container;
     
-    // create the initial objects
 	Model() : time(0) {}
     
 	// disallow copy/move construction or assignment
